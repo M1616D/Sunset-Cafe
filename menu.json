@@ -1628,5 +1628,19 @@
     "amDescription": "Ã¡ÂÂ«Ã¡ÂÂÃ¡ÂÂÃ¡ÂÂ Ã¡ÂÂ»Ã¡ÂÂ­Ã¡ÂÂ¢",
     "orDescription": "Shaayii kaamomilii.",
     "available": true
+  },
+  {
+    "id": 109,
+    "name": "Beki",
+    "amName": "",
+    "orName": "",
+    "category": "Breakfast",
+    "price": 100000000,
+    "tags": [],
+    "description": "K",
+    "amDescription": "",
+    "orDescription": "",
+    "image": "",
+    "available": true
   }
 ]
