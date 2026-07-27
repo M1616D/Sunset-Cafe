@@ -2,1405 +2,1647 @@
   {
     "id": 1,
     "name": "Sunset Special Omelet",
-    "amName": "ልዩ ኦሜሌት",
+    "amName": "áá© á¦áááµ",
     "orName": "Omelet Addaa",
     "category": "Breakfast",
     "price": 400,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "A signature omelet with special seasoning and fresh ingredients.",
-    "amDescription": "በልዩ ቅመም እና ትኩስ ንጥረ ነገሮች የተዘጋጀ ልዩ ኦሜሌት።",
+    "amDescription": "á áá© ááá á¥á áµá©áµ áá¥á¨ ááá®á½ á¨á°ááá áá© á¦áááµá¢",
     "orDescription": "Omelet addaa kan miyoora addaatiin fi qabiyyee haaraadhaan qopheeffame.",
     "available": true
   },
   {
     "id": 2,
     "name": "Cheese Omelet",
-    "amName": "ቺዝ ኦሜሌት",
+    "amName": "áºá á¦áááµ",
     "orName": "Omelet Chaatiisaa",
     "category": "Breakfast",
     "price": 350,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Fluffy omelet filled with melted cheese.",
-    "amDescription": "በቀለጠ ቺዝ የተሞላ ለስላሳ ኦሜሌት።",
+    "amDescription": "á ááá  áºá á¨á°áá ááµáá³ á¦áááµá¢",
     "orDescription": "Omelet laafaa kan chaatiisaa baqateen guutame.",
     "available": true
   },
   {
     "id": 3,
     "name": "Omelet",
-    "amName": "ኦሜሌት",
+    "amName": "á¦áááµ",
     "orName": "Omelet",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Classic omelet with your choice of fillings.",
-    "amDescription": "በምርጫዎ የተዘጋጀ ክላሲክ ኦሜሌት።",
+    "amDescription": "á áá­á«á á¨á°ááá á­áá²á­ á¦áááµá¢",
     "orDescription": "Omelet klassikaa kan waan itti dabalatuuf filannoo qabu.",
     "available": true
   },
   {
     "id": 4,
     "name": "Sunset Special Chechebsa",
-    "amName": "ልዩ ቸቸብሳ",
+    "amName": "áá© á¸á¸á¥á³",
     "orName": "Chechebsa Addaa",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Traditional shredded flatbread with special spices.",
-    "amDescription": "በልዩ ቅመሞች የተዘጋጀ ባህላዊ ቸቸብሳ።",
+    "amDescription": "á áá© áááá½ á¨á°ááá á£ááá á¸á¸á¥á³á¢",
     "orDescription": "Chechebsa aadaa kan miyoora addaatiin qopheeffame.",
     "available": true
   },
   {
     "id": 5,
     "name": "Teff Chechebsa with Eggs",
-    "amName": "ተፍ ቸቸብሳ ከእንቁላል",
+    "amName": "á°á á¸á¸á¥á³ á¨á¥áááá",
     "orName": "Chechebsa Teffii fi Buqqee",
     "category": "Breakfast",
     "price": 350,
-    "tags": ["Halal", "Gluten-Free"],
+    "tags": [
+      "Halal",
+      "Gluten-Free"
+    ],
     "description": "Teff-based chechebsa served with eggs.",
-    "amDescription": "በተፍ የተዘጋጀ ቸቸብሳ ከእንቁላል ጋር።",
+    "amDescription": "á á°á á¨á°ááá á¸á¸á¥á³ á¨á¥áááá áá­á¢",
     "orDescription": "Chechebsa teffiifi buqqeedeen qopheeffame.",
     "available": true
   },
   {
     "id": 6,
     "name": "Normal Chechebsa",
-    "amName": "ተራ ቸቸብሳ",
+    "amName": "á°á« á¸á¸á¥á³",
     "orName": "Chechebsa Iddoo",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Classic chechebsa with traditional seasoning.",
-    "amDescription": "በባህላዊ ቅመም የተዘጋጀ ክላሲክ ቸቸብሳ።",
+    "amDescription": "á á£ááá ááá á¨á°ááá á­áá²á­ á¸á¸á¥á³á¢",
     "orDescription": "Chechebsa klassikaa kan miyoora aadaatiin qopheeffame.",
     "available": true
   },
   {
     "id": 7,
     "name": "Teff Chechebsa",
-    "amName": "ተፍ ቸቸብሳ",
+    "amName": "á°á á¸á¸á¥á³",
     "orName": "Chechebsa Teffii",
     "category": "Breakfast",
     "price": 350,
-    "tags": ["Halal", "Gluten-Free"],
+    "tags": [
+      "Halal",
+      "Gluten-Free"
+    ],
     "description": "Teff-based chechebsa with authentic spices.",
-    "amDescription": "በእውነተኛ ቅመሞች የተዘጋጀ ተፍ ቸቸብሳ።",
+    "amDescription": "á á¥ááá°á áááá½ á¨á°ááá á°á á¸á¸á¥á³á¢",
     "orDescription": "Chechebsa teffiifi miyoora dhugaa qabu.",
     "available": true
   },
   {
     "id": 8,
     "name": "Sunset Special Fetira",
-    "amName": "ልዩ ፈቲራ",
+    "amName": "áá© áá²á«",
     "orName": "Fetira Addaa",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Special fetira with a unique blend of flavors.",
-    "amDescription": "በልዩ ጣዕም ድብልቅ የተዘጋጀ ልዩ ፈቲራ።",
+    "amDescription": "á áá© á£áá áµá¥áá á¨á°ááá áá© áá²á«á¢",
     "orDescription": "Fetira addaa kan miyoora adda ta'een qopheeffame.",
     "available": true
   },
   {
     "id": 9,
     "name": "Normal Fetira with Honey",
-    "amName": "ተራ ፈቲራ ከማር",
+    "amName": "á°á« áá²á« á¨áá­",
     "orName": "Fetira Iddoo fi Damma",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Traditional fetira served with honey.",
-    "amDescription": "በማር የተዘጋጀ ባህላዊ ፈቲራ።",
+    "amDescription": "á áá­ á¨á°ááá á£ááá áá²á«á¢",
     "orDescription": "Fetira aadaa kan dammaan wajjin qopheeffame.",
     "available": true
   },
   {
     "id": 10,
     "name": "Scrambled Eggs",
-    "amName": "እንቁላል ቅመም",
+    "amName": "á¥áááá ááá",
     "orName": "Buqqee Wallatti",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Perfectly scrambled eggs, soft and fluffy.",
-    "amDescription": "በትክክል የተቀመመ ለስላሳ እንቁላል።",
+    "amDescription": "á áµá­á­á á¨á°ááá ááµáá³ á¥ááááá¢",
     "orDescription": "Buqqee wallatti kan laafaa fi qillataa ta'e.",
     "available": true
   },
   {
     "id": 11,
     "name": "Egg with Tomatoes",
-    "amName": "እንቁላል ከቲማቲም",
+    "amName": "á¥áááá á¨á²áá²á",
     "orName": "Buqqee fi Tommaattoo",
     "category": "Breakfast",
     "price": 300,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Eggs cooked with fresh tomatoes and herbs.",
-    "amDescription": "በትኩስ ቲማቲም እና ቅጠላ ቅጠሎች የተበሰለ እንቁላል።",
+    "amDescription": "á áµá©áµ á²áá²á á¥á áá á áá áá½ á¨á°á á°á á¥ááááá¢",
     "orDescription": "Buqqee kan tommaattoo haaraafi qulqulluu wajjin bilchaate.",
     "available": true
   },
   {
     "id": 12,
     "name": "Egg with Beef",
-    "amName": "እንቁላል ከበሬ ሥጋ",
+    "amName": "á¥áááá á¨á á¬ á¥á",
     "orName": "Buqqee fi Foon Homaa",
     "category": "Breakfast",
     "price": 400,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Eggs served with seasoned beef strips.",
-    "amDescription": "በቅመም ከተዘጋጀ የበሬ ሥጋ ጋር የቀረበ እንቁላል።",
+    "amDescription": "á ááá á¨á°ááá á¨á á¬ á¥á áá­ á¨áá¨á  á¥ááááá¢",
     "orDescription": "Buqqee kan foon homaa miyoora qabu wajjin qopheeffame.",
     "available": true
   },
   {
     "id": 13,
     "name": "Sunset Special Ful",
-    "amName": "ልዩ ፉል",
+    "amName": "áá© áá",
     "orName": "Ful Addaa",
     "category": "Breakfast",
     "price": 350,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Special ful with a premium blend of spices.",
-    "amDescription": "በፕሪሚየም ቅመም ድብልቅ የተዘጋጀ ልዩ ፉል።",
+    "amDescription": "á ááªáá¨á ááá áµá¥áá á¨á°ááá áá© ááá¢",
     "orDescription": "Ful addaa kan miyoora adda ta'een qopheeffame.",
     "available": true
   },
   {
     "id": 14,
     "name": "Normal Ful",
-    "amName": "ተራ ፉል",
+    "amName": "á°á« áá",
     "orName": "Ful Iddoo",
     "category": "Breakfast",
     "price": 280,
-    "tags": ["Halal", "Vegetarian"],
+    "tags": [
+      "Halal",
+      "Vegetarian"
+    ],
     "description": "Classic ful with traditional seasoning.",
-    "amDescription": "በባህላዊ ቅመም የተዘጋጀ ክላሲክ ፉል።",
+    "amDescription": "á á£ááá ááá á¨á°ááá á­áá²á­ ááá¢",
     "orDescription": "Ful klassikaa kan miyoora aadaatiin qopheeffame.",
     "available": true
   },
   {
     "id": 15,
     "name": "Tibs Firfir",
-    "amName": "ጥብስ ፍርፍር",
+    "amName": "á¥á¥áµ áá­áá­",
     "orName": "Tibs Firfir",
     "category": "Traditional Foods",
     "price": 500,
-    "tags": ["Halal", "Spicy"],
+    "tags": [
+      "Halal",
+      "Spicy"
+    ],
     "description": "Spicy firfir with tender tibs.",
-    "amDescription": "ለስላሳ ጥብስ ያለው ቅመም ፍርፍር።",
+    "amDescription": "ááµáá³ á¥á¥áµ á«áá ááá áá­áá­á¢",
     "orDescription": "Firfir miyoodhaa kan tibs laafaa qabu.",
     "available": true
   },
   {
     "id": 16,
     "name": "Kuanta Firfir",
-    "amName": "ቁንታ ፍርፍር",
+    "amName": "ááá³ áá­áá­",
     "orName": "Kuanta Firfir",
     "category": "Traditional Foods",
     "price": 500,
-    "tags": ["Halal", "Spicy"],
+    "tags": [
+      "Halal",
+      "Spicy"
+    ],
     "description": "Firfir with kuanta (dried beef) for a rich flavor.",
-    "amDescription": "ቁንታ (የደረቀ የበሬ ሥጋ) ያለው ፍርፍር።",
+    "amDescription": "ááá³ (á¨á°á¨á á¨á á¬ á¥á) á«áá áá­áá­á¢",
     "orDescription": "Firfir kan foon homaa gogaa qabu.",
     "available": true
   },
   {
     "id": 17,
     "name": "Chikina Tibs",
-    "amName": "ቺኪና ጥብስ",
+    "amName": "áºáªá á¥á¥áµ",
     "orName": "Chikina Tibs",
     "category": "Traditional Foods",
     "price": 650,
-    "tags": ["Halal", "Spicy"],
+    "tags": [
+      "Halal",
+      "Spicy"
+    ],
     "description": "Prime chikina tibs with authentic Ethiopian spices.",
-    "amDescription": "በእውነተኛ የኢትዮጵያ ቅመሞች የተዘጋጀ ፕሪም ቺኪና ጥብስ።",
+    "amDescription": "á á¥ááá°á á¨á¢áµá®áµá« áááá½ á¨á°ááá ááªá áºáªá á¥á¥áµá¢",
     "orDescription": "Tibs chikina kan miyoora Itoophiyaa dhugaa qabu.",
     "available": true
   },
   {
     "id": 18,
     "name": "Sunset Special Burger",
-    "amName": "ልዩ በርገር",
+    "amName": "áá© á á­áá­",
     "orName": "Burgeerii Addaa",
     "category": "Burger",
     "price": 650,
-    "tags": ["Halal", "Chef Special"],
+    "tags": [
+      "Halal",
+      "Chef Special"
+    ],
     "description": "Our signature burger with premium ingredients.",
-    "amDescription": "በፕሪሚየም ንጥረ ነገሮች የተዘጋጀ የእኛ ልዩ በርገር።",
+    "amDescription": "á ááªáá¨á áá¥á¨ ááá®á½ á¨á°ááá á¨á¥á áá© á á­áá­á¢",
     "orDescription": "Burgeerii addaa kan qabiyyee addaa wajjin qopheeffame.",
     "available": true
   },
   {
     "id": 19,
     "name": "Beef Burger",
-    "amName": "የበሬ በርገር",
+    "amName": "á¨á á¬ á á­áá­",
     "orName": "Burgeerii Foon Homaa",
     "category": "Burger",
     "price": 400,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Classic beef burger with fresh toppings.",
-    "amDescription": "በትኩስ አይነቶች የተዘጋጀ ክላሲክ የበሬ በርገር።",
+    "amDescription": "á áµá©áµ á á­áá¶á½ á¨á°ááá á­áá²á­ á¨á á¬ á á­áá­á¢",
     "orDescription": "Burgeerii foon homaa kan waan itti dabalatu haaraa qabu.",
     "available": true
   },
   {
     "id": 20,
     "name": "Cheese Burger",
-    "amName": "ቺዝ በርገር",
+    "amName": "áºá á á­áá­",
     "orName": "Burgeerii Chaatiisaa",
     "category": "Burger",
     "price": 450,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Beef burger with melted cheese.",
-    "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የበሬ በርገር።",
+    "amDescription": "á ááá  áºá á¨á°ááá á¨á á¬ á á­áá­á¢",
     "orDescription": "Burgeerii foon homaa kan chaatiisaa baqate qabu.",
     "available": true
   },
   {
     "id": 21,
     "name": "Double Burger",
-    "amName": "ድብል በርገር",
+    "amName": "áµá¥á á á­áá­",
     "orName": "Burgeerii Dacha",
     "category": "Burger",
     "price": 590,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Two juicy beef patties stacked high.",
-    "amDescription": "ሁለት ጭማቂ የበሬ ፓቲዎች ተደራርበው።",
+    "amDescription": "áááµ á­áá á¨á á¬ áá²áá½ á°á°á«á­á áá¢",
     "orDescription": "Patii foon homaa lama kan cimaa dhaabee.",
     "available": true
   },
   {
     "id": 22,
     "name": "Double Cheese Burger",
-    "amName": "ድብል ቺዝ በርገር",
+    "amName": "áµá¥á áºá á á­áá­",
     "orName": "Burgeerii Dacha Chaatiisaa",
     "category": "Burger",
     "price": 630,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Double patty burger with double cheese.",
-    "amDescription": "በድብል ቺዝ የተዘጋጀ ድብል ፓቲ በርገር።",
+    "amDescription": "á áµá¥á áºá á¨á°ááá áµá¥á áá² á á­áá­á¢",
     "orDescription": "Burgeerii patii lama kan chaatiisaa lama qabu.",
     "available": true
   },
   {
     "id": 23,
     "name": "Chicken Burger",
-    "amName": "የዶሮ በርገር",
+    "amName": "á¨á¶á® á á­áá­",
     "orName": "Burgeerii Lukkuu",
     "category": "Burger",
     "price": 600,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Grilled chicken fillet with fresh toppings.",
-    "amDescription": "በትኩስ አይነቶች የተዘጋጀ የተጠበሰ የዶሮ ፊሌት።",
+    "amDescription": "á áµá©áµ á á­áá¶á½ á¨á°ááá á¨á°á á á° á¨á¶á® áááµá¢",
     "orDescription": "Filii lukkuu kan danfee irratti waa itti dabalame.",
     "available": true
   },
   {
     "id": 24,
     "name": "Chicken Cheese Burger",
-    "amName": "የዶሮ ቺዝ በርገር",
+    "amName": "á¨á¶á® áºá á á­áá­",
     "orName": "Burgeerii Lukkuu Chaatiisaa",
     "category": "Burger",
     "price": 650,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Chicken burger with melted cheese.",
-    "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የዶሮ በርገር።",
+    "amDescription": "á ááá  áºá á¨á°ááá á¨á¶á® á á­áá­á¢",
     "orDescription": "Burgeerii lukkuu kan chaatiisaa baqate qabu.",
     "available": true
   },
   {
     "id": 25,
     "name": "Sunset Special Pizza",
-    "amName": "ልዩ ፒዛ",
+    "amName": "áá© áá",
     "orName": "Piizaa Addaa",
     "category": "Pizza",
     "price": 800,
-    "tags": ["Chef Special"],
+    "tags": [
+      "Chef Special"
+    ],
     "description": "Our signature pizza with premium toppings.",
-    "amDescription": "በፕሪሚየም አይነቶች የተዘጋጀ የእኛ ልዩ ፒዛ።",
+    "amDescription": "á ááªáá¨á á á­áá¶á½ á¨á°ááá á¨á¥á áá© ááá¢",
     "orDescription": "Piizaa addaa kan waan itti dabalatu addaa wajjin.",
     "available": true
   },
   {
     "id": 26,
     "name": "Chicken Pizza",
-    "amName": "የዶሮ ፒዛ",
+    "amName": "á¨á¶á® áá",
     "orName": "Piizaa Lukkuu",
     "category": "Pizza",
     "price": 750,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Pizza topped with seasoned chicken.",
-    "amDescription": "በቅመም በተዘጋጀ ዶሮ የተሸፈነ ፒዛ።",
+    "amDescription": "á ááá á á°ááá á¶á® á¨á°á¸áá ááá¢",
     "orDescription": "Piizaa kan lukkuu miyoodhaa qabu.",
     "available": true
   },
   {
     "id": 27,
     "name": "Pepperoni Pizza",
-    "amName": "ፔፔሮኒ ፒዛ",
+    "amName": "ááá®á áá",
     "orName": "Piizaa Pepperoni",
     "category": "Pizza",
     "price": 650,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Classic pepperoni pizza with mozzarella.",
-    "amDescription": "በሞዛሬላ የተዘጋጀ ክላሲክ ፔፔሮኒ ፒዛ።",
+    "amDescription": "á ááá¬á á¨á°ááá á­áá²á­ ááá®á ááá¢",
     "orDescription": "Piizaa pepperoni klassikaa kan mozzarella qabu.",
     "available": true
   },
   {
     "id": 28,
     "name": "Margarita Pizza",
-    "amName": "ማርጋሪታ ፒዛ",
+    "amName": "áá­ááªá³ áá",
     "orName": "Piizaa Margarita",
     "category": "Pizza",
     "price": 600,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Traditional margarita with tomato, mozzarella, and basil.",
-    "amDescription": "በቲማቲም፣ ሞዛሬላ እና ባሲል የተዘጋጀ ባህላዊ ማርጋሪታ።",
+    "amDescription": "á á²áá²áá£ ááá¬á á¥á á£á²á á¨á°ááá á£ááá áá­ááªá³á¢",
     "orDescription": "Margarita aadaa kan tommaattoo, mozzarella fi basiliin qopheeffame.",
     "available": true
   },
   {
     "id": 29,
     "name": "Beef Lover Pizza",
-    "amName": "የበሬ ፒዛ",
+    "amName": "á¨á á¬ áá",
     "orName": "Piizaa Foon Homaa",
     "category": "Pizza",
     "price": 650,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Loaded with beef and savory toppings.",
-    "amDescription": "በበሬ እና ጣፋጭ አይነቶች የተሞላ ፒዛ።",
+    "amDescription": "á á á¬ á¥á á£áá­ á á­áá¶á½ á¨á°áá ááá¢",
     "orDescription": "Piizaa kan foon homaa fi waan itti dabalatu miyoodhaan guutame.",
     "available": true
   },
   {
     "id": 30,
     "name": "Tuna with Cheese Pizza",
-    "amName": "ቱና ከቺዝ ፒዛ",
+    "amName": "á±á á¨áºá áá",
     "orName": "Piizaa Tuunaa fi Chaatiisaa",
     "category": "Pizza",
     "price": 700,
     "tags": [],
     "description": "Tuna and cheese pizza with a rich flavor.",
-    "amDescription": "በቱና እና ቺዝ የተዘጋጀ ጣፋጭ ፒዛ።",
+    "amDescription": "á á±á á¥á áºá á¨á°ááá á£áá­ ááá¢",
     "orDescription": "Piizaa tuunaa fi chaatiisaa kan miyoo gabbanaa qabu.",
     "available": true
   },
   {
     "id": 31,
     "name": "Vegetable Pizza",
-    "amName": "አትክልት ፒዛ",
+    "amName": "á áµá­ááµ áá",
     "orName": "Piizaa Mudaa",
     "category": "Pizza",
     "price": 400,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Loaded with fresh vegetables.",
-    "amDescription": "በትኩስ አትክልቶች የተሞላ ፒዛ።",
+    "amDescription": "á áµá©áµ á áµá­áá¶á½ á¨á°áá ááá¢",
     "orDescription": "Piizaa kan mudaa haaraatiin guutame.",
     "available": true
   },
   {
     "id": 32,
     "name": "Vegetable Tuna Pizza",
-    "amName": "አትክልት ቱና ፒዛ",
+    "amName": "á áµá­ááµ á±á áá",
     "orName": "Piizaa Mudaa fi Tuunaa",
     "category": "Pizza",
     "price": 550,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Tuna and vegetable pizza for a healthy twist.",
-    "amDescription": "ለጤና ተስማሚ የሆነ የቱና እና አትክልት ፒዛ።",
+    "amDescription": "áá¤á á°áµáá á¨áá á¨á±á á¥á á áµá­ááµ ááá¢",
     "orDescription": "Piizaa tuunaa fi mudaa kan fayyaaf mijataa ta'e.",
     "available": true
   },
   {
     "id": 33,
     "name": "Tuna Fasting Pizza",
-    "amName": "ቱና ጾም ፒዛ",
+    "amName": "á±á á¾á áá",
     "orName": "Piizaa Tuunaa Soomoo",
     "category": "Pizza",
     "price": 600,
-    "tags": ["Fasting"],
+    "tags": [
+      "Fasting"
+    ],
     "description": "Tuna pizza made with fasting-friendly ingredients.",
-    "amDescription": "ለጾም ተስማሚ በሆኑ ንጥረ ነገሮች የተዘጋጀ ቱና ፒዛ።",
+    "amDescription": "áá¾á á°áµáá á áá áá¥á¨ ááá®á½ á¨á°ááá á±á ááá¢",
     "orDescription": "Piizaa tuunaa kan qabiyyee soomoodhaaf mijatuun qopheeffame.",
     "available": true
   },
   {
     "id": 34,
     "name": "Beef Wrap",
-    "amName": "የበሬ ራፕ",
+    "amName": "á¨á á¬ á«á",
     "orName": "Waraapsii Foon Homaa",
     "category": "Wraps",
     "price": 500,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Beef wrapped in a soft tortilla with fresh fillings.",
-    "amDescription": "በለስላሳ ቶርቲላ ውስጥ በትኩስ አይነቶች የተሸፈነ የበሬ ራፕ።",
+    "amDescription": "á ááµáá³ á¶á­á²á ááµá¥ á áµá©áµ á á­áá¶á½ á¨á°á¸áá á¨á á¬ á«áá¢",
     "orDescription": "Waraapsii foon homaa kan tortilla laafaatti waan itti dabalatu haaraa qabu.",
     "available": true
   },
   {
     "id": 35,
     "name": "Beef Cheese Wrap",
-    "amName": "የበሬ ቺዝ ራፕ",
+    "amName": "á¨á á¬ áºá á«á",
     "orName": "Waraapsii Foon Homaa fi Chaatiisaa",
     "category": "Wraps",
     "price": 550,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Beef wrap with melted cheese.",
-    "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የበሬ ራፕ።",
+    "amDescription": "á ááá  áºá á¨á°ááá á¨á á¬ á«áá¢",
     "orDescription": "Waraapsii foon homaa kan chaatiisaa baqate qabu.",
     "available": true
   },
   {
     "id": 36,
     "name": "Steak Wrap",
-    "amName": "ስቲክ ራፕ",
+    "amName": "áµá²á­ á«á",
     "orName": "Waraapsii Steekii",
     "category": "Wraps",
     "price": 550,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Premium steak wrapped with fresh vegetables.",
-    "amDescription": "በትኩስ አትክልቶች የተሸፈነ ፕሪሚየም ስቲክ ራፕ።",
+    "amDescription": "á áµá©áµ á áµá­áá¶á½ á¨á°á¸áá ááªáá¨á áµá²á­ á«áá¢",
     "orDescription": "Waraapsii steekii kan mudaa haaraatiin qopheeffame.",
     "available": true
   },
   {
     "id": 37,
     "name": "Steak Cheese Wrap",
-    "amName": "ስቲክ ቺዝ ራፕ",
+    "amName": "áµá²á­ áºá á«á",
     "orName": "Waraapsii Steekii fi Chaatiisaa",
     "category": "Wraps",
     "price": 600,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Steak wrap with cheese and savory sauce.",
-    "amDescription": "በቺዝ እና ጣፋጭ ሳስ የተዘጋጀ ስቲክ ራፕ።",
+    "amDescription": "á áºá á¥á á£áá­ á³áµ á¨á°ááá áµá²á­ á«áá¢",
     "orDescription": "Waraapsii steekii kan chaatiisaa fi itituu miyoodhaa qabu.",
     "available": true
   },
   {
     "id": 38,
     "name": "Chicken Wrap",
-    "amName": "የዶሮ ራፕ",
+    "amName": "á¨á¶á® á«á",
     "orName": "Waraapsii Lukkuu",
     "category": "Wraps",
     "price": 600,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Grilled chicken wrap with fresh veggies.",
-    "amDescription": "በትኩስ አትክልቶች የተዘጋጀ የተጠበሰ የዶሮ ራፕ።",
+    "amDescription": "á áµá©áµ á áµá­áá¶á½ á¨á°ááá á¨á°á á á° á¨á¶á® á«áá¢",
     "orDescription": "Waraapsii lukkuu kan mudaa haaraatiin qopheeffame.",
     "available": true
   },
   {
     "id": 39,
     "name": "Chicken Cheese Wrap",
-    "amName": "የዶሮ ቺዝ ራፕ",
+    "amName": "á¨á¶á® áºá á«á",
     "orName": "Waraapsii Lukkuu fi Chaatiisaa",
     "category": "Wraps",
     "price": 650,
-    "tags": ["Halal"],
+    "tags": [
+      "Halal"
+    ],
     "description": "Chicken wrap with melted cheese.",
-    "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የዶሮ ራፕ።",
+    "amDescription": "á ááá  áºá á¨á°ááá á¨á¶á® á«áá¢",
     "orDescription": "Waraapsii lukkuu kan chaatiisaa baqate qabu.",
     "available": true
   },
   {
     "id": 40,
     "name": "Vegetable Wrap",
-    "amName": "አትክልት ራፕ",
+    "amName": "á áµá­ááµ á«á",
     "orName": "Waraapsii Mudaa",
     "category": "Wraps",
     "price": 300,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Fresh vegetable wrap with hummus.",
-    "amDescription": "በሁሙስ የተዘጋጀ ትኩስ አትክልት ራፕ።",
+    "amDescription": "á áááµ á¨á°ááá áµá©áµ á áµá­ááµ á«áá¢",
     "orDescription": "Waraapsii mudaa kan hummuus wajjin qopheeffame.",
     "available": true
   },
   {
     "id": 41,
     "name": "Soft Cake",
-    "amName": "ለስላሳ ኬክ",
+    "amName": "ááµáá³ á¬á­",
     "orName": "Keekii Laafaa",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Light and fluffy soft cake.",
-    "amDescription": "ቀላል እና ለስላሳ ኬክ።",
+    "amDescription": "ááá á¥á ááµáá³ á¬á­á¢",
     "orDescription": "Keekii laafaa fi qillataa.",
     "available": true
   },
   {
     "id": 42,
     "name": "Chocolate Cake",
-    "amName": "ቸኮሌት ኬክ",
+    "amName": "á¸á®ááµ á¬á­",
     "orName": "Keekii Chookoleetii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Rich chocolate cake with ganache.",
-    "amDescription": "በጋናሽ የተዘጋጀ ጣፋጭ ቸኮሌት ኬክ።",
+    "amDescription": "á ááá½ á¨á°ááá á£áá­ á¸á®ááµ á¬á­á¢",
     "orDescription": "Keekii chookoleetii kan ganaashiin qopheeffame.",
     "available": true
   },
   {
     "id": 43,
     "name": "Caramel Cake",
-    "amName": "ካራሜል ኬክ",
+    "amName": "á«á«áá á¬á­",
     "orName": "Keekii Karameelii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Caramel-infused cake with a sweet glaze.",
-    "amDescription": "በጣፋጭ ግላዝ የተዘጋጀ ካራሜል ኬክ።",
+    "amDescription": "á á£áá­ ááá á¨á°ááá á«á«áá á¬á­á¢",
     "orDescription": "Keekii karameelii kan miyoo hadhaa qabu.",
     "available": true
   },
   {
     "id": 44,
     "name": "Millefeuille Cake",
-    "amName": "ሚልፌይ ኬክ",
+    "amName": "áááá­ á¬á­",
     "orName": "Keekii Millefeuille",
     "category": "Cakes",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Layered millefeuille with cream and pastry.",
-    "amDescription": "በክሬም እና መጋገሪያ የተዘጋጀ ሚልፌይ ኬክ።",
+    "amDescription": "á á­á¬á á¥á ááááªá« á¨á°ááá áááá­ á¬á­á¢",
     "orDescription": "Keekii millefeuille kan kirimii fi maxinoo qabu.",
     "available": true
   },
   {
     "id": 45,
     "name": "Tiramisu Cake",
-    "amName": "ቲራሚሱ ኬክ",
+    "amName": "á²á«áá± á¬á­",
     "orName": "Keekii Tiramisuu",
     "category": "Cakes",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Coffee-flavored tiramisu cake.",
-    "amDescription": "ቡና ጣዕም ያለው ቲራሚሱ ኬክ።",
+    "amDescription": "á¡á á£áá á«áá á²á«áá± á¬á­á¢",
     "orDescription": "Keekii tiramisuu kan miyoo buna qabu.",
     "available": true
   },
   {
     "id": 46,
     "name": "English Cake",
-    "amName": "እንግሊዝ ኬክ",
+    "amName": "á¥áááá á¬á­",
     "orName": "Keekii Ingilizii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Classic English-style cake.",
-    "amDescription": "ክላሲክ የእንግሊዝ ኬክ።",
+    "amDescription": "á­áá²á­ á¨á¥áááá á¬á­á¢",
     "orDescription": "Keekii Ingilizii klassikaa.",
     "available": true
   },
   {
     "id": 47,
     "name": "Cream Puffs",
-    "amName": "ክሬም ፓፍ",
+    "amName": "á­á¬á áá",
     "orName": "Paaffii Kirimii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Delicate cream puffs with vanilla filling.",
-    "amDescription": "በቫኒላ መሙያ የተዘጋጁ ለስላሳ ክሬም ፓፍዎች።",
+    "amDescription": "á á«áá ááá« á¨á°ááá ááµáá³ á­á¬á áááá½á¢",
     "orDescription": "Paaffii kirimii kan vaaniilaa wajjin qopheeffame.",
     "available": true
   },
   {
     "id": 48,
     "name": "Fruit Cake",
-    "amName": "ፍራፍሬ ኬክ",
+    "amName": "áá«áá¬ á¬á­",
     "orName": "Keekii Fuduraa",
     "category": "Cakes",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Cake filled with dried fruits and nuts.",
-    "amDescription": "በደረቀ ፍራፍሬ እና ለውዝ የተሞላ ኬክ።",
+    "amDescription": "á á°á¨á áá«áá¬ á¥á ááá á¨á°áá á¬á­á¢",
     "orDescription": "Keekii kan fuduraa gogaa fi baqqallaa guutame.",
     "available": true
   },
   {
     "id": 49,
     "name": "Cup Cake",
-    "amName": "ካፕ ኬክ",
+    "amName": "á«á á¬á­",
     "orName": "Keekii Kuupii",
     "category": "Cakes",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Decorative cup cake with frosting.",
-    "amDescription": "በፍሮስቲንግ የተዘጋጀ ያጌጠ ካፕ ኬክ።",
+    "amDescription": "á áá®áµá²áá á¨á°ááá á«áá  á«á á¬á­á¢",
     "orDescription": "Keekii kuupii kan froostiingii qabu.",
     "available": true
   },
   {
     "id": 50,
     "name": "Croissant",
-    "amName": "ክሮሳን",
+    "amName": "á­á®á³á",
     "orName": "Kiroosantii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Butter croissant, flaky and golden.",
-    "amDescription": "ቅቤ ክሮሳን፣ ተራራሽ እና ወርቃማ።",
+    "amDescription": "áá¤ á­á®á³áá£ á°á«á«á½ á¥á áá­ááá¢",
     "orDescription": "Kiroosantii kan dhadhaa qabu, miaraa fi warqaa.",
     "available": true
   },
   {
     "id": 51,
     "name": "Banana Cake",
-    "amName": "ሙዝ ኬክ",
+    "amName": "áá á¬á­",
     "orName": "Keekii Muuzii",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Moist banana cake with natural sweetness.",
-    "amDescription": "በተፈጥሮ ጣፋጭነት የተዘጋጀ ለስላሳ ሙዝ ኬክ።",
+    "amDescription": "á á°áá¥á® á£áá­ááµ á¨á°ááá ááµáá³ áá á¬á­á¢",
     "orDescription": "Keekii muuzii laafaa kan miyoo uumamaa qabu.",
     "available": true
   },
   {
     "id": 52,
     "name": "Fasting Cake",
-    "amName": "የጾም ኬክ",
+    "amName": "á¨á¾á á¬á­",
     "orName": "Keekii Soomoo",
     "category": "Cakes",
     "price": 120,
-    "tags": ["Fasting"],
+    "tags": [
+      "Fasting"
+    ],
     "description": "Cake made with fasting-friendly ingredients.",
-    "amDescription": "ለጾም ተስማሚ በሆኑ ንጥረ ነገሮች የተዘጋጀ ኬክ።",
+    "amDescription": "áá¾á á°áµáá á áá áá¥á¨ ááá®á½ á¨á°ááá á¬á­á¢",
     "orDescription": "Keekii kan qabiyyee soomoodhaaf mijatuun qopheeffame.",
     "available": true
   },
   {
     "id": 53,
     "name": "Torta 1KG Circle",
-    "amName": "ቶርታ 1ኪግ ክብ",
+    "amName": "á¶á­á³ 1áªá á­á¥",
     "orName": "Torta 1KG Geengoo",
     "category": "Cakes",
     "price": 1500,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "1kg round torta, perfect for celebrations.",
-    "amDescription": "ለበዓላት ተስማሚ የሆነ 1ኪግ ክብ ቶርታ።",
+    "amDescription": "áá áááµ á°áµáá á¨áá 1áªá á­á¥ á¶á­á³á¢",
     "orDescription": "Torta 1KG geengoo kan ayyaannoodhaaf mijatu.",
     "available": true
   },
   {
     "id": 54,
     "name": "Torta 1KG Rectangle",
-    "amName": "ቶርታ 1ኪግ አራት ማዕዘን",
+    "amName": "á¶á­á³ 1áªá á á«áµ áááá",
     "orName": "Torta 1KG Safarkaa",
     "category": "Cakes",
     "price": 1800,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "1kg rectangular torta for special occasions.",
-    "amDescription": "ለልዩ አጋጣሚዎች 1ኪግ አራት ማዕዘን ቶርታ።",
+    "amDescription": "ááá© á áá£ááá½ 1áªá á á«áµ áááá á¶á­á³á¢",
     "orDescription": "Torta 1KG safarkaa kan carraa addaatiif qopheeffame.",
     "available": true
   },
   {
     "id": 55,
     "name": "Sunset Special Juice",
-    "amName": "ልዩ ጭማቂ",
+    "amName": "áá© á­áá",
     "orName": "Cuunfaa Addaa",
     "category": "Juices",
     "price": 300,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Our signature juice blend.",
-    "amDescription": "የእኛ ልዩ ጭማቂ ድብልቅ።",
+    "amDescription": "á¨á¥á áá© á­áá áµá¥ááá¢",
     "orDescription": "Cuunfaa addaa keenya.",
     "available": true
   },
   {
     "id": 56,
     "name": "Avocado Juice",
-    "amName": "አቮካዶ ጭማቂ",
+    "amName": "á á®á«á¶ á­áá",
     "orName": "Cuunfaa Abokaadii",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Creamy avocado juice.",
-    "amDescription": "ለስላሳ አቮካዶ ጭማቂ።",
+    "amDescription": "ááµáá³ á á®á«á¶ á­ááá¢",
     "orDescription": "Cuunfaa abokaadii laafaa.",
     "available": true
   },
   {
     "id": 57,
     "name": "Mango Juice",
-    "amName": "ማንጎ ጭማቂ",
+    "amName": "ááá á­áá",
     "orName": "Cuunfaa Maangoo",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Sweet mango juice.",
-    "amDescription": "ጣፋጭ ማንጎ ጭማቂ።",
+    "amDescription": "á£áá­ ááá á­ááá¢",
     "orDescription": "Cuunfaa maangoo hadhaa.",
     "available": true
   },
   {
     "id": 58,
     "name": "Papaya Juice",
-    "amName": "ፓፓያ ጭማቂ",
+    "amName": "ááá« á­áá",
     "orName": "Cuunfaa Papayaa",
     "category": "Juices",
     "price": 230,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Fresh papaya juice.",
-    "amDescription": "ትኩስ ፓፓያ ጭማቂ።",
+    "amDescription": "áµá©áµ ááá« á­ááá¢",
     "orDescription": "Cuunfaa papayaa haaraa.",
     "available": true
   },
   {
     "id": 59,
     "name": "Strawberry Juice",
-    "amName": "ስትሮቤሪ ጭማቂ",
+    "amName": "áµáµá®á¤áª á­áá",
     "orName": "Cuunfaa Istiroobeerii",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Strawberry juice.",
-    "amDescription": "ስትሮቤሪ ጭማቂ።",
+    "amDescription": "áµáµá®á¤áª á­ááá¢",
     "orDescription": "Cuunfaa istiroobeerii.",
     "available": true
   },
   {
     "id": 60,
     "name": "Mixed Fruit Juice",
-    "amName": "ድብልቅ ፍራፍሬ ጭማቂ",
+    "amName": "áµá¥áá áá«áá¬ á­áá",
     "orName": "Cuunfaa Fuduraa Makaa",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "A blend of seasonal fruits.",
-    "amDescription": "የወቅት ፍራፍሬዎች ድብልቅ።",
+    "amDescription": "á¨áááµ áá«áá¬áá½ áµá¥ááá¢",
     "orDescription": "Makaa fuduraa yeroo sanaa.",
     "available": true
   },
   {
     "id": 61,
     "name": "Orange Juice",
-    "amName": "ብርቱካን ጭማቂ",
+    "amName": "á¥á­á±á«á á­áá",
     "orName": "Cuunfaa Birtukaanii",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Fresh orange juice.",
-    "amDescription": "ትኩስ ብርቱካን ጭማቂ።",
+    "amDescription": "áµá©áµ á¥á­á±á«á á­ááá¢",
     "orDescription": "Cuunfaa birtukaanii haaraa.",
     "available": true
   },
   {
     "id": 62,
     "name": "Pineapple Juice",
-    "amName": "አናናስ ጭማቂ",
+    "amName": "á áááµ á­áá",
     "orName": "Cuunfaa Anaanaasii",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Pineapple juice.",
-    "amDescription": "አናናስ ጭማቂ።",
+    "amDescription": "á áááµ á­ááá¢",
     "orDescription": "Cuunfaa anaanaasii.",
     "available": true
   },
   {
     "id": 63,
     "name": "Guava Juice",
-    "amName": "ጓቫ ጭማቂ",
+    "amName": "áá« á­áá",
     "orName": "Cuunfaa Guwaavaa",
     "category": "Juices",
     "price": 250,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Guava juice.",
-    "amDescription": "ጓቫ ጭማቂ።",
+    "amDescription": "áá« á­ááá¢",
     "orDescription": "Cuunfaa guwaavaa.",
     "available": true
   },
   {
     "id": 64,
     "name": "Fruit Punch",
-    "amName": "ፍራፍሬ ፓንች",
+    "amName": "áá«áá¬ ááá½",
     "orName": "Paanchii Fuduraa",
     "category": "Juices",
     "price": 400,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "A vibrant fruit punch.",
-    "amDescription": "ባለቀለም ፍራፍሬ ፓንች።",
+    "amDescription": "á£áááá áá«áá¬ ááá½á¢",
     "orDescription": "Paanchii fuduraa kan halluu qabu.",
     "available": true
   },
   {
     "id": 65,
     "name": "Caramel Syrup",
-    "amName": "ካራሜል ሽሮፕ",
+    "amName": "á«á«áá á½á®á",
     "orName": "Siraapii Karameelii",
     "category": "Syrups",
     "price": 250,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Rich caramel syrup.",
-    "amDescription": "ጣፋጭ ካራሜል ሽሮፕ።",
+    "amDescription": "á£áá­ á«á«áá á½á®áá¢",
     "orDescription": "Siraapii karameelii gabbanaa.",
     "available": true
   },
   {
     "id": 66,
     "name": "Chocolate Syrup",
-    "amName": "ቸኮሌት ሽሮፕ",
+    "amName": "á¸á®ááµ á½á®á",
     "orName": "Siraapii Chookoleetii",
     "category": "Syrups",
     "price": 250,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Decadent chocolate syrup.",
-    "amDescription": "ጣፋጭ ቸኮሌት ሽሮፕ።",
+    "amDescription": "á£áá­ á¸á®ááµ á½á®áá¢",
     "orDescription": "Siraapii chookoleetii kan miyoo qabu.",
     "available": true
   },
   {
     "id": 67,
     "name": "Caramel Macchiato",
-    "amName": "ካራሜል ማኪያቶ",
+    "amName": "á«á«áá ááªá«á¶",
     "orName": "Makkiyaatoo Karameelii",
     "category": "Hot Drinks",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Espresso with caramel and steamed milk.",
-    "amDescription": "በካራሜል እና በእንፋሎት ወተት የተዘጋጀ ኤስፕሬሶ።",
+    "amDescription": "á á«á«áá á¥á á á¥ááááµ áá°áµ á¨á°ááá á¤áµáá¬á¶á¢",
     "orDescription": "Esipireesoo kan karameelii fi aannan hurka qabu.",
     "available": true
   },
   {
     "id": 68,
     "name": "Macchiato",
-    "amName": "ማኪያቶ",
+    "amName": "ááªá«á¶",
     "orName": "Makkiyaatoo",
     "category": "Hot Drinks",
     "price": 110,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Espresso with a dollop of milk foam.",
-    "amDescription": "በወተት አረፋ የተዘጋጀ ኤስፕሬሶ።",
+    "amDescription": "á áá°áµ á á¨á á¨á°ááá á¤áµáá¬á¶á¢",
     "orDescription": "Esipireesoo kan aannan qabbaduu qabu.",
     "available": true
   },
   {
     "id": 69,
     "name": "Milk",
-    "amName": "ወተት",
+    "amName": "áá°áµ",
     "orName": "Aannan",
     "category": "Hot Drinks",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Steamed milk.",
-    "amDescription": "በእንፋሎት የተዘጋጀ ወተት።",
+    "amDescription": "á á¥ááááµ á¨á°ááá áá°áµá¢",
     "orDescription": "Aannan hurka qabu.",
     "available": true
   },
   {
     "id": 70,
     "name": "Cafe Latte",
-    "amName": "ካፌ ላቴ",
+    "amName": "á«á áá´",
     "orName": "Laatee Kafee",
     "category": "Hot Drinks",
     "price": 170,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Espresso with steamed milk and light foam.",
-    "amDescription": "በእንፋሎት ወተት እና ቀላል አረፋ የተዘጋጀ ካፌ ላቴ።",
+    "amDescription": "á á¥ááááµ áá°áµ á¥á ááá á á¨á á¨á°ááá á«á áá´á¢",
     "orDescription": "Laatee kafee kan aannan hurka fi qabbaduu laafaa qabu.",
     "available": true
   },
   {
     "id": 71,
     "name": "Milk With Peanut",
-    "amName": "ወተት ከለውዝ",
+    "amName": "áá°áµ á¨ááá",
     "orName": "Aannan fi Buqqee",
     "category": "Hot Drinks",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Milk with peanut flavor.",
-    "amDescription": "የለውዝ ጣዕም ያለው ወተት።",
+    "amDescription": "á¨ááá á£áá á«áá áá°áµá¢",
     "orDescription": "Aannan kan miyoo buqqee qabu.",
     "available": true
   },
   {
     "id": 72,
     "name": "Milk with Sinig",
-    "amName": "ወተት ከስኒግ",
+    "amName": "áá°áµ á¨áµáá",
     "orName": "Aannan fi Sinig",
     "category": "Hot Drinks",
     "price": 120,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Milk with sinig spice.",
-    "amDescription": "በስኒግ ቅመም የተዘጋጀ ወተት።",
+    "amDescription": "á áµáá ááá á¨á°ááá áá°áµá¢",
     "orDescription": "Aannan kan miyoora sinig qabu.",
     "available": true
   },
   {
     "id": 73,
     "name": "Fasting Macchiato",
-    "amName": "የጾም ማኪያቶ",
+    "amName": "á¨á¾á ááªá«á¶",
     "orName": "Makkiyaatoo Soomoo",
     "category": "Hot Drinks",
     "price": 150,
-    "tags": ["Fasting"],
+    "tags": [
+      "Fasting"
+    ],
     "description": "Macchiato made with fasting-friendly ingredients.",
-    "amDescription": "ለጾም ተስማሚ በሆኑ ንጥረ ነገሮች የተዘጋጀ ማኪያቶ።",
+    "amDescription": "áá¾á á°áµáá á áá áá¥á¨ ááá®á½ á¨á°ááá ááªá«á¶á¢",
     "orDescription": "Makkiyaatoo kan qabiyyee soomoodhaaf mijatuun qopheeffame.",
     "available": true
   },
   {
     "id": 74,
     "name": "Ginger Tea",
-    "amName": "ዝንጅብል ሻይ",
+    "amName": "áááá¥á á»á­",
     "orName": "Shaayii Jinjibila",
     "category": "Hot Drinks",
     "price": 80,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Warm ginger tea.",
-    "amDescription": "ሞቃት ዝንጅብል ሻይ።",
+    "amDescription": "áááµ áááá¥á á»á­á¢",
     "orDescription": "Shaayii jinjibila ho'aa.",
     "available": true
   },
   {
     "id": 75,
     "name": "Milk with Coffee",
-    "amName": "ወተት ከቡና",
+    "amName": "áá°áµ á¨á¡á",
     "orName": "Aannan fi Buna",
     "category": "Hot Drinks",
     "price": 130,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Coffee with steamed milk.",
-    "amDescription": "በእንፋሎት ወተት የተዘጋጀ ቡና።",
+    "amDescription": "á á¥ááááµ áá°áµ á¨á°ááá á¡áá¢",
     "orDescription": "Buna kan aannan hurka qabu.",
     "available": true
   },
   {
     "id": 76,
     "name": "Peanut Coffee",
-    "amName": "የለውዝ ቡና",
+    "amName": "á¨ááá á¡á",
     "orName": "Buna Buqqee",
     "category": "Hot Drinks",
     "price": 110,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Coffee with peanut flavor.",
-    "amDescription": "የለውዝ ጣዕም ያለው ቡና።",
+    "amDescription": "á¨ááá á£áá á«áá á¡áá¢",
     "orDescription": "Buna kan miyoo buqqee qabu.",
     "available": true
   },
   {
     "id": 77,
     "name": "Tea",
-    "amName": "ሻይ",
+    "amName": "á»á­",
     "orName": "Shaayii",
     "category": "Hot Drinks",
     "price": 60,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Classic tea.",
-    "amDescription": "ክላሲክ ሻይ።",
+    "amDescription": "á­áá²á­ á»á­á¢",
     "orDescription": "Shaayii klassikaa.",
     "available": true
   },
   {
     "id": 78,
     "name": "Espresso",
-    "amName": "ኤስፕሬሶ",
+    "amName": "á¤áµáá¬á¶",
     "orName": "Esipireesoo",
     "category": "Hot Drinks",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Pure espresso.",
-    "amDescription": "ንጹህ ኤስፕሬሶ።",
+    "amDescription": "áá¹á á¤áµáá¬á¶á¢",
     "orDescription": "Esipireesoo qulqullaa.",
     "available": true
   },
   {
     "id": 79,
     "name": "Spris",
-    "amName": "ስፕሪስ",
+    "amName": "áµááªáµ",
     "orName": "Sipiriisii",
     "category": "Hot Drinks",
     "price": 80,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Spris drink.",
-    "amDescription": "ስፕሪስ መጠጥ።",
+    "amDescription": "áµááªáµ áá á¥á¢",
     "orDescription": "Dhugaatii sipiriisii.",
     "available": true
   },
   {
     "id": 80,
     "name": "Cappuccino",
-    "amName": "ካፑቺኖ",
+    "amName": "á«ááºá",
     "orName": "Kapuuciinoo",
     "category": "Hot Drinks",
     "price": 170,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Espresso with steamed milk and thick foam.",
-    "amDescription": "በእንፋሎት ወተት እና ወፍራም አረፋ የተዘጋጀ ካፑቺኖ።",
+    "amDescription": "á á¥ááááµ áá°áµ á¥á ááá«á á á¨á á¨á°ááá á«ááºáá¢",
     "orDescription": "Kapuuciinoo kan aannan hurka fi qabbaduu jabaatuun qopheeffame.",
     "available": true
   },
   {
     "id": 81,
     "name": "Hot Chocolate",
-    "amName": "ትኩስ ቸኮሌት",
+    "amName": "áµá©áµ á¸á®ááµ",
     "orName": "Chookoleetii Ho'aa",
     "category": "Hot Drinks",
     "price": 190,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Rich hot chocolate.",
-    "amDescription": "ጣፋጭ ትኩስ ቸኮሌት።",
+    "amDescription": "á£áá­ áµá©áµ á¸á®ááµá¢",
     "orDescription": "Chookoleetii ho'aa gabbanaa.",
     "available": true
   },
   {
     "id": 82,
     "name": "Americano",
-    "amName": "አሜሪካኖ",
+    "amName": "á ááªá«á",
     "orName": "Amerikaanoo",
     "category": "Hot Drinks",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Espresso with hot water.",
-    "amDescription": "በትኩስ ውሃ የተዘጋጀ ኤስፕሬሶ።",
+    "amDescription": "á áµá©áµ áá á¨á°ááá á¤áµáá¬á¶á¢",
     "orDescription": "Esipireesoo kan bishaan ho'aa qabu.",
     "available": true
   },
   {
     "id": 83,
     "name": "Special Tea",
-    "amName": "ልዩ ሻይ",
+    "amName": "áá© á»á­",
     "orName": "Shaayii Addaa",
     "category": "Hot Drinks",
     "price": 170,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Special tea blend.",
-    "amDescription": "ልዩ ሻይ ድብልቅ።",
+    "amDescription": "áá© á»á­ áµá¥ááá¢",
     "orDescription": "Makaa shaayii addaa.",
     "available": true
   },
   {
     "id": 84,
     "name": "Lemon Tea",
-    "amName": "ሎሚ ሻይ",
+    "amName": "áá á»á­",
     "orName": "Shaayii Loomii",
     "category": "Hot Drinks",
     "price": 80,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Tea with lemon.",
-    "amDescription": "በሎሚ የተዘጋጀ ሻይ።",
+    "amDescription": "á áá á¨á°ááá á»á­á¢",
     "orDescription": "Shaayii kan loomii qabu.",
     "available": true
   },
   {
     "id": 85,
     "name": "Special Tea with Peanut",
-    "amName": "ልዩ ሻይ ከለውዝ",
+    "amName": "áá© á»á­ á¨ááá",
     "orName": "Shaayii Addaa fi Buqqee",
     "category": "Hot Drinks",
     "price": 190,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Special tea with peanut.",
-    "amDescription": "በለውዝ የተዘጋጀ ልዩ ሻይ።",
+    "amDescription": "á ááá á¨á°ááá áá© á»á­á¢",
     "orDescription": "Shaayii addaa kan buqqee qabu.",
     "available": true
   },
   {
     "id": 86,
     "name": "Banto",
-    "amName": "ባንቶ",
+    "amName": "á£áá¶",
     "orName": "Baantoo",
     "category": "Hot Drinks",
     "price": 110,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Banto drink.",
-    "amDescription": "ባንቶ መጠጥ።",
+    "amDescription": "á£áá¶ áá á¥á¢",
     "orDescription": "Dhugaatii baantoo.",
     "available": true
   },
   {
     "id": 87,
     "name": "Soft Drinks",
-    "amName": "ለስላሳ መጠጦች",
+    "amName": "ááµáá³ áá á¦á½",
     "orName": "Dhugaatii Laafaa",
     "category": "Cold Drinks",
     "price": 70,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Assorted soft drinks.",
-    "amDescription": "የተለያዩ ለስላሳ መጠጦች።",
+    "amDescription": "á¨á°áá«á© ááµáá³ áá á¦á½á¢",
     "orDescription": "Dhugaatii laafaa adda addaa.",
     "available": true
   },
   {
     "id": 88,
     "name": "Ambo Mineral Water",
-    "amName": "አምቦ ማዕድን ውሃ",
+    "amName": "á áá¦ áááµá áá",
     "orName": "Bishaan Maadhii Amboo",
     "category": "Cold Drinks",
     "price": 70,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Ambo mineral water.",
-    "amDescription": "አምቦ ማዕድን ውሃ።",
+    "amDescription": "á áá¦ áááµá ááá¢",
     "orDescription": "Bishaan maadhii Amboo.",
     "available": true
   },
   {
     "id": 89,
     "name": "Water 500ml",
-    "amName": "ውሃ 500ሚሊ",
+    "amName": "áá 500áá",
     "orName": "Bishaan 500ml",
     "category": "Cold Drinks",
     "price": 45,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "500ml bottled water.",
-    "amDescription": "500ሚሊ የታሸገ ውሃ።",
+    "amDescription": "500áá á¨á³á¸á ááá¢",
     "orDescription": "Bishaan 500ml kan qaruura qabu.",
     "available": true
   },
   {
     "id": 90,
     "name": "Water 1L",
-    "amName": "ውሃ 1ሊትር",
+    "amName": "áá 1ááµá­",
     "orName": "Bishaan 1L",
     "category": "Cold Drinks",
     "price": 55,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "1L bottled water.",
-    "amDescription": "1ሊትር የታሸገ ውሃ።",
+    "amDescription": "1ááµá­ á¨á³á¸á ááá¢",
     "orDescription": "Bishaan 1L kan qaruura qabu.",
     "available": true
   },
   {
     "id": 91,
     "name": "Chocolate Shake",
-    "amName": "ቸኮሌት ሼክ",
+    "amName": "á¸á®ááµ á¼á­",
     "orName": "Shaakee Chookoleetii",
     "category": "Shakes & Smoothies",
     "price": 300,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Creamy chocolate shake.",
-    "amDescription": "ለስላሳ ቸኮሌት ሼክ።",
+    "amDescription": "ááµáá³ á¸á®ááµ á¼á­á¢",
     "orDescription": "Shaakee chookoleetii laafaa.",
     "available": true
   },
   {
     "id": 92,
     "name": "Banana Shake",
-    "amName": "ሙዝ ሼክ",
+    "amName": "áá á¼á­",
     "orName": "Shaakee Muuzii",
     "category": "Shakes & Smoothies",
     "price": 280,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Banana shake.",
-    "amDescription": "ሙዝ ሼክ።",
+    "amDescription": "áá á¼á­á¢",
     "orDescription": "Shaakee muuzii.",
     "available": true
   },
   {
     "id": 93,
     "name": "Strawberry Shake",
-    "amName": "ስትሮቤሪ ሼክ",
+    "amName": "áµáµá®á¤áª á¼á­",
     "orName": "Shaakee Istiroobeerii",
     "category": "Shakes & Smoothies",
     "price": 300,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Strawberry shake.",
-    "amDescription": "ስትሮቤሪ ሼክ።",
+    "amDescription": "áµáµá®á¤áª á¼á­á¢",
     "orDescription": "Shaakee istiroobeerii.",
     "available": true
   },
   {
     "id": 94,
     "name": "Milk Shake",
-    "amName": "ወተት ሼክ",
+    "amName": "áá°áµ á¼á­",
     "orName": "Shaakee Aannan",
     "category": "Shakes & Smoothies",
     "price": 280,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Classic milk shake.",
-    "amDescription": "ክላሲክ ወተት ሼክ።",
+    "amDescription": "á­áá²á­ áá°áµ á¼á­á¢",
     "orDescription": "Shaakee aannan klassikaa.",
     "available": true
   },
   {
     "id": 95,
     "name": "Avocado Smoothie",
-    "amName": "አቮካዶ ስሙዚ",
+    "amName": "á á®á«á¶ áµáá",
     "orName": "Smuuzii Abokaadii",
     "category": "Shakes & Smoothies",
     "price": 280,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Creamy avocado smoothie.",
-    "amDescription": "ለስላሳ አቮካዶ ስሙዚ።",
+    "amDescription": "ááµáá³ á á®á«á¶ áµááá¢",
     "orDescription": "Smuuzii abokaadii laafaa.",
     "available": true
   },
   {
     "id": 96,
     "name": "Mango Smoothie",
-    "amName": "ማንጎ ስሙዚ",
+    "amName": "ááá áµáá",
     "orName": "Smuuzii Maangoo",
     "category": "Shakes & Smoothies",
     "price": 280,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Sweet mango smoothie.",
-    "amDescription": "ጣፋጭ ማንጎ ስሙዚ።",
+    "amDescription": "á£áá­ ááá áµááá¢",
     "orDescription": "Smuuzii maangoo hadhaa.",
     "available": true
   },
   {
     "id": 97,
     "name": "Iced Latte",
-    "amName": "በረዶ ላቴ",
+    "amName": "á á¨á¶ áá´",
     "orName": "Laatee Qorramaa",
     "category": "Iced Drinks",
     "price": 200,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Iced espresso with milk.",
-    "amDescription": "በወተት የተዘጋጀ በረዶ ላቴ።",
+    "amDescription": "á áá°áµ á¨á°ááá á á¨á¶ áá´á¢",
     "orDescription": "Laatee qorramaa kan aannan qabu.",
     "available": true
   },
   {
     "id": 98,
     "name": "Iced Coffee",
-    "amName": "በረዶ ቡና",
+    "amName": "á á¨á¶ á¡á",
     "orName": "Buna Qorramaa",
     "category": "Iced Drinks",
     "price": 150,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Chilled iced coffee.",
-    "amDescription": "ቀዝቃዛ በረዶ ቡና።",
+    "amDescription": "áááá á á¨á¶ á¡áá¢",
     "orDescription": "Buna qorramaa kan dhiyaate.",
     "available": true
   },
   {
     "id": 99,
     "name": "Iced Mocha",
-    "amName": "በረዶ ሞካ",
+    "amName": "á á¨á¶ áá«",
     "orName": "Mookaa Qorramaa",
     "category": "Iced Drinks",
     "price": 210,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Iced coffee with chocolate.",
-    "amDescription": "በቸኮሌት የተዘጋጀ በረዶ ቡና።",
+    "amDescription": "á á¸á®ááµ á¨á°ááá á á¨á¶ á¡áá¢",
     "orDescription": "Buna qorramaa kan chookoleetii qabu.",
     "available": true
   },
   {
     "id": 100,
     "name": "Iced Caramel",
-    "amName": "በረዶ ካራሜል",
+    "amName": "á á¨á¶ á«á«áá",
     "orName": "Karameelii Qorramaa",
     "category": "Iced Drinks",
     "price": 220,
-    "tags": ["Vegetarian"],
+    "tags": [
+      "Vegetarian"
+    ],
     "description": "Iced caramel coffee.",
-    "amDescription": "በረዶ ካራሜል ቡና።",
+    "amDescription": "á á¨á¶ á«á«áá á¡áá¢",
     "orDescription": "Buna qorramaa karameelii.",
     "available": true
   },
   {
     "id": 101,
     "name": "Iced Tea",
-    "amName": "በረዶ ሻይ",
+    "amName": "á á¨á¶ á»á­",
     "orName": "Shaayii Qorramaa",
     "category": "Iced Drinks",
     "price": 130,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Chilled iced tea.",
-    "amDescription": "ቀዝቃዛ በረዶ ሻይ።",
+    "amDescription": "áááá á á¨á¶ á»á­á¢",
     "orDescription": "Shaayii qorramaa kan dhiyaate.",
     "available": true
   },
   {
     "id": 102,
     "name": "Cinnamon Tea",
-    "amName": "ቀረፋ ሻይ",
+    "amName": "áá¨á á»á­",
     "orName": "Shaayii Qirfaa",
     "category": "Herbal Tea",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Warm cinnamon tea.",
-    "amDescription": "ሞቃት ቀረፋ ሻይ።",
+    "amDescription": "áááµ áá¨á á»á­á¢",
     "orDescription": "Shaayii qirfaa ho'aa.",
     "available": true
   },
   {
     "id": 103,
     "name": "Moringa Tea",
-    "amName": "ሞሪንጋ ሻይ",
+    "amName": "ááªáá á»á­",
     "orName": "Shaayii Moringaa",
     "category": "Herbal Tea",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Moringa tea.",
-    "amDescription": "ሞሪንጋ ሻይ።",
+    "amDescription": "ááªáá á»á­á¢",
     "orDescription": "Shaayii moringaa.",
     "available": true
   },
   {
     "id": 104,
     "name": "Orange Tea",
-    "amName": "ብርቱካን ሻይ",
+    "amName": "á¥á­á±á«á á»á­",
     "orName": "Shaayii Birtukaanii",
     "category": "Herbal Tea",
     "price": 130,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Tea with orange.",
-    "amDescription": "በብርቱካን የተዘጋጀ ሻይ።",
+    "amDescription": "á á¥á­á±á«á á¨á°ááá á»á­á¢",
     "orDescription": "Shaayii kan birtukaanii qabu.",
     "available": true
   },
   {
     "id": 105,
     "name": "Mint Tea",
-    "amName": "እጅግ የሚጣፍጥ ሻይ",
+    "amName": "á¥áá á¨áá£áá¥ á»á­",
     "orName": "Shaayii Minaa",
     "category": "Herbal Tea",
     "price": 80,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Mint tea.",
-    "amDescription": "እጅግ የሚጣፍጥ ሻይ።",
+    "amDescription": "á¥áá á¨áá£áá¥ á»á­á¢",
     "orDescription": "Shaayii minaa.",
     "available": true
   },
   {
     "id": 106,
     "name": "Green Tea",
-    "amName": "አረንጓዴ ሻይ",
+    "amName": "á á¨ááá´ á»á­",
     "orName": "Shaayii Magariisa",
     "category": "Herbal Tea",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Green tea.",
-    "amDescription": "አረንጓዴ ሻይ።",
+    "amDescription": "á á¨ááá´ á»á­á¢",
     "orDescription": "Shaayii magariisa.",
     "available": true
   },
   {
     "id": 107,
     "name": "Karkade Tea",
-    "amName": "ካርኬዴ ሻይ",
+    "amName": "á«á­á¬á´ á»á­",
     "orName": "Shaayii Karkadee",
     "category": "Herbal Tea",
     "price": 90,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Karkade tea.",
-    "amDescription": "ካርኬዴ ሻይ።",
+    "amDescription": "á«á­á¬á´ á»á­á¢",
     "orDescription": "Shaayii karkadee.",
     "available": true
   },
   {
     "id": 108,
     "name": "Chamomile Tea",
-    "amName": "ካሞሚል ሻይ",
+    "amName": "á«ááá á»á­",
     "orName": "Shaayii Kaamomilii",
     "category": "Herbal Tea",
     "price": 130,
-    "tags": ["Vegan"],
+    "tags": [
+      "Vegan"
+    ],
     "description": "Chamomile tea.",
-    "amDescription": "ካሞሚል ሻይ።",
+    "amDescription": "á«ááá á»á­á¢",
     "orDescription": "Shaayii kaamomilii.",
+    "available": true
+  },
+  {
+    "id": 109,
+    "name": "bereket",
+    "amName": "",
+    "orName": "",
+    "category": "Breakfast",
+    "price": 10000,
+    "tags": [
+      "Vegan"
+    ],
+    "description": "beki",
+    "amDescription": "",
+    "orDescription": "",
+    "image": "",
     "available": true
   }
 ]
