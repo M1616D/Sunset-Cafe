@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <meta name="description" content="Sunset Cafe — Ethiopia's #1 QR Scan Menu System. Premium dining at your fingertips." />
-    <title>Sunset Cafe — #1 QR Menu Ethiopia</title>
+    <meta name="description" content="Sunset Cafe — Ethiopia's #1 QR Scan Menu System." />
+    <title>Sunset Cafe — QR Menu</title>
 
     <!-- ===== FONTS ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
     <style>
         /* ============================================================
-           PREMIUM DESIGN SYSTEM — Ethiopia's #1 QR Menu
+           PREMIUM DESIGN SYSTEM
            ============================================================ */
         :root {
             --bg-primary: #080c14;
@@ -28,11 +29,9 @@
             --text-muted: #6a7e9e;
             --accent-gold: #d4af37;
             --accent-gold-light: #f0d080;
-            --accent-gold-dark: #b8952a;
             --accent-gradient: linear-gradient(135deg, #d4af37, #f0d080, #d4af37);
-            --surface-border: rgba(212, 175, 55, 0.08);
-            --surface-border-hover: rgba(212, 175, 55, 0.2);
-            --surface-glow: rgba(212, 175, 55, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.04);
+            --glass-blur: blur(32px) saturate(1.6);
             --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 48px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 16px 80px rgba(0, 0, 0, 0.5);
@@ -45,9 +44,6 @@
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-            --transition-slow: 0.8s var(--ease-out-expo);
-            --transition-medium: 0.4s var(--ease-smooth);
-            --transition-fast: 0.2s var(--ease-spring);
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
@@ -55,8 +51,6 @@
             --max-width: 1280px;
             --gradient-hero: linear-gradient(165deg, rgba(8,12,20,0.95) 0%, rgba(15,22,36,0.6) 30%, rgba(8,12,20,0.7) 60%, rgba(8,12,20,0.95) 100%);
             --gradient-divider: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.15) 30%, rgba(212,175,55,0.3) 50%, rgba(212,175,55,0.15) 70%, transparent 100%);
-            --glass-blur: blur(32px) saturate(1.6);
-            --glass-border: rgba(255, 255, 255, 0.04);
         }
 
         [data-bs-theme="light"] {
@@ -69,10 +63,10 @@
             --text-secondary: #2a3a5a;
             --text-muted: #6a7e9e;
             --glass-border: rgba(0, 0, 0, 0.05);
-            --gradient-hero: linear-gradient(165deg, rgba(244,246,250,0.95) 0%, rgba(232,236,244,0.6) 30%, rgba(244,246,250,0.7) 60%, rgba(244,246,250,0.95) 100%);
             --shadow-sm: 0 4px 24px rgba(0,0,0,0.06);
             --shadow-md: 0 8px 48px rgba(0,0,0,0.08);
             --shadow-lg: 0 16px 80px rgba(0,0,0,0.1);
+            --gradient-hero: linear-gradient(165deg, rgba(244,246,250,0.95) 0%, rgba(232,236,244,0.6) 30%, rgba(244,246,250,0.7) 60%, rgba(244,246,250,0.95) 100%);
         }
 
         /* ===== RESET & BASE ===== */
@@ -133,7 +127,6 @@
             margin:14px 0 18px; border-radius:4px;
         }
         .section-divider.centered { margin:14px auto 18px; }
-        .text-center .section-subtitle { margin-left:auto; margin-right:auto; }
 
         /* ===== LOADING ===== */
         #loading-screen {
@@ -174,6 +167,7 @@
         .header-brand .brand-icon { width:36px; height:36px; border-radius:10px; background:var(--accent-gradient); display:flex; align-items:center; justify-content:center; color:var(--bg-primary); font-size:0.85rem; flex-shrink:0; box-shadow:0 4px 24px rgba(212,175,55,0.12); }
         .header-brand .brand-name span { color:var(--accent-gold); }
         .header-brand .brand-badge { font-size:0.4rem; font-family:var(--font-mono); color:var(--accent-gold); background:rgba(212,175,55,0.08); padding:1px 8px; border-radius:var(--radius-full); letter-spacing:1px; text-transform:uppercase; border:1px solid rgba(212,175,55,0.06); margin-left:4px; }
+
         .header-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
         /* ===== FUTURISTIC LANGUAGE DROPDOWN ===== */
@@ -705,6 +699,7 @@
                     <span class="brand-badge"><i class="fas fa-qrcode"></i> QR</span>
                 </a>
                 <div class="header-actions">
+                    <!-- Futuristic Language Dropdown -->
                     <div class="lang-select-wrap futuristic-dropdown">
                         <button class="lang-trigger" id="langTrigger">
                             <span class="lang-current" id="langCurrent">EN</span>
@@ -952,7 +947,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         // ============================================================
-        //  CONFIGURATION – Change these to rebrand / resell
+        // CONFIGURATION – Change these to rebrand / resell
         // ============================================================
         const CONFIG = {
             brandName: 'Sunset Cafe',
@@ -964,7 +959,7 @@
         };
 
         // ============================================================
-        //  TRANSLATIONS (EN / AM / OR)
+        // TRANSLATIONS (EN / AM / OR)
         // ============================================================
         const translations = {
             en: {
@@ -1198,28 +1193,24 @@
         };
 
         // ============================================================
-        //  DEFAULT MENU – MINIMAL FALLBACK (only 1 item)
-        //  This ensures the page never breaks, but shows a placeholder.
-        //  The real menu always comes from menu.json.
+        // DEFAULT MENU – MINIMAL FALLBACK (only 1 placeholder item)
         // ============================================================
-        const DEFAULT_MENU = [
-            {
-                id: 999,
-                name: "Loading menu...",
-                amName: "ሜኑ እየጫነ ነው...",
-                orName: "Menu qopheeffamaa jira...",
-                category: "Breakfast",
-                price: 0,
-                tags: [],
-                description: "Please wait while the menu loads from our server.",
-                amDescription: "እባክዎ ሜኑ ከአገልጋያችን እስኪጫን ድረስ ይጠብቁ።",
-                orDescription: "Maaloo menu server keenya irraa hamma qopheeffamutti eegaa.",
-                available: true
-            }
-        ];
+        const DEFAULT_MENU = [{
+            id: 999,
+            name: "Menu loading...",
+            amName: "ሜኑ እየጫነ ነው...",
+            orName: "Menu qopheeffamaa jira...",
+            category: "Breakfast",
+            price: 0,
+            tags: [],
+            description: "Please wait or refresh the page.",
+            amDescription: "እባክዎ ይጠብቁ ወይም ገጹን ያድሱ።",
+            orDescription: "Maaloo eegaa ykn fuula haaraa godhi.",
+            available: true
+        }];
 
         // ============================================================
-        //  STATE & DOM REFS
+        // STATE
         // ============================================================
         let menuData = [];
         let menuLoaded = false;
@@ -1232,6 +1223,9 @@
             language: CONFIG.defaultLanguage,
         };
 
+        // ============================================================
+        // DOM REFS
+        // ============================================================
         const $ = (s) => document.querySelector(s);
         const $$ = (s) => document.querySelectorAll(s);
         const menuContainer = $('#menuContainer');
@@ -1258,62 +1252,7 @@
         ];
 
         // ============================================================
-        //  LANGUAGE DROPDOWN
-        // ============================================================
-        const langTrigger = document.getElementById('langTrigger');
-        const langMenu = document.getElementById('langMenu');
-        const langCurrent = document.getElementById('langCurrent');
-        const langOptions = document.querySelectorAll('.lang-option');
-
-        langTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langTrigger.classList.toggle('open');
-            langMenu.classList.toggle('open');
-        });
-
-        document.addEventListener('click', () => {
-            langTrigger.classList.remove('open');
-            langMenu.classList.remove('open');
-        });
-
-        langOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const lang = option.dataset.lang;
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                const label = option.textContent.trim();
-                langCurrent.textContent = option.querySelector('.lang-flag') ?
-                    option.textContent.replace(/[🇬🇧🇪🇹]\s*/, '').trim() :
-                    label;
-                langTrigger.classList.remove('open');
-                langMenu.classList.remove('open');
-                state.language = lang;
-                translatePage();
-                showToast(`🌍 ${label}`, 'info');
-            });
-        });
-
-        const initialLang = CONFIG.defaultLanguage || 'en';
-        langOptions.forEach(opt => {
-            if (opt.dataset.lang === initialLang) {
-                opt.classList.add('active');
-                const label = opt.textContent.trim();
-                langCurrent.textContent = opt.querySelector('.lang-flag') ?
-                    opt.textContent.replace(/[🇬🇧🇪🇹]\s*/, '').trim() :
-                    label;
-            }
-        });
-
-        langTrigger.addEventListener('mousemove', (e) => {
-            const rect = langTrigger.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width * 100);
-            const y = ((e.clientY - rect.top) / rect.height * 100);
-            langTrigger.style.setProperty('--mouse-x', x + '%');
-            langTrigger.style.setProperty('--mouse-y', y + '%');
-        });
-
-        // ============================================================
-        //  HELPERS
+        // HELPERS
         // ============================================================
         function getTagClass(tag) {
             const map = { 'Vegan': 'vegan', 'Spicy': 'spicy', 'Halal': 'halal', 'Vegetarian': 'vegetarian',
@@ -1363,18 +1302,17 @@
         }
 
         // ============================================================
-        //  UPDATE DISH COUNTS
+        // UPDATE DISH COUNTS
         // ============================================================
         function updateDishCounts() {
             const available = menuData.filter(i => i.available !== false).length;
-            const total = menuData.length;
             if (dishCount) dishCount.textContent = available;
             if (trustDishCount) trustDishCount.textContent = available + '+';
             if (aboutDishCount) aboutDishCount.textContent = available + '+';
         }
 
         // ============================================================
-        //  FETCH MENU FROM GITHUB (with proper UTF-8 handling)
+        // FETCH MENU – WITH CACHE-BUSTING & UTF-8 HANDLING
         // ============================================================
         const MENU_URL =
             `https://raw.githubusercontent.com/${CONFIG.repoOwner}/${CONFIG.repoName}/main/${CONFIG.menuFileName}?_t=${Date.now()}`;
@@ -1395,7 +1333,6 @@
                 console.warn('Menu fetch failed, using minimal fallback.');
                 menuData = JSON.parse(JSON.stringify(DEFAULT_MENU));
                 menuLoaded = false;
-                // Show error toast
                 showToast(getTranslation('menuUnavailable'), 'error');
             } catch (e) {
                 console.error('Fetch error:', e);
@@ -1407,7 +1344,7 @@
         }
 
         // ============================================================
-        //  RENDER FUNCTIONS
+        // RENDER FUNCTIONS
         // ============================================================
         function renderCategoryBar() {
             const availableItems = menuData.filter(i => i.available !== false);
@@ -1468,7 +1405,8 @@
                     grouped[item.category].push(item);
                 });
 
-                if (items.length === 0 || !menuLoaded) {
+                // If no items or menu not loaded, show appropriate message
+                if (items.length === 0) {
                     let msg = getTranslation('noItemsFound');
                     if (!menuLoaded) msg = getTranslation('menuUnavailable');
                     menuContainer.innerHTML =
@@ -1488,6 +1426,7 @@
                 });
                 menuContainer.innerHTML = html;
 
+                // Card click listeners
                 menuContainer.querySelectorAll('.menu-card').forEach(card => {
                     card.addEventListener('click', () => {
                         const id = parseInt(card.dataset.id);
@@ -1534,7 +1473,7 @@
         }
 
         // ============================================================
-        //  DETAIL MODAL
+        // DETAIL MODAL
         // ============================================================
         function openDetailModal(id) {
             const item = menuData.find(i => i.id === id);
@@ -1595,7 +1534,7 @@
         });
 
         // ============================================================
-        //  TRANSLATE PAGE
+        // TRANSLATE PAGE
         // ============================================================
         function translatePage() {
             const t = translations[state.language] || translations.en;
@@ -1616,7 +1555,7 @@
         }
 
         // ============================================================
-        //  SEARCH SUGGESTIONS
+        // SEARCH SUGGESTIONS
         // ============================================================
         function updateSuggestions() {
             try {
@@ -1654,7 +1593,7 @@
         }
 
         // ============================================================
-        //  TOAST
+        // TOAST
         // ============================================================
         function showToast(message, type = 'info') {
             try {
@@ -1672,7 +1611,64 @@
         }
 
         // ============================================================
-        //  EVENT LISTENERS
+        // LANGUAGE DROPDOWN
+        // ============================================================
+        const langTrigger = document.getElementById('langTrigger');
+        const langMenu = document.getElementById('langMenu');
+        const langCurrent = document.getElementById('langCurrent');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        langTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langTrigger.classList.toggle('open');
+            langMenu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+            langTrigger.classList.remove('open');
+            langMenu.classList.remove('open');
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.dataset.lang;
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                const label = option.textContent.trim();
+                langCurrent.textContent = option.querySelector('.lang-flag') ?
+                    option.textContent.replace(/[🇬🇧🇪🇹]\s*/, '').trim() :
+                    label;
+                langTrigger.classList.remove('open');
+                langMenu.classList.remove('open');
+                state.language = lang;
+                translatePage();
+                showToast(`🌍 ${label}`, 'info');
+            });
+        });
+
+        // Set initial active state
+        const initialLang = CONFIG.defaultLanguage || 'en';
+        langOptions.forEach(opt => {
+            if (opt.dataset.lang === initialLang) {
+                opt.classList.add('active');
+                const label = opt.textContent.trim();
+                langCurrent.textContent = opt.querySelector('.lang-flag') ?
+                    opt.textContent.replace(/[🇬🇧🇪🇹]\s*/, '').trim() :
+                    label;
+            }
+        });
+
+        // Mouse tracking for glow effect
+        langTrigger.addEventListener('mousemove', (e) => {
+            const rect = langTrigger.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width * 100);
+            const y = ((e.clientY - rect.top) / rect.height * 100);
+            langTrigger.style.setProperty('--mouse-x', x + '%');
+            langTrigger.style.setProperty('--mouse-y', y + '%');
+        });
+
+        // ============================================================
+        // EVENT LISTENERS
         // ============================================================
         categoryBar.addEventListener('click', (e) => {
             const btn = e.target.closest('.cat-btn');
@@ -1738,6 +1734,7 @@
             } catch (_) { showToast('Voice search not available', 'warning'); }
         });
 
+        // Dark mode
         darkToggle.addEventListener('click', () => {
             state.darkMode = !state.darkMode;
             document.documentElement.setAttribute('data-bs-theme', state.darkMode ? 'dark' : 'light');
@@ -1755,12 +1752,14 @@
             darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
 
+        // Back to top
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) backToTop.classList.add('visible');
             else backToTop.classList.remove('visible');
         });
         backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
+        // Header scroll
         function handleScroll() {
             const scrollY = window.scrollY;
             if (scrollY > 40) header.classList.add('scrolled');
@@ -1772,7 +1771,7 @@
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         // ============================================================
-        //  AOS
+        // AOS
         // ============================================================
         if (window.AOS) {
             AOS.init({ duration: 700, easing: 'ease-out-expo', once: false, mirror: true, offset: 40, delay: 50,
@@ -1780,7 +1779,7 @@
         }
 
         // ============================================================
-        //  BOOT
+        // BOOT
         // ============================================================
         async function bootApp() {
             try {
