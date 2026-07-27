@@ -930,7 +930,6 @@
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
         }
 
-        /* ===== SPINNER ===== */
         .spinner-sm {
             width: 16px;
             height: 16px;
@@ -1148,80 +1147,31 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // CONFIGURATION – NO SECRETS HERE!
+        // CONFIGURATION – Change these to rebrand / resell
         // ============================================================
-        const REPO_OWNER = 'M1616D';
-        const REPO_NAME = 'Sunset-Cafe';
-        const ADMIN_PASSWORD = 'sunset2024'; // Change this to your preferred password
-
-        // ============================================================
-        // PASSWORD + TOKEN LOGIN
-        // ============================================================
-        const passwordOverlay = document.getElementById('passwordOverlay');
-        const passwordInput = document.getElementById('passwordInput');
-        const tokenInput = document.getElementById('tokenInput');
-        const passwordSubmit = document.getElementById('passwordSubmit');
-        const passwordError = document.getElementById('passwordError');
-
-        // Check session storage for existing session
-        const savedToken = sessionStorage.getItem('github_token');
-        const savedPassword = sessionStorage.getItem('admin_password');
-
-        if (savedToken && savedPassword === ADMIN_PASSWORD) {
-            // Auto-login
-            passwordOverlay.style.display = 'none';
-            document.getElementById('adminContent').classList.add('active');
-            initAdmin(savedToken);
-        } else {
-            passwordOverlay.style.display = 'flex';
-            passwordInput.focus();
-        }
-
-        passwordSubmit.addEventListener('click', handleLogin);
-        passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
-        tokenInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
-
-        function handleLogin() {
-            const enteredPassword = passwordInput.value.trim();
-            const enteredToken = tokenInput.value.trim();
-
-            if (enteredPassword === ADMIN_PASSWORD && enteredToken.startsWith('github_pat_')) {
-                sessionStorage.setItem('github_token', enteredToken);
-                sessionStorage.setItem('admin_password', enteredPassword);
-                passwordOverlay.style.display = 'none';
-                document.getElementById('adminContent').classList.add('active');
-                initAdmin(enteredToken);
-                showToast('🔓 Welcome, Admin!', 'success');
-            } else {
-                passwordError.classList.add('show');
-                passwordError.textContent = enteredPassword !== ADMIN_PASSWORD ?
-                    '❌ Incorrect password' :
-                    '❌ Invalid token (must start with "github_pat_")';
-                passwordInput.value = '';
-                tokenInput.value = '';
-                passwordInput.focus();
-            }
-        }
+        const CONFIG = {
+            repoOwner: 'M1616D',
+            repoName: 'Sunset-Cafe',
+            menuFileName: 'menu.json',
+            adminPassword: 'sunset2024', // Change this!
+        };
 
         // ============================================================
-        // DEFAULT MENU (fallback – same as your full menu)
+        // DEFAULT MENU (minimal fallback)
         // ============================================================
-        const DEFAULT_MENU = [
-            // [Full 108-item default menu – same as before]
-            // For brevity, I'm not pasting it again here, but in the actual file you must include it.
-            // You can copy the DEFAULT_MENU from your previous admin.html.
-            // I'll include a placeholder – but you'll need the full array.
-            // In the final answer, I'll provide a full file with the complete default menu.
-        ];
-
-        // ============================================================
-        // STATE
-        // ============================================================
-        let menuItems = [];
-        let editingId = null;
-        let confirmCallback = null;
-        let isSaving = false;
-        let GITHUB_TOKEN = '';
+        const DEFAULT_MENU = [{
+            id: 999,
+            name: "Loading menu...",
+            amName: "ሜኑ እየጫነ ነው...",
+            orName: "Menu qopheeffamaa jira...",
+            category: "Breakfast",
+            price: 0,
+            tags: [],
+            description: "Please wait while the menu loads from our server.",
+            amDescription: "እባክዎ ሜኑ ከአገልጋያችን እስኪጫን ድረስ ይጠብቁ።",
+            orDescription: "Maaloo menu server keenya irraa hamma qopheeffamutti eegaa.",
+            available: true
+        }];
 
         // ============================================================
         // DOM REFS
@@ -1229,6 +1179,15 @@
         const $ = (s) => document.querySelector(s);
         const $$ = (s) => document.querySelectorAll(s);
 
+        // Login
+        const passwordOverlay = $('#passwordOverlay');
+        const passwordInput = $('#passwordInput');
+        const tokenInput = $('#tokenInput');
+        const passwordSubmit = $('#passwordSubmit');
+        const passwordError = $('#passwordError');
+
+        // Admin content
+        const adminContent = $('#adminContent');
         const totalItemsEl = $('#totalItems');
         const availableItemsEl = $('#availableItems');
         const categoryCountEl = $('#categoryCount');
@@ -1273,6 +1232,57 @@
         const CATEGORIES = ['All', 'Breakfast', 'Traditional Foods', 'Burger', 'Pizza', 'Wraps', 'Cakes', 'Juices', 'Syrups',
             'Hot Drinks', 'Cold Drinks', 'Shakes & Smoothies', 'Iced Drinks', 'Herbal Tea'
         ];
+
+        // ============================================================
+        // STATE
+        // ============================================================
+        let menuItems = [];
+        let editingId = null;
+        let confirmCallback = null;
+        let isSaving = false;
+        let GITHUB_TOKEN = '';
+
+        // ============================================================
+        // LOGIN
+        // ============================================================
+        function handleLogin() {
+            const enteredPassword = passwordInput.value.trim();
+            const enteredToken = tokenInput.value.trim();
+
+            if (enteredPassword === CONFIG.adminPassword && enteredToken.startsWith('github_pat_')) {
+                sessionStorage.setItem('github_token', enteredToken);
+                sessionStorage.setItem('admin_password', enteredPassword);
+                passwordOverlay.classList.add('hidden');
+                adminContent.classList.add('active');
+                GITHUB_TOKEN = enteredToken;
+                initAdmin();
+                showToast('🔓 Welcome, Admin!', 'success');
+            } else {
+                passwordError.classList.add('show');
+                passwordError.textContent = enteredPassword !== CONFIG.adminPassword ?
+                    '❌ Incorrect password' :
+                    '❌ Invalid token (must start with "github_pat_")';
+                passwordInput.value = '';
+                tokenInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        passwordSubmit.addEventListener('click', handleLogin);
+        passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+        tokenInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+
+        // Check session
+        (function checkSession() {
+            const savedToken = sessionStorage.getItem('github_token');
+            const savedPassword = sessionStorage.getItem('admin_password');
+            if (savedToken && savedPassword === CONFIG.adminPassword) {
+                passwordOverlay.classList.add('hidden');
+                adminContent.classList.add('active');
+                GITHUB_TOKEN = savedToken;
+                initAdmin();
+            }
+        })();
 
         // ============================================================
         // TOAST
@@ -1321,7 +1331,7 @@
         // GITHUB API
         // ============================================================
         function getApiUrl() {
-            return `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/menu.json`;
+            return `https://api.github.com/repos/${CONFIG.repoOwner}/${CONFIG.repoName}/contents/${CONFIG.menuFileName}`;
         }
 
         function getHeaders() {
@@ -1344,7 +1354,7 @@
                         return true;
                     }
                 } else if (res.status === 404) {
-                    // File doesn't exist – create it with default
+                    // File doesn't exist – create with default
                     menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
                     await saveMenuToGitHub();
                     return true;
@@ -1776,8 +1786,7 @@
         // ============================================================
         // INIT
         // ============================================================
-        async function initAdmin(token) {
-            GITHUB_TOKEN = token;
+        async function initAdmin() {
             initTheme();
             // Populate category dropdown
             fCategory.innerHTML = CATEGORIES.filter(c => c !== 'All').map(c =>
@@ -1788,7 +1797,7 @@
             renderAll();
             showToast('☕ Admin Panel ready — manage your menu with ease!', 'info');
             console.log(`📋 Admin loaded with ${menuItems.length} menu items.`);
-            console.log(`🔗 Repository: ${REPO_OWNER}/${REPO_NAME}`);
+            console.log(`🔗 Repository: ${CONFIG.repoOwner}/${CONFIG.repoName}`);
         }
 
         // Handle enter key on password input
@@ -1802,7 +1811,7 @@
         // BOOT
         // ============================================================
         console.log('🔐 Admin panel ready – enter password and token to continue.');
-        if (passwordOverlay.style.display !== 'none') {
+        if (!passwordOverlay.classList.contains('hidden')) {
             passwordInput.focus();
         }
     </script>
