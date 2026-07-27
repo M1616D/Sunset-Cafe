@@ -1280,7 +1280,12 @@
                 passwordOverlay.classList.add('hidden');
                 adminContent.classList.add('active');
                 GITHUB_TOKEN = savedToken;
-                initAdmin();
+                // Wait for DOM to be ready
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    initAdmin();
+                } else {
+                    document.addEventListener('DOMContentLoaded', initAdmin);
+                }
             }
         })();
 
