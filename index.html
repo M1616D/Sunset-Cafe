@@ -696,6 +696,17 @@
             background: #4ade80;
             animation: pulseDot 2s ease-in-out infinite;
         }
+                /* ============================================================
+           FIX: MOBILE AOS VISIBILITY
+           Forces AOS elements to be visible when AOS is disabled on mobile
+           ============================================================ */
+        @media (max-width: 991px) {
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
