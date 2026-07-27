@@ -1628,5 +1628,19 @@
     "amDescription": "Ã¡ÂÂ«Ã¡ÂÂÃ¡ÂÂÃ¡ÂÂ Ã¡ÂÂ»Ã¡ÂÂ­Ã¡ÂÂ¢",
     "orDescription": "Shaayii kaamomilii.",
     "available": true
+  },
+  {
+    "id": 109,
+    "name": "abrish",
+    "amName": "",
+    "orName": "",
+    "category": "Breakfast",
+    "price": 100,
+    "tags": [],
+    "description": "asdf",
+    "amDescription": "SDF",
+    "orDescription": "",
+    "image": "",
+    "available": true
   }
 ]
