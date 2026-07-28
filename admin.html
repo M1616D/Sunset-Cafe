@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Sunset Cafe · Admin Panel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --bg-primary: #080c14;
+            --bg-secondary: #0f1624;
+            --bg-card: rgba(18, 28, 46, 0.65);
+            --bg-card-solid: #121c2e;
+            --text-primary: #f0f4ff;
+            --text-secondary: #b0c8e8;
+            --text-muted: #6a7e9e;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f0d080;
+            --accent-gradient: linear-gradient(135deg, #d4af37, #f0d080, #d4af37);
+            --glass-border: rgba(255, 255, 255, 0.04);
+            --glass-blur: blur(32px) saturate(1.6);
+            --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 16px 80px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-full: 9999px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --header-height: 64px;
+            --transition-medium: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-bs-theme="light"] {
+            --bg-primary: #f4f6fa;
+            --bg-secondary: #e8ecf4;
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --bg-card-solid: #ffffff;
+            --text-primary: #0a0e1a;
+            --text-secondary: #2a3a5a;
+            --text-muted: #6a7e9e;
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 16px 80px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 0.4s, color 0.4s;
+            -webkit-font-smoothing: antialiased;
+            padding-top: var(--header-height);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 20px;
+        }
+        .gold-text {
+            color: var(--accent-gold);
+        }
+        .gold-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .mono {
+            font-family: var(--font-mono);
+        }
+        .serif {
+            font-family: var(--font-serif);
+        }
+
+        /* ===== HEADER ===== */
+        .admin-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            background: rgba(8, 12, 20, 0.7);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all var(--transition-medium);
+        }
+        [data-bs-theme="light"] .admin-header {
+            background: rgba(244, 246, 250, 0.8);
+        }
+        .admin-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+        .admin-brand .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .admin-brand .brand-badge {
+            font-size: 0.45rem;
+            font-family: var(--font-mono);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.08);
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .admin-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .admin-header-actions .icon-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-medium);
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .admin-header-actions .icon-btn:hover {
+            background: rgba(212, 175, 55, 0.06);
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.08);
+            transform: scale(1.05);
+        }
+        .admin-header-actions .btn-view-live {
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.7rem;
+            border: none;
+            transition: all var(--transition-medium);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-sans);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .admin-header-actions .btn-view-live:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 24px rgba(212, 175, 55, 0.2);
+            color: var(--bg-primary);
+        }
+
+        /* ===== PASSWORD OVERLAY ===== */
+        #passwordOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(8, 12, 20, 0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        #passwordOverlay.hidden {
+            display: none;
+        }
+        .password-box {
+            background: var(--bg-card-solid);
+            padding: 36px 40px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: modalFade 0.4s var(--ease-spring);
+        }
+        .password-box .lock-icon {
+            font-size: 2.4rem;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        .password-box h3 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .password-box .sub {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+        .password-box .sub i {
+            color: var(--accent-gold);
+            margin-right: 4px;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            outline: none;
+            margin-bottom: 10px;
+            font-family: var(--font-sans);
+            transition: all var(--transition-medium);
+        }
+        .password-box input:focus {
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.04);
+        }
+        .password-box .btn-unlock {
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            transition: all var(--transition-medium);
+        }
+        .password-box .btn-unlock:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 24px rgba(212, 175, 55, 0.15);
+        }
+        .password-box .error-msg {
+            color: #f87171;
+            font-size: 0.7rem;
+            margin-top: 8px;
+            display: none;
+        }
+        .password-box .error-msg.show {
+            display: block;
+        }
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* ===== ADMIN CONTENT ===== */
+        #adminContent {
+            display: none;
+        }
+        #adminContent.active {
+            display: block;
+        }
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 20px 40px;
+        }
+
+        /* ===== STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            transition: all var(--transition-medium);
+        }
+        .stat-card:hover {
+            border-color: rgba(212, 175, 55, 0.08);
+        }
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            font-family: var(--font-serif);
+        }
+        .stat-card .stat-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-family: var(--font-mono);
+        }
+        .stat-card .stat-icon {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            margin-bottom: 4px;
+        }
+        .stat-card.gold .stat-value {
+            color: var(--accent-gold);
+        }
+        .stat-card.green .stat-value {
+            color: #4ade80;
+        }
+        .stat-card.orange .stat-value {
+            color: #fbbf24;
+        }
+        .stat-card.red .stat-value {
+            color: #f87171;
+        }
+
+        /* ===== TOOLBAR ===== */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+        }
+        .toolbar .search-wrap {
+            flex: 1;
+            min-width: 160px;
+            position: relative;
+        }
+        .toolbar .search-wrap input {
+            width: 100%;
+            padding: 8px 14px 8px 36px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            transition: all var(--transition-medium);
+            outline: none;
+            min-height: 34px;
+        }
+        .toolbar .search-wrap input::placeholder {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .toolbar .search-wrap input:focus {
+            border-color: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.02);
+        }
+        .toolbar .search-wrap i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.4;
+        }
+        .toolbar .filter-group {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .toolbar .filter-group .filter-label {
+            font-size: 0.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-mono);
+            margin-right: 2px;
+        }
+        .toolbar .filter-group select {
+            padding: 4px 24px 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.6rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            transition: all var(--transition-medium);
+            font-family: var(--font-sans);
+            min-height: 28px;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236a7e9e'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        .toolbar .filter-group select:focus {
+            border-color: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.02);
+        }
+        .toolbar .filter-group select option {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        .toolbar .actions-group {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: auto;
+        }
+        .toolbar .actions-group .action-btn {
+            padding: 4px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.6rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            transition: all var(--transition-medium);
+            font-family: var(--font-sans);
+            min-height: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .toolbar .actions-group .action-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .toolbar .actions-group .action-btn.primary {
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-color: var(--accent-gold);
+        }
+        .toolbar .actions-group .action-btn.primary:hover {
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+            transform: translateY(-1px);
+            color: var(--bg-primary);
+        }
+        .toolbar .actions-group .action-btn.danger {
+            color: #f87171;
+            border-color: rgba(248, 113, 113, 0.1);
+        }
+        .toolbar .actions-group .action-btn.danger:hover {
+            background: rgba(248, 113, 113, 0.05);
+            border-color: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+        }
+        .toolbar .actions-group .action-btn.success {
+            color: #4ade80;
+            border-color: rgba(74, 222, 128, 0.1);
+        }
+        .toolbar .actions-group .action-btn.success:hover {
+            background: rgba(74, 222, 128, 0.05);
+            border-color: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        /* ===== ADD FORM ===== */
+        .add-form-container {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            display: none;
+            transition: all var(--transition-medium);
+        }
+        .add-form-container.open {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .add-form-container .form-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-serif);
+        }
+        .add-form-container .form-title i {
+            color: var(--accent-gold);
+        }
+        .add-form-container .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 16px;
+        }
+        .add-form-container .form-grid .full-width {
+            grid-column: 1 / -1;
+        }
+        .add-form-container .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .add-form-container .form-group label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: var(--font-mono);
+        }
+        .add-form-container .form-group label .required {
+            color: var(--accent-gold);
+        }
+        .add-form-container .form-group input,
+        .add-form-container .form-group select,
+        .add-form-container .form-group textarea {
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            transition: all var(--transition-medium);
+            outline: none;
+            min-height: 32px;
+            width: 100%;
+            resize: vertical;
+        }
+        .add-form-container .form-group input:focus,
+        .add-form-container .form-group select:focus,
+        .add-form-container .form-group textarea:focus {
+            border-color: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.02);
+        }
+        .add-form-container .form-group textarea {
+            min-height: 48px;
+            font-size: 0.7rem;
+        }
+        .add-form-container .form-group .hint {
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .add-form-container .form-group .tag-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding-top: 2px;
+        }
+        .add-form-container .form-group .tag-checkboxes label {
+            font-size: 0.55rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-transform: none;
+            letter-spacing: 0;
+            font-family: var(--font-sans);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+        .add-form-container .form-group .tag-checkboxes label:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .add-form-container .form-group .tag-checkboxes input[type="checkbox"] {
+            width: 12px;
+            height: 12px;
+            accent-color: var(--accent-gold);
+            min-height: auto;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .add-form-container .form-group .tag-checkboxes label.checked {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+        }
+        .add-form-container .form-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 8px;
+            padding-top: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .add-form-container .form-actions .btn-submit {
+            padding: 6px 24px;
+            border-radius: var(--radius-full);
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.7rem;
+            border: none;
+            font-family: var(--font-sans);
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .add-form-container .form-actions .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 24px rgba(212, 175, 55, 0.2);
+            color: var(--bg-primary);
+        }
+        .add-form-container .form-actions .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .add-form-container .form-actions .btn-cancel {
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.7rem;
+            font-family: var(--font-sans);
+            transition: all var(--transition-medium);
+            cursor: pointer;
+        }
+        .add-form-container .form-actions .btn-cancel:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .add-form-container .form-actions .save-indicator {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+        .add-form-container .form-actions .save-indicator.active {
+            display: inline-flex;
+        }
+        .add-form-container .form-actions .save-indicator i {
+            color: var(--accent-gold);
+        }
+
+        /* Image upload preview */
+        .image-upload-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .image-upload-wrapper .image-preview {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .image-upload-wrapper .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-upload-wrapper .image-preview .placeholder-icon {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            opacity: 0.2;
+        }
+        .image-upload-wrapper .image-upload-btns {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+            flex: 1;
+        }
+        .image-upload-wrapper .image-upload-btns .upload-btn {
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.55rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            font-family: var(--font-sans);
+        }
+        .image-upload-wrapper .image-upload-btns .upload-btn:hover {
+            background: rgba(212, 175, 55, 0.06);
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.08);
+        }
+        .image-upload-wrapper .image-upload-btns .upload-btn.primary {
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-color: var(--accent-gold);
+        }
+        .image-upload-wrapper .image-upload-btns .upload-btn.primary:hover {
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.12);
+            transform: translateY(-1px);
+            color: var(--bg-primary);
+        }
+        .image-upload-wrapper .image-upload-btns .upload-status {
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* ===== ITEM LIST ===== */
+        .item-list-header {
+            display: grid;
+            grid-template-columns: 50px 1.2fr 1fr 80px 130px 100px 140px;
+            gap: 8px;
+            padding: 8px 14px;
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-family: var(--font-mono);
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-top: 4px;
+        }
+        .item-row {
+            display: grid;
+            grid-template-columns: 50px 1.2fr 1fr 80px 130px 100px 140px;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            align-items: center;
+            transition: all var(--transition-medium);
+            font-size: 0.75rem;
+        }
+        .item-row:hover {
+            border-color: rgba(212, 175, 55, 0.06);
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .item-row .item-id {
+            color: var(--text-muted);
+            font-size: 0.6rem;
+            font-family: var(--font-mono);
+            text-align: center;
+        }
+        .item-row .item-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .item-row .item-category {
+            font-size: 0.6rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        .item-row .item-price {
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+        }
+        .item-row .item-tags {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+        }
+        .item-row .item-tags .tag {
+            font-size: 0.4rem;
+            padding: 1px 6px;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+        .item-row .item-tags .tag.vegan {
+            color: #4ade80;
+            border-color: #4ade8033;
+            background: #4ade8008;
+        }
+        .item-row .item-tags .tag.spicy {
+            color: #f87171;
+            border-color: #f8717133;
+            background: #f8717108;
+        }
+        .item-row .item-tags .tag.halal {
+            color: #a78bfa;
+            border-color: #a78bfa33;
+            background: #a78bfa08;
+        }
+        .item-row .item-tags .tag.vegetarian {
+            color: #60a5fa;
+            border-color: #60a5fa33;
+            background: #60a5fa08;
+        }
+        .item-row .item-tags .tag.fasting {
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.04);
+        }
+        .item-row .item-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.55rem;
+            font-weight: 500;
+        }
+        .item-row .item-status .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .item-row .item-status .dot.available {
+            background: #4ade80;
+        }
+        .item-row .item-status .dot.unavailable {
+            background: #f87171;
+        }
+        .item-row .item-actions {
+            display: flex;
+            gap: 3px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .item-row .item-actions button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-secondary);
+            font-size: 0.6rem;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item-row .item-actions button:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+        }
+        .item-row .item-actions button.toggle-avail:hover {
+            color: #4ade80;
+            border-color: rgba(74, 222, 128, 0.1);
+        }
+        .item-row .item-actions button.toggle-avail.unavailable-btn:hover {
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.1);
+        }
+        .item-row .item-actions button.edit:hover {
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.1);
+        }
+        .item-row .item-actions button.delete:hover {
+            color: #f87171;
+            border-color: rgba(248, 113, 113, 0.1);
+        }
+        .item-row.unavailable .item-name {
+            opacity: 0.4;
+        }
+        .item-row.unavailable .item-price {
+            opacity: 0.4;
+        }
+        .item-row.unavailable {
+            opacity: 0.6;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state-admin {
+            text-align: center;
+            padding: 40px 16px;
+            color: var(--text-muted);
+        }
+        .empty-state-admin i {
+            font-size: 2.2rem;
+            opacity: 0.06;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+        .empty-state-admin p {
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+        .empty-state-admin .btn-add-first {
+            margin-top: 12px;
+            padding: 8px 24px;
+            border-radius: var(--radius-full);
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.75rem;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            transition: all var(--transition-medium);
+        }
+        .empty-state-admin .btn-add-first:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 24px rgba(212, 175, 55, 0.15);
+            color: var(--bg-primary);
+        }
+
+        /* ===== TOAST ===== */
+        .toast-container-custom {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-width: min(380px, 90vw);
+            width: 100%;
+            pointer-events: none;
+        }
+        .toast-custom {
+            padding: 12px 18px;
+            border-radius: var(--radius-sm);
+            background: rgba(8, 12, 20, 0.95);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            transform: translateX(120%);
+            transition: transform 0.5s var(--ease-spring), opacity 0.3s;
+            pointer-events: auto;
+            opacity: 0;
+        }
+        [data-bs-theme="light"] .toast-custom {
+            background: rgba(244, 246, 250, 0.98);
+        }
+        .toast-custom.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .toast-custom .toast-icon {
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .toast-custom.success .toast-icon {
+            color: #4ade80;
+        }
+        .toast-custom.error .toast-icon {
+            color: #f87171;
+        }
+        .toast-custom.warning .toast-icon {
+            color: var(--accent-gold);
+        }
+        .toast-custom.info .toast-icon {
+            color: #60a5fa;
+        }
+
+        /* ===== CONFIRM DIALOG ===== */
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: rgba(8, 12, 20, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .confirm-overlay.active {
+            display: flex;
+            animation: modalFade 0.25s ease-out;
+        }
+        .confirm-box {
+            max-width: 400px;
+            width: 100%;
+            background: var(--bg-card-solid);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            padding: 24px 28px;
+            box-shadow: var(--shadow-lg);
+        }
+        .confirm-box .confirm-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+        }
+        .confirm-box .confirm-msg {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        .confirm-box .confirm-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+        .confirm-box .confirm-actions button {
+            padding: 6px 20px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.7rem;
+            border: none;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+        .confirm-box .confirm-actions .btn-confirm {
+            background: #f87171;
+            color: #fff;
+        }
+        .confirm-box .confirm-actions .btn-confirm:hover {
+            background: #ef4444;
+            transform: scale(1.02);
+        }
+        .confirm-box .confirm-actions .btn-cancel-confirm {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+        }
+        .confirm-box .confirm-actions .btn-cancel-confirm:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .item-list-header {
+                display: none;
+            }
+            .item-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 12px 14px;
+            }
+            .item-row .item-id {
+                display: none;
+            }
+            .item-row .item-name {
+                font-size: 0.85rem;
+                white-space: normal;
+            }
+            .item-row .item-category {
+                font-size: 0.55rem;
+            }
+            .item-row .item-price {
+                font-size: 0.8rem;
+            }
+            .item-row .item-tags {
+                order: 5;
+            }
+            .item-row .item-status {
+                order: 6;
+            }
+            .item-row .item-actions {
+                order: 7;
+                justify-content: flex-start;
+                padding-top: 4px;
+                border-top: 1px solid var(--glass-border);
+            }
+            .item-row .item-actions button {
+                width: 32px;
+                height: 32px;
+            }
+            .add-form-container .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .toolbar .actions-group {
+                margin-left: 0;
+                justify-content: flex-end;
+            }
+            .toolbar .filter-group {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 576px) {
+            :root {
+                --header-height: 56px;
+            }
+            body {
+                padding-top: var(--header-height);
+            }
+            .admin-container {
+                padding: 10px 12px 30px;
+            }
+            .admin-header-inner {
+                padding: 0 12px;
+            }
+            .admin-brand .brand-badge {
+                display: none;
+            }
+            .stat-card .stat-value {
+                font-size: 1.2rem;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .item-row {
+                padding: 10px 12px;
+            }
+            .item-row .item-actions button {
+                width: 28px;
+                height: 28px;
+                font-size: 0.55rem;
+            }
+            .add-form-container {
+                padding: 12px 14px;
+            }
+            .password-box {
+                padding: 24px 20px;
+            }
+            .toolbar .actions-group .action-btn {
+                font-size: 0.55rem;
+                padding: 3px 10px;
+                min-height: 24px;
+            }
+        }
+        @media (max-width: 400px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+        }
+
+        .spinner-sm {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--glass-border);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .saving-indicator {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+        .saving-indicator.active {
+            display: flex;
+        }
+        .saving-indicator i {
+            color: var(--accent-gold);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.5rem;
+            color: #4ade80;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+            background: rgba(74, 222, 128, 0.04);
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(74, 222, 128, 0.06);
+        }
+        .live-indicator .pulse-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.3;
+                transform: scale(0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PASSWORD OVERLAY ===== -->
+    <div id="passwordOverlay">
+        <div class="password-box">
+            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+            <h3>Admin Access</h3>
+            <div class="sub"><i class="fas fa-qrcode"></i> Sunset Cafe · Menu Manager</div>
+            <input type="password" id="passwordInput" placeholder="Enter admin password" autofocus />
+            <input type="password" id="tokenInput" placeholder="Enter GitHub token (starts with github_pat_)" style="margin-top:6px;" />
+            <button class="btn-unlock" id="passwordSubmit"><i class="fas fa-key"></i> Unlock</button>
+            <div class="error-msg" id="passwordError"><i class="fas fa-exclamation-circle"></i> Incorrect password or token</div>
+        </div>
+    </div>
+
+    <!-- ===== ADMIN CONTENT ===== -->
+    <div id="adminContent">
+
+        <!-- ===== HEADER ===== -->
+        <header class="admin-header">
+            <div class="admin-header-inner">
+                <div class="admin-brand">
+                    <span class="brand-icon"><i class="fas fa-crown"></i></span>
+                    <span>Admin <span class="gold-text">Panel</span></span>
+                    <span class="brand-badge"><i class="fas fa-qrcode"></i> Manager</span>
+                    <span class="live-indicator"><span class="pulse-dot"></span> Live</span>
+                </div>
+                <div class="admin-header-actions">
+                    <a href="index.html" target="_blank" class="btn-view-live" title="View live menu">
+                        <i class="fas fa-eye"></i> Live Menu
+                    </a>
+                    <button class="icon-btn" id="darkToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== MAIN ===== -->
+        <main class="admin-container">
+
+            <!-- ===== STATS ===== -->
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card gold">
+                    <div class="stat-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="stat-value" id="totalItems">0</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-value" id="availableItems">0</div>
+                    <div class="stat-label">Available</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-icon"><i class="fas fa-tags"></i></div>
+                    <div class="stat-value" id="categoryCount">0</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-icon"><i class="fas fa-circle"></i></div>
+                    <div class="stat-value" id="unavailableItems">0</div>
+                    <div class="stat-label">Unavailable</div>
+                </div>
+                <div class="stat-card" style="grid-column:span 1;">
+                    <div class="stat-icon"><i class="fas fa-coins"></i></div>
+                    <div class="stat-value" id="avgPrice" style="font-size:1.2rem;">0</div>
+                    <div class="stat-label">Avg Price (ETB)</div>
+                </div>
+                <div class="stat-card" style="grid-column:span 1;">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-value" id="lastUpdated" style="font-size:0.8rem;font-family:var(--font-mono);">—</div>
+                    <div class="stat-label">Last Updated</div>
+                </div>
+            </div>
+
+            <!-- ===== TOOLBAR ===== -->
+            <div class="toolbar" id="toolbar">
+                <div class="search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="adminSearch" placeholder="Search menu items..." />
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label"><i class="fas fa-filter"></i></span>
+                    <select id="categoryFilter">
+                        <option value="All">All Categories</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="All">All Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </div>
+                <div class="actions-group">
+                    <span class="saving-indicator" id="savingIndicator">
+                        <i class="fas fa-spinner fa-spin"></i> Saving...
+                    </span>
+                    <button class="action-btn primary" id="addNewBtn"><i class="fas fa-plus"></i> Add New</button>
+                    <button class="action-btn success" id="exportBtn"><i class="fas fa-download"></i> Export</button>
+                    <button class="action-btn" id="importBtn"><i class="fas fa-upload"></i> Import</button>
+                    <button class="action-btn danger" id="resetBtn"><i class="fas fa-undo"></i> Reset</button>
+                    <input type="file" id="importFileInput" accept=".json" style="display:none;" />
+                </div>
+            </div>
+
+            <!-- ===== ADD FORM ===== -->
+            <div class="add-form-container" id="addFormContainer">
+                <div class="form-title"><i class="fas fa-plus-circle"></i> <span id="formTitle">Add New Item</span></div>
+                <form id="addForm" autocomplete="off">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Item Name <span class="required">*</span></label>
+                            <input type="text" id="fName" placeholder="e.g. Sunset Special Omelet" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Amharic Name</label>
+                            <input type="text" id="fAmName" placeholder="ልዩ ኦሜሌት" />
+                        </div>
+                        <div class="form-group">
+                            <label>Oromo Name</label>
+                            <input type="text" id="fOrName" placeholder="Omelet Addaa" />
+                        </div>
+                        <div class="form-group">
+                            <label>Category <span class="required">*</span></label>
+                            <select id="fCategory" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (ETB) <span class="required">*</span></label>
+                            <input type="number" id="fPrice" placeholder="400" min="0" step="1" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <div class="image-upload-wrapper">
+                                <div class="image-preview" id="imagePreview">
+                                    <span class="placeholder-icon"><i class="fas fa-image"></i></span>
+                                    <img id="imagePreviewImg" src="" alt="Preview" style="display:none;" />
+                                </div>
+                                <div class="image-upload-btns">
+                                    <input type="file" id="imageFileInput" accept="image/*" style="display:none;" />
+                                    <button type="button" class="upload-btn primary" id="imageUploadBtn"><i class="fas fa-upload"></i> Upload</button>
+                                    <button type="button" class="upload-btn" id="imageClearBtn"><i class="fas fa-times"></i> Clear</button>
+                                    <span class="upload-status" id="imageUploadStatus"></span>
+                                    <input type="text" id="fImage" placeholder="https://example.com/image.png" style="width:100%;margin-top:4px;" />
+                                    <span class="hint" style="width:100%;">Upload an image or enter a URL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Description <span class="required">*</span></label>
+                            <textarea id="fDescription" placeholder="A signature omelet with special seasoning..." rows="2" required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Amharic Description</label>
+                            <textarea id="fAmDescription" placeholder="በልዩ ቅመም እና ትኩስ ንጥረ ነገሮች የተዘጋጀ..." rows="2"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Oromo Description</label>
+                            <textarea id="fOrDescription" placeholder="Omelet addaa kan miyoora addaatiin..." rows="2"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Tags</label>
+                            <div class="tag-checkboxes" id="tagCheckboxes"></div>
+                            <span class="hint">Select all that apply</span>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Availability</label>
+                            <select id="fAvailable">
+                                <option value="true">Available</option>
+                                <option value="false">Unavailable</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-save"></i> <span id="submitBtnText">Add Item</span></button>
+                            <button type="button" class="btn-cancel" id="cancelFormBtn"><i class="fas fa-times"></i> Cancel</button>
+                            <span class="save-indicator" id="formSaveIndicator"><i class="fas fa-spinner fa-spin"></i> Saving...</span>
+                            <input type="hidden" id="editId" value="" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ===== ITEM LIST HEADER ===== -->
+            <div class="item-list-header">
+                <span>#</span>
+                <span>Name</span>
+                <span>Category</span>
+                <span>Price</span>
+                <span>Tags</span>
+                <span>Status</span>
+                <span style="text-align:right;">Actions</span>
+            </div>
+
+            <!-- ===== ITEM LIST ===== -->
+            <div class="item-list" id="itemList"></div>
+
+        </main>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- ===== CONFIRM DIALOG ===== -->
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-box">
+            <div class="confirm-title" id="confirmTitle">Are you sure?</div>
+            <div class="confirm-msg" id="confirmMsg">This action cannot be undone.</div>
+            <div class="confirm-actions">
+                <button class="btn-cancel-confirm" id="confirmCancel">Cancel</button>
+                <button class="btn-confirm" id="confirmOk">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // CONFIGURATION
+        // ============================================================
+        const CONFIG = {
+            repoOwner: 'M1616D',
+            repoName: 'Sunset-Cafe',
+            indexFileName: 'index.html',
+            adminPassword: 'sunset2024',
+        };
+
+        // ============================================================
+        // DEFAULT MENU (fallback)
+        // ============================================================
+        const DEFAULT_MENU = [{
+            id: 1,
+            name: "Sunset Special Omelet",
+            amName: "ልዩ ኦሜሌት",
+            orName: "Omelet Addaa",
+            category: "Breakfast",
+            price: 400,
+            tags: ["Halal"],
+            description: "A signature omelet with special seasoning and fresh ingredients.",
+            amDescription: "በልዩ ቅመም እና ትኩስ ንጥረ ነገሮች የተዘጋጀ ልዩ ኦሜሌት።",
+            orDescription: "Omelet addaa kan miyoora addaatiin fi qabiyyee haaraadhaan qopheeffame.",
+            available: true,
+            image: ""
+        }];
+
+        // ============================================================
+        // DOM REFS
+        // ============================================================
+        const $ = (s) => document.querySelector(s);
+        const $$ = (s) => document.querySelectorAll(s);
+
+        const passwordOverlay = $('#passwordOverlay');
+        const passwordInput = $('#passwordInput');
+        const tokenInput = $('#tokenInput');
+        const passwordSubmit = $('#passwordSubmit');
+        const passwordError = $('#passwordError');
+
+        const adminContent = $('#adminContent');
+        const totalItemsEl = $('#totalItems');
+        const availableItemsEl = $('#availableItems');
+        const categoryCountEl = $('#categoryCount');
+        const unavailableItemsEl = $('#unavailableItems');
+        const avgPriceEl = $('#avgPrice');
+        const lastUpdatedEl = $('#lastUpdated');
+        const itemList = $('#itemList');
+        const adminSearch = $('#adminSearch');
+        const categoryFilter = $('#categoryFilter');
+        const statusFilter = $('#statusFilter');
+        const addFormContainer = $('#addFormContainer');
+        const addForm = $('#addForm');
+        const addNewBtn = $('#addNewBtn');
+        const cancelFormBtn = $('#cancelFormBtn');
+        const formTitle = $('#formTitle');
+        const submitBtnText = $('#submitBtnText');
+        const submitBtn = $('#submitBtn');
+        const editIdInput = $('#editId');
+        const fName = $('#fName');
+        const fAmName = $('#fAmName');
+        const fOrName = $('#fOrName');
+        const fCategory = $('#fCategory');
+        const fPrice = $('#fPrice');
+        const fImage = $('#fImage');
+        const fDescription = $('#fDescription');
+        const fAmDescription = $('#fAmDescription');
+        const fOrDescription = $('#fOrDescription');
+        const fAvailable = $('#fAvailable');
+        const tagCheckboxes = $('#tagCheckboxes');
+        const exportBtn = $('#exportBtn');
+        const importBtn = $('#importBtn');
+        const importFileInput = $('#importFileInput');
+        const resetBtn = $('#resetBtn');
+        const confirmOverlay = $('#confirmOverlay');
+        const confirmTitle = $('#confirmTitle');
+        const confirmMsg = $('#confirmMsg');
+        const confirmOk = $('#confirmOk');
+        const confirmCancel = $('#confirmCancel');
+        const toastContainer = $('#toastContainer');
+        const darkToggle = $('#darkToggle');
+        const savingIndicator = $('#savingIndicator');
+        const formSaveIndicator = $('#formSaveIndicator');
+        const imagePreviewImg = $('#imagePreviewImg');
+        const imagePreview = $('#imagePreview');
+        const imageFileInput = $('#imageFileInput');
+        const imageUploadBtn = $('#imageUploadBtn');
+        const imageClearBtn = $('#imageClearBtn');
+        const imageUploadStatus = $('#imageUploadStatus');
+
+        const ALL_TAGS = ['Vegan', 'Spicy', 'Halal', 'Vegetarian', 'Fasting', 'Gluten-Free', 'Chef Special', 'Bestseller'];
+        const CATEGORIES = ['All', 'Breakfast', 'Traditional Foods', 'Burger', 'Pizza', 'Wraps', 'Cakes', 'Juices', 'Syrups',
+            'Hot Drinks', 'Cold Drinks', 'Shakes & Smoothies', 'Iced Drinks', 'Herbal Tea'
+        ];
+
+        // ============================================================
+        // STATE
+        // ============================================================
+        let menuItems = [];
+        let editingId = null;
+        let confirmCallback = null;
+        let isSaving = false;
+        let GITHUB_TOKEN = '';
+        let indexFileSha = '';
+
+        const channel = new BroadcastChannel('sunset_menu_channel');
+
+        // ============================================================
+        // UTF-8 SAFE BASE64 HELPERS (Fixes all encoding issues)
+        // ============================================================
+        function utf8ToB64(str) {
+            // Convert UTF-16 string to binary data, then to Base64
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+                return String.fromCharCode('0x' + p1);
+            }));
+        }
+
+        function b64ToUtf8(str) {
+            // Decode Base64 to binary data, then to UTF-16 string
+            return decodeURIComponent(atob(str).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        }
+
+        // ============================================================
+        // LOGIN
+        // ============================================================
+        function handleLogin() {
+            const enteredPassword = passwordInput.value.trim();
+            const enteredToken = tokenInput.value.trim();
+
+            if (enteredPassword === CONFIG.adminPassword && enteredToken.startsWith('github_pat_')) {
+                sessionStorage.setItem('github_token', enteredToken);
+                sessionStorage.setItem('admin_password', enteredPassword);
+                passwordOverlay.classList.add('hidden');
+                adminContent.classList.add('active');
+                GITHUB_TOKEN = enteredToken;
+                initAdmin();
+                showToast('🔓 Welcome, Admin!', 'success');
+            } else {
+                passwordError.classList.add('show');
+                passwordError.textContent = enteredPassword !== CONFIG.adminPassword ?
+                    '❌ Incorrect password' :
+                    '❌ Invalid token (must start with "github_pat_")';
+                passwordInput.value = '';
+                tokenInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        passwordSubmit.addEventListener('click', handleLogin);
+        passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+        tokenInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+
+        (function checkSession() {
+            const savedToken = sessionStorage.getItem('github_token');
+            const savedPassword = sessionStorage.getItem('admin_password');
+            if (savedToken && savedPassword === CONFIG.adminPassword) {
+                passwordOverlay.classList.add('hidden');
+                adminContent.classList.add('active');
+                GITHUB_TOKEN = savedToken;
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    initAdmin();
+                } else {
+                    document.addEventListener('DOMContentLoaded', initAdmin);
+                }
+            }
+        })();
+
+        // ============================================================
+        // TOAST
+        // ============================================================
+        function showToast(message, type = 'info') {
+            const icons = { success: 'fas fa-check-circle', error: 'fas fa-exclamation-circle',
+                warning: 'fas fa-triangle-exclamation', info: 'fas fa-info-circle' };
+            const toast = document.createElement('div');
+            toast.className = `toast-custom ${type}`;
+            toast.innerHTML =
+                `<span class="toast-icon"><i class="${icons[type] || icons.info}"></i></span><span>${message}</span>`;
+            toastContainer.appendChild(toast);
+            requestAnimationFrame(() => toast.classList.add('show'));
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 3500);
+        }
+
+        // ============================================================
+        // CONFIRM
+        // ============================================================
+        function showConfirm(title, msg, callback) {
+            confirmTitle.textContent = title;
+            confirmMsg.textContent = msg;
+            confirmCallback = callback;
+            confirmOverlay.classList.add('active');
+        }
+        confirmCancel.addEventListener('click', () => {
+            confirmOverlay.classList.remove('active');
+            confirmCallback = null;
+        });
+        confirmOk.addEventListener('click', () => {
+            if (confirmCallback) confirmCallback();
+            confirmOverlay.classList.remove('active');
+            confirmCallback = null;
+        });
+        confirmOverlay.addEventListener('click', (e) => {
+            if (e.target === confirmOverlay) {
+                confirmOverlay.classList.remove('active');
+                confirmCallback = null;
+            }
+        });
+
+        // ============================================================
+        // GITHUB API – Safe UTF-8 read/write
+        // ============================================================
+        function getApiUrl() {
+            return `https://api.github.com/repos/${CONFIG.repoOwner}/${CONFIG.repoName}/contents/${CONFIG.indexFileName}`;
+        }
+
+        function getHeaders() {
+            return {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/vnd.github.v3+json'
+            };
+        }
+
+        function extractMenuFromIndex(content) {
+            try {
+                const startTag = '<script id="menu-data" type="application/json">';
+                const endTag = '</script>';
+                const startIdx = content.indexOf(startTag);
+                if (startIdx === -1) return null;
+                const endIdx = content.indexOf(endTag, startIdx + startTag.length);
+                if (endIdx === -1) return null;
+                const jsonText = content.substring(startIdx + startTag.length, endIdx).trim();
+                const parsed = JSON.parse(jsonText);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                return null;
+            } catch (err) {
+                console.warn('Extract error:', err);
+                return null;
+            }
+        }
+
+        function buildUpdatedIndex(content, newMenuData) {
+            const startTag = '<script id="menu-data" type="application/json">';
+            const endTag = '</script>';
+            const startIdx = content.indexOf(startTag);
+            const endIdx = content.indexOf(endTag, startIdx + startTag.length);
+            const newJson = JSON.stringify(newMenuData, null, 4);
+            return content.substring(0, startIdx + startTag.length) + '\n' + newJson + '\n' + content.substring(endIdx);
+        }
+
+        async function loadMenuFromGitHub() {
+            try {
+                const res = await fetch(getApiUrl(), { headers: getHeaders() });
+                if (res.ok) {
+                    const data = await res.json();
+                    indexFileSha = data.sha;
+                    const decodedContent = b64ToUtf8(data.content);
+                    const parsed = extractMenuFromIndex(decodedContent);
+                    if (parsed && parsed.length > 0) {
+                        menuItems = parsed;
+                        return true;
+                    } else {
+                        menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
+                        await saveMenuToGitHub();
+                        return true;
+                    }
+                } else if (res.status === 404) {
+                    menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
+                    await saveMenuToGitHub();
+                    return true;
+                }
+                menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
+                await saveMenuToGitHub();
+                return true;
+            } catch (err) {
+                console.warn('Load error:', err);
+                menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
+                return false;
+            }
+        }
+
+        async function saveMenuToGitHub() {
+            if (isSaving) return;
+            isSaving = true;
+            savingIndicator.classList.add('active');
+            if (formSaveIndicator) formSaveIndicator.classList.add('active');
+
+            try {
+                const res = await fetch(getApiUrl(), { headers: getHeaders() });
+                if (!res.ok) throw new Error('Failed to fetch index.html for update');
+                const data = await res.json();
+                const currentContent = b64ToUtf8(data.content);
+                const newContent = buildUpdatedIndex(currentContent, menuItems);
+
+                const payload = {
+                    message: `Update menu: ${new Date().toISOString()}`,
+                    content: utf8ToB64(newContent),
+                    sha: data.sha
+                };
+
+                const putRes = await fetch(getApiUrl(), {
+                    method: 'PUT',
+                    headers: getHeaders(),
+                    body: JSON.stringify(payload)
+                });
+
+                if (putRes.ok) {
+                    const responseData = await putRes.json();
+                    indexFileSha = responseData.content.sha;
+                    try {
+                        channel.postMessage({ type: 'MENU_UPDATED', timestamp: Date.now(), sha: indexFileSha });
+                    } catch (_) {}
+                    updateLastUpdated();
+                    showToast('✅ Changes saved to GitHub', 'success');
+                    return true;
+                } else {
+                    const err = await putRes.json();
+                    console.error('Save error:', err);
+                    showToast('❌ Failed to save: ' + (err.message || 'Unknown error'), 'error');
+                    return false;
+                }
+            } catch (err) {
+                console.error('Save error:', err);
+                showToast('❌ Failed to save changes. Check token and repo settings.', 'error');
+                return false;
+            } finally {
+                isSaving = false;
+                savingIndicator.classList.remove('active');
+                if (formSaveIndicator) formSaveIndicator.classList.remove('active');
+            }
+        }
+
+        // ============================================================
+        // STATS
+        // ============================================================
+        function updateStats() {
+            const total = menuItems.length;
+            const available = menuItems.filter(i => i.available !== false).length;
+            const unavailable = total - available;
+            const cats = new Set(menuItems.map(i => i.category));
+            const prices = menuItems.map(i => i.price);
+            const avg = prices.length > 0 ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length) : 0;
+
+            totalItemsEl.textContent = total;
+            availableItemsEl.textContent = available;
+            unavailableItemsEl.textContent = unavailable;
+            categoryCountEl.textContent = cats.size;
+            avgPriceEl.textContent = avg;
+        }
+
+        function updateLastUpdated() {
+            const now = new Date();
+            const timeStr = now.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            lastUpdatedEl.textContent = timeStr;
+        }
+
+        // ============================================================
+        // TAG HELPERS
+        // ============================================================
+        function getTagClass(tag) {
+            const map = { 'Vegan': 'vegan', 'Spicy': 'spicy', 'Halal': 'halal', 'Vegetarian': 'vegetarian',
+                'Fasting': 'fasting', 'Gluten-Free': 'gluten-free', 'Chef Special': 'chef-special',
+                'Bestseller': 'bestseller' };
+            return map[tag] || '';
+        }
+
+        function renderTagCheckboxes(selectedTags = []) {
+            tagCheckboxes.innerHTML = ALL_TAGS.map(tag => {
+                const checked = selectedTags.includes(tag) ? 'checked' : '';
+                return `<label class="${checked ? 'checked' : ''}">
+                            <input type="checkbox" value="${tag}" ${checked} />
+                            ${tag}
+                        </label>`;
+            }).join('');
+            tagCheckboxes.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', function() {
+                    this.closest('label').classList.toggle('checked', this.checked);
+                });
+            });
+        }
+
+        function getSelectedTags() {
+            const checked = tagCheckboxes.querySelectorAll('input[type="checkbox"]:checked');
+            return Array.from(checked).map(cb => cb.value);
+        }
+
+        // ============================================================
+        // RENDER
+        // ============================================================
+        function renderCategoryFilter() {
+            const current = categoryFilter.value;
+            const cats = ['All', ...new Set(menuItems.map(i => i.category))];
+            categoryFilter.innerHTML = cats.map(c =>
+                `<option value="${c}" ${c === current ? 'selected' : ''}>${c === 'All' ? 'All Categories' : c}</option>`
+            ).join('');
+        }
+
+        function renderItems() {
+            const search = adminSearch.value.toLowerCase().trim();
+            const catFilter = categoryFilter.value;
+            const statusFilterVal = statusFilter.value;
+
+            let filtered = menuItems.filter(item => {
+                const matchSearch = item.name.toLowerCase().includes(search) ||
+                    (item.amName || '').toLowerCase().includes(search) ||
+                    (item.orName || '').toLowerCase().includes(search) ||
+                    item.category.toLowerCase().includes(search) ||
+                    (item.description || '').toLowerCase().includes(search) ||
+                    (item.tags || []).some(t => t.toLowerCase().includes(search));
+                const matchCat = catFilter === 'All' || item.category === catFilter;
+                const matchStatus = statusFilterVal === 'All' ||
+                    (statusFilterVal === 'Available' && item.available !== false) ||
+                    (statusFilterVal === 'Unavailable' && item.available === false);
+                return matchSearch && matchCat && matchStatus;
+            });
+
+            if (filtered.length === 0) {
+                itemList.innerHTML = `
+                            <div class="empty-state-admin">
+                                <i class="fas fa-utensils"></i>
+                                <p>${search ? 'No items match your search.' : 'No menu items yet. Click "Add New" to create one!'}</p>
+                                ${!search ? '<button class="btn-add-first" onclick="document.getElementById(\'addNewBtn\').click()"><i class="fas fa-plus"></i> Add Your First Item</button>' : ''}
+                            </div>
+                        `;
+                return;
+            }
+
+            itemList.innerHTML = filtered.map(item => {
+                const isAvailable = item.available !== false;
+                const tagsHtml = (item.tags || []).slice(0, 4).map(t =>
+                    `<span class="tag ${getTagClass(t)}">${t}</span>`
+                ).join('') + ((item.tags || []).length > 4 ? `<span class="tag" style="font-size:0.4rem;">+${item.tags.length - 4}</span>` :
+                    '');
+                const statusText = isAvailable ? 'Available' : 'Unavailable';
+                const statusClass = isAvailable ? 'available' : 'unavailable';
+                const rowClass = isAvailable ? '' : 'unavailable';
+                const displayName = item.name;
+
+                return `
+                            <div class="item-row ${rowClass}">
+                                <span class="item-id">${item.id}</span>
+                                <span class="item-name">${escapeHtml(displayName)}</span>
+                                <span class="item-category">${escapeHtml(item.category)}</span>
+                                <span class="item-price">ETB ${item.price}</span>
+                                <span class="item-tags">${tagsHtml}</span>
+                                <span class="item-status"><span class="dot ${statusClass}"></span> ${statusText}</span>
+                                <span class="item-actions">
+                                    <button class="toggle-avail ${isAvailable ? '' : 'unavailable-btn'}" title="${isAvailable ? 'Mark unavailable' : 'Mark available'}" data-id="${item.id}"><i class="fas ${isAvailable ? 'fa-eye' : 'fa-eye-slash'}"></i></button>
+                                    <button class="edit" title="Edit" data-id="${item.id}"><i class="fas fa-pen"></i></button>
+                                    <button class="delete" title="Delete" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                                </span>
+                            </div>
+                        `;
+            }).join('');
+
+            itemList.querySelectorAll('.toggle-avail').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id);
+                    toggleAvailability(id);
+                });
+            });
+            itemList.querySelectorAll('.edit').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id);
+                    startEdit(id);
+                });
+            });
+            itemList.querySelectorAll('.delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id);
+                    confirmDelete(id);
+                });
+            });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function renderAll() {
+            updateStats();
+            renderCategoryFilter();
+            renderItems();
+        }
+
+        // ============================================================
+        // CRUD
+        // ============================================================
+        async function toggleAvailability(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+            item.available = !(item.available !== false);
+            const success = await saveMenuToGitHub();
+            if (success) {
+                renderAll();
+                showToast(`${item.name} is now ${item.available !== false ? 'available' : 'unavailable'}`, item.available !==
+                    false ? 'success' : 'warning');
+            }
+        }
+
+        function confirmDelete(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+            showConfirm('Delete Item', `Are you sure you want to delete "${item.name}"? This cannot be undone.`, async () => {
+                menuItems = menuItems.filter(i => i.id !== id);
+                const success = await saveMenuToGitHub();
+                if (success) {
+                    renderAll();
+                    showToast(`Deleted "${item.name}"`, 'error');
+                }
+            });
+        }
+
+        function startEdit(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+            editingId = id;
+            formTitle.textContent = 'Edit Item';
+            submitBtnText.textContent = 'Update Item';
+            editIdInput.value = id;
+            fName.value = item.name || '';
+            fAmName.value = item.amName || '';
+            fOrName.value = item.orName || '';
+            fCategory.value = item.category || 'Breakfast';
+            fPrice.value = item.price || 0;
+            fImage.value = item.image || '';
+            fDescription.value = item.description || '';
+            fAmDescription.value = item.amDescription || '';
+            fOrDescription.value = item.orDescription || '';
+            fAvailable.value = item.available !== false ? 'true' : 'false';
+            renderTagCheckboxes(item.tags || []);
+            updateImagePreview(item.image || '');
+            addFormContainer.classList.add('open');
+            addFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            fName.focus();
+        }
+
+        function resetForm() {
+            editingId = null;
+            editIdInput.value = '';
+            formTitle.textContent = 'Add New Item';
+            submitBtnText.textContent = 'Add Item';
+            fName.value = '';
+            fAmName.value = '';
+            fOrName.value = '';
+            fCategory.value = 'Breakfast';
+            fPrice.value = '';
+            fImage.value = '';
+            fDescription.value = '';
+            fAmDescription.value = '';
+            fOrDescription.value = '';
+            fAvailable.value = 'true';
+            renderTagCheckboxes([]);
+            updateImagePreview('');
+            addFormContainer.classList.remove('open');
+            imageUploadStatus.textContent = '';
+        }
+
+        function generateId() {
+            const maxId = menuItems.reduce((max, i) => Math.max(max, i.id), 0);
+            return maxId + 1;
+        }
+
+        function updateImagePreview(url) {
+            if (url && url.trim()) {
+                imagePreviewImg.src = url;
+                imagePreviewImg.style.display = 'block';
+                imagePreview.querySelector('.placeholder-icon').style.display = 'none';
+            } else {
+                imagePreviewImg.style.display = 'none';
+                imagePreview.querySelector('.placeholder-icon').style.display = 'flex';
+            }
+        }
+
+        // ============================================================
+        // IMAGE UPLOAD
+        // ============================================================
+        imageUploadBtn.addEventListener('click', () => {
+            imageFileInput.click();
+        });
+
+        imageFileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                showToast('Image too large. Max 5MB.', 'error');
+                imageFileInput.value = '';
+                return;
+            }
+            if (!file.type.startsWith('image/')) {
+                showToast('Please select an image file.', 'error');
+                imageFileInput.value = '';
+                return;
+            }
+
+            imageUploadStatus.textContent = 'Uploading...';
+            imageUploadStatus.style.color = 'var(--text-muted)';
+
+            try {
+                const compressed = await compressImage(file);
+                fImage.value = compressed;
+                updateImagePreview(compressed);
+                imageUploadStatus.textContent = '✓ Uploaded';
+                imageUploadStatus.style.color = '#4ade80';
+                showToast('Image uploaded successfully!', 'success');
+            } catch (err) {
+                console.error('Upload error:', err);
+                imageUploadStatus.textContent = '✗ Failed';
+                imageUploadStatus.style.color = '#f87171';
+                showToast('Failed to upload image.', 'error');
+            }
+            imageFileInput.value = '';
+        });
+
+        function compressImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let w = img.width,
+                            h = img.height;
+                        const maxDim = 800;
+                        if (w > maxDim || h > maxDim) {
+                            const ratio = Math.min(maxDim / w, maxDim / h);
+                            w = Math.round(w * ratio);
+                            h = Math.round(h * ratio);
+                        }
+                        canvas.width = w;
+                        canvas.height = h;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, w, h);
+                        resolve(canvas.toDataURL('image/jpeg', 0.7));
+                    };
+                    img.onerror = reject;
+                    img.src = e.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        imageClearBtn.addEventListener('click', () => {
+            fImage.value = '';
+            updateImagePreview('');
+            imageUploadStatus.textContent = '';
+        });
+
+        fImage.addEventListener('input', () => {
+            updateImagePreview(fImage.value);
+        });
+
+        // ============================================================
+        // FORM HANDLING
+        // ============================================================
+        addForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = fName.value.trim();
+            const category = fCategory.value;
+            const price = parseInt(fPrice.value);
+            const description = fDescription.value.trim();
+
+            if (!name) { showToast('Item name is required', 'error'); return; }
+            if (!category) { showToast('Category is required', 'error'); return; }
+            if (isNaN(price) || price < 0) { showToast('Valid price is required', 'error'); return; }
+            if (!description) { showToast('Description is required', 'error'); return; }
+
+            const tags = getSelectedTags();
+            const available = fAvailable.value === 'true';
+            const imageUrl = fImage.value.trim();
+
+            const itemData = {
+                id: editingId || generateId(),
+                name: name,
+                amName: fAmName.value.trim() || '',
+                orName: fOrName.value.trim() || '',
+                category: category,
+                price: price,
+                tags: tags,
+                description: description,
+                amDescription: fAmDescription.value.trim() || '',
+                orDescription: fOrDescription.value.trim() || '',
+                image: imageUrl || '',
+                available: available
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-sm"></span> Saving...';
+            if (formSaveIndicator) formSaveIndicator.classList.add('active');
+
+            if (editingId) {
+                const idx = menuItems.findIndex(i => i.id === editingId);
+                if (idx !== -1) {
+                    menuItems[idx] = itemData;
+                    const success = await saveMenuToGitHub();
+                    if (success) {
+                        showToast(`✅ Updated "${itemData.name}"`, 'success');
+                        renderAll();
+                        resetForm();
+                    }
+                }
+            } else {
+                menuItems.push(itemData);
+                const success = await saveMenuToGitHub();
+                if (success) {
+                    showToast(`✅ Added "${itemData.name}"`, 'success');
+                    renderAll();
+                    resetForm();
+                }
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> ' + (editingId ? 'Update Item' : 'Add Item');
+            if (formSaveIndicator) formSaveIndicator.classList.remove('active');
+        });
+
+        cancelFormBtn.addEventListener('click', resetForm);
+
+        addNewBtn.addEventListener('click', () => {
+            resetForm();
+            addFormContainer.classList.add('open');
+            addFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            fName.focus();
+        });
+
+        // ============================================================
+        // EXPORT / IMPORT
+        // ============================================================
+        exportBtn.addEventListener('click', () => {
+            try {
+                const data = JSON.stringify(menuItems, null, 2);
+                const blob = new Blob([data], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `sunset_menu_backup_${new Date().toISOString().slice(0, 10)}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast('📥 Menu exported successfully!', 'success');
+            } catch (_) {
+                showToast('Export failed', 'error');
+            }
+        });
+
+        importBtn.addEventListener('click', () => {
+            importFileInput.click();
+        });
+
+        importFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async (ev) => {
+                try {
+                    const data = JSON.parse(ev.target.result);
+                    if (Array.isArray(data) && data.length > 0) {
+                        const valid = data.every(item =>
+                            item.id && item.name && item.category && typeof item.price === 'number'
+                        );
+                        if (!valid) {
+                            showToast('Invalid data: missing required fields', 'error');
+                            importFileInput.value = '';
+                            return;
+                        }
+                        showConfirm('Import Menu',
+                            `This will replace all current menu items (${menuItems.length} items) with the imported data (${data.length} items). Continue?`,
+                            async () => {
+                                menuItems = data;
+                                const success = await saveMenuToGitHub();
+                                if (success) {
+                                    renderAll();
+                                    showToast(`✅ Imported ${data.length} items successfully!`, 'success');
+                                }
+                                importFileInput.value = '';
+                            });
+                    } else {
+                        showToast('Invalid data: expected an array of items', 'error');
+                        importFileInput.value = '';
+                    }
+                } catch (_) {
+                    showToast('Invalid JSON file', 'error');
+                    importFileInput.value = '';
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        // ============================================================
+        // RESET
+        // ============================================================
+        resetBtn.addEventListener('click', () => {
+            showConfirm('Reset Menu',
+                `This will restore the default menu (${DEFAULT_MENU.length} items) and discard all changes. Continue?`,
+                async () => {
+                    menuItems = JSON.parse(JSON.stringify(DEFAULT_MENU));
+                    const success = await saveMenuToGitHub();
+                    if (success) {
+                        renderAll();
+                        showToast('🔄 Menu reset to default', 'warning');
+                    }
+                });
+        });
+
+        // ============================================================
+        // SEARCH & FILTER
+        // ============================================================
+        adminSearch.addEventListener('input', renderItems);
+        categoryFilter.addEventListener('change', renderItems);
+        statusFilter.addEventListener('change', renderItems);
+
+        // ============================================================
+        // DARK MODE
+        // ============================================================
+        function initTheme() {
+            const stored = localStorage.getItem('admin_theme');
+            if (stored === 'light') {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+                darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        darkToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-bs-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-bs-theme', next);
+            localStorage.setItem('admin_theme', next);
+            darkToggle.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        });
+
+        // ============================================================
+        // CATEGORY DROPDOWN FOR FORM
+        // ============================================================
+        function initCategoryDropdown() {
+            fCategory.innerHTML = CATEGORIES.filter(c => c !== 'All').map(c =>
+                `<option value="${c}">${c}</option>`
+            ).join('');
+        }
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        async function initAdmin() {
+            initTheme();
+            initCategoryDropdown();
+            await loadMenuFromGitHub();
+            renderAll();
+            updateLastUpdated();
+
+            setInterval(async () => {
+                const fresh = await loadMenuFromGitHub();
+                if (fresh) {
+                    renderAll();
+                }
+            }, 30000);
+
+            showToast('☕ Admin Panel ready — manage your menu with ease!', 'info');
+            console.log(`📋 Admin loaded with ${menuItems.length} menu items.`);
+            console.log(`🔗 Repository: ${CONFIG.repoOwner}/${CONFIG.repoName}`);
+            console.log('📡 BroadcastChannel active for live sync.');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !passwordOverlay.classList.contains('hidden')) {
+                handleLogin();
+            }
+        });
+
+        console.log('🔐 Admin panel ready – enter password and token to continue.');
+        if (!passwordOverlay.classList.contains('hidden')) {
+            passwordInput.focus();
+        }
+    </script>
+</body>
+</html>
