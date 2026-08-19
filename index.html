@@ -6039,17 +6039,31 @@
             }
         });
 
-        // Poll every 5 seconds as fallback
-        setInterval(() => {
-            const oldSha = menuData.length ? menuData.reduce((s, i) => s + i.id + i.name, '') : '';
-            loadEmbeddedMenu();
-            const newSha = menuData.length ? menuData.reduce((s, i) => s + i.id + i.name, '') : '';
-            if (oldSha !== newSha) {
-                renderMenu();
-                renderCategoryBar();
-                showToast('🔄 Menu refreshed', 'info');
-            }
-        }, 30000);
+        // Live sync: fetch self with cache-busting every 10 seconds
+        // This detects changes pushed by admin to GitHub Pages
+        let _lastMenuHash = '';
+        if (menuData.length) _lastMenuHash = menuData.map(i => i.id + i.name + i.price).join('|');
+        setInterval(async () => {
+            try {
+                const url = location.href.split('?')[0] + '?_t=' + Date.now();
+                const resp = await fetch(url, { cache: 'no-store', headers: { 'Accept': 'text/html' } });
+                if (!resp.ok) return;
+                const html = await resp.text();
+                const match = html.match(/<script id="menu-data" type="application\/json">\s*([\s\S]*?)\s*<\/script>/i);
+                if (!match || !match[1]) return;
+                const data = JSON.parse(match[1]);
+                if (!Array.isArray(data) || data.length === 0) return;
+                const newHash = data.map(i => i.id + i.name + i.price).join('|');
+                if (newHash !== _lastMenuHash) {
+                    _lastMenuHash = newHash;
+                    menuData = data;
+                    renderMenu();
+                    renderCategoryBar();
+                    updateDishCounts();
+                    showToast('🔄 Menu updated live!', 'info');
+                }
+            } catch (_) {}
+        }, 10000);
 
         // ============================================================
         // AOS
