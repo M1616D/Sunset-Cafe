@@ -18,14 +18,14 @@
             theme: {
                 extend: {
                     colors: {
-                        appBg: '#232323',
-                        sidebarBg: '#2c2c2c',
-                        cardBg: '#1f1f1f',
-                        accentRed: '#ff4b4b',
+                        appBg: '#1c120f',
+                        sidebarBg: '#211612',
+                        cardBg: '#261b16',
+                        accentRed: '#f59e0b',
                         textMain: '#ffffff',
                         textMuted: '#9ca3af',
-                        inputBg: '#2a2a2a',
-                        panelBg: '#383838'
+                        inputBg: '#2b1c16',
+                        panelBg: '#382a1e'
                     },
                     borderRadius: { '4xl': '2.5rem' }
                 }
@@ -34,18 +34,18 @@
 
         /* ─── ROOT ─── */
         :root {
-            --bg-app: #232323;
-            --bg-sidebar: #2c2c2c;
-            --bg-card: #1f1f1f;
-            --bg-input: #2a2a2a;
+            --bg-app: #1c120f;
+            --bg-sidebar: #211612;
+            --bg-card: #261b16;
+            --bg-input: #2b1c16;
             --text-primary: #ffffff;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
-            --accent-red: #ff4b4b;
-            --accent-red-dark: #e03a3a;
-            --accent-gradient: linear-gradient(135deg, #ff4b4b, #ff7a7a);
-            --accent-gradient-vertical: linear-gradient(to bottom, #ff4b4b, #e03a3a);
-            --border-color: #333333;
+            --accent-red: #f59e0b;
+            --accent-red-dark: #d97706;
+            --accent-gradient: linear-gradient(135deg, #f59e0b, #f97316);
+            --accent-gradient-vertical: linear-gradient(to bottom, #f59e0b, #d97706);
+            --border-color: #3d2a1a;
             --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
             --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
             --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -86,7 +86,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #2b1f1f;
+            background-color: #16100e;
             background-image: radial-gradient(circle at center, #3a2222 0%, #1a1a1a 100%);
             display: flex;
             justify-content: center;
@@ -109,7 +109,7 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #444;
+            background: #451a03;
             border-radius: 10px;
         }
 
@@ -124,6 +124,47 @@
             border-radius: 10px;
         }
 
+        /* ─── MATRIX GRID (login bg) ─── */
+        .matrix-grid-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.35;
+            pointer-events: auto;
+        }
+        .matrix-span {
+            display: block;
+            width: calc(5.8vw - 2px);
+            height: calc(5.8vw - 2px);
+            background: #231815;
+            transition: background 0.15s ease, transform 0.2s ease;
+        }
+        .matrix-span:hover {
+            background: #f59e0b;
+            transform: scale(1.08);
+            transition: 0s;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.8);
+        }
+        @media (max-width: 900px) {
+            .matrix-span { width: calc(10vw - 2px); height: calc(10vw - 2px); }
+        }
+        @media (max-width: 600px) {
+            .matrix-span { width: calc(20vw - 2px); height: calc(20vw - 2px); }
+        }
+        .lamp-light-pulse {
+            animation: lampPulse 3s ease-in-out infinite;
+        }
+        @keyframes lampPulse {
+            0%, 100% { box-shadow: 0 0 40px 18px rgba(245,158,11,0.65); }
+            50% { box-shadow: 0 0 50px 24px rgba(245,158,11,0.85); }
+        }
+
         /* ─── PASSWORD OVERLAY ─── */
         #passwordOverlay {
             position: fixed;
@@ -132,9 +173,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            overflow: hidden;
         }
         #passwordOverlay.hidden {
             display: none;
@@ -152,7 +191,7 @@
         }
         .password-box .lock-icon {
             font-size: 2.4rem;
-            color: var(--accent-red);
+            color: #f59e0b;
             margin-bottom: 6px;
         }
         .password-box h3 {
@@ -186,8 +225,8 @@
             transition: all var(--transition);
         }
         .password-box input:focus {
-            border-color: rgba(255, 75, 75, 0.2);
-            box-shadow: 0 0 0 3px rgba(255, 75, 75, 0.04);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.08);
         }
         .password-box .btn-unlock {
             width: 100%;
@@ -332,11 +371,11 @@
             transition: all var(--transition);
         }
         .confirm-box .confirm-actions .btn-confirm {
-            background: #f87171;
-            color: #fff;
+            background: #f59e0b;
+            color: #0c0a09;
         }
         .confirm-box .confirm-actions .btn-confirm:hover {
-            background: #ef4444;
+            background: #d97706;
             transform: scale(1.02);
         }
         .confirm-box .confirm-actions .btn-cancel-confirm {
@@ -410,15 +449,15 @@
         .logo-mark .bg-shape {
             position: absolute;
             inset: 0;
-            background: var(--accent-gradient);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: var(--radius-md);
             transform: rotate(12deg);
-            box-shadow: 0 8px 32px rgba(255, 75, 75, 0.25);
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25);
         }
         .logo-mark .bg-shape-2 {
             position: absolute;
             inset: 4px;
-            background: var(--accent-gradient-vertical);
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
             border-radius: var(--radius-lg);
             transform: rotate(-6deg);
             display: flex;
@@ -432,8 +471,8 @@
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
         }
         .logo-mark .bg-shape-2 span {
-            -webkit-text-fill-color: #fff;
             transform: rotate(6deg);
+            font-size: 2.2rem;
         }
 
         .sidebar-brand-text {
@@ -449,7 +488,7 @@
         }
         .sidebar-brand-text .brand-sub {
             font-size: 0.5rem;
-            color: var(--text-muted);
+            color: #f59e0b;
             font-family: var(--font-mono);
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -507,13 +546,13 @@
         }
         .sidebar-nav .nav-item.active {
             color: var(--text-primary);
-            background: rgba(255, 75, 75, 0.04);
+            background: rgba(245, 158, 11, 0.08);
         }
         .sidebar-nav .nav-item.active .nav-icon-wrap {
-            color: var(--accent-red);
+            color: #f59e0b;
         }
         .sidebar-nav .nav-item.active .nav-label {
-            color: var(--accent-red);
+            color: #f59e0b;
             font-weight: 600;
         }
         .sidebar-nav .nav-item.active::before {
@@ -523,7 +562,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: var(--accent-red);
+            background: #f59e0b;
             border-radius: 0 4px 4px 0;
         }
         .sidebar-nav .nav-item.mt-auto {
@@ -531,8 +570,8 @@
         }
         .sidebar-nav .nav-item .nav-badge {
             font-size: 0.4rem;
-            background: var(--accent-red);
-            color: #fff;
+            background: #f59e0b;
+            color: #0c0a09;
             padding: 1px 6px;
             border-radius: var(--radius-full);
             margin-left: 4px;
@@ -563,7 +602,7 @@
             flex-shrink: 0;
         }
         .sidebar-nav .nav-status .status-dot.green {
-            background: #4ade80;
+            background: #22c55e;
         }
         .sidebar-nav .nav-status .status-dot.yellow {
             background: #fbbf24;
@@ -858,8 +897,8 @@
             flex-shrink: 0;
         }
         .stat-card .stat-icon-wrap.red {
-            background: rgba(255, 75, 75, 0.15);
-            color: var(--accent-red);
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
         }
         .stat-card .stat-icon-wrap.green {
             background: rgba(74, 222, 128, 0.15);
@@ -2400,15 +2439,54 @@
     <!-- ============================================================
     PASSWORD OVERLAY
     ============================================================ -->
-    <div id="passwordOverlay">
-        <div class="password-box">
-            <div class="lock-icon"><i class="fas fa-lock"></i></div>
-            <h3 id="loginTitle">Admin Access</h3>
-            <div class="sub"><i class="fas fa-crown"></i> <span id="loginSub">Sunset Cafe · Dashboard</span></div>
-            <input type="password" id="passwordInput" placeholder="Enter admin password" autofocus />
-            <input type="password" id="tokenInput" placeholder="GitHub token (github_pat_…)" style="margin-top:6px;" />
-            <button class="btn-unlock" id="passwordSubmit"><i class="fas fa-key"></i> <span id="loginBtnText">Unlock</span></button>
-            <div class="error-msg" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span id="loginError">Incorrect password or token</span></div>
+    <div id="passwordOverlay" style="background-color:#16100e;background-image:linear-gradient(335deg,rgba(69,26,3,0.45) 0%,rgba(22,16,14,0.96) 100%),repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(0,0,0,0.3) 40px,rgba(0,0,0,0.3) 42px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(0,0,0,0.2) 80px,rgba(0,0,0,0.2) 82px);">
+        <div class="matrix-grid-bg" id="matrixGrid"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(245,158,11,0.35) 0%,rgba(234,88,12,0.15) 40%,transparent 75%);pointer-events:none;z-index:1;"></div>
+        <div style="position:relative;z-index:10;width:100%;max-width:28rem;display:flex;flex-direction:column;align-items:center;padding:1rem;">
+            <!-- Warm Wall Lamp -->
+            <div style="width:9rem;height:3.5rem;background:#2b1810;border-radius:0 0 0.75rem 0.75rem;box-shadow:0 4px 30px rgba(0,0,0,0.8);border-top:2px solid rgba(245,158,11,0.6);position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0.5rem;margin-bottom:-1.5rem;z-index:30;">
+                <div class="lamp-light-pulse" style="width:6rem;height:1rem;background:#fcd34d;border-radius:9999px;"></div>
+            </div>
+            <!-- Glassmorphism Card -->
+            <div style="background:rgba(35,24,21,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(245,158,11,0.2);border-radius:1.5rem;padding:2rem 2rem 1.5rem;box-shadow:0 25px 60px rgba(0,0,0,0.8);width:100%;color:#fde68a;">
+                <div style="text-align:center;margin-bottom:1.5rem;">
+                    <span style="font-size:2.5rem;">&#127749;</span>
+                    <h1 style="font-size:1.5rem;font-weight:700;letter-spacing:0.05em;margin-top:0.5rem;color:#fff;" id="loginTitle">Sunset Café Portal</h1>
+                    <p style="font-size:0.7rem;color:#f59e0b;font-family:monospace;margin-top:0.25rem;">&#9679; Warm Cozy Dining &amp; Secure Access</p>
+                </div>
+                <form id="loginForm" onsubmit="event.preventDefault();" style="display:flex;flex-direction:column;gap:1rem;">
+                    <div style="position:relative;">
+                        <input type="text" id="usernameInput" required placeholder="Username (e.g., admin)" style="width:100%;height:3rem;background:rgba(0,0,0,0.3);border:1px solid rgba(245,158,11,0.3);border-radius:9999px;padding:0 3rem 0 1.25rem;font-size:0.875rem;color:#fff;outline:none;" />
+                        <div style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:rgba(245,158,11,0.6);pointer-events:none;">
+                            <svg style="width:1.25rem;height:1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                        </div>
+                    </div>
+                    <div style="position:relative;">
+                        <input type="password" id="passwordInput" required placeholder="Password" style="width:100%;height:3rem;background:rgba(0,0,0,0.3);border:1px solid rgba(245,158,11,0.3);border-radius:9999px;padding:0 3rem 0 1.25rem;font-size:0.875rem;color:#fff;outline:none;" />
+                        <div id="togglePw" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:rgba(245,158,11,0.6);cursor:pointer;">
+                            <svg style="width:1.25rem;height:1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 1.125h10.5a2.25 2.25 0 012.25 2.25v6.75a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25v-6.75a2.25 2.25 0 012.25-2.25z"/></svg>
+                        </div>
+                    </div>
+                    <div style="position:relative;" id="tokenFieldWrap">
+                        <input type="password" id="tokenInput" placeholder="GitHub token (github_pat_…)" style="width:100%;height:3rem;background:rgba(0,0,0,0.3);border:1px solid rgba(245,158,11,0.3);border-radius:9999px;padding:0 1.25rem;font-size:0.875rem;color:#fff;outline:none;" />
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;padding:0 0.25rem;color:rgba(253,230,138,0.7);">
+                        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                            <input type="checkbox" id="rememberMe" style="border-radius:0.25rem;background:rgba(0,0,0,0.4);border-color:rgba(245,158,11,0.3);accent-color:#f59e0b;width:1rem;height:1rem;" />
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <div style="padding-top:0.5rem;">
+                        <button type="submit" id="passwordSubmit" style="width:100%;height:3rem;background:linear-gradient(to right,#f59e0b,#f97316,#d97706);color:#0c0a09;font-weight:700;font-size:0.875rem;border-radius:9999px;border:none;cursor:pointer;box-shadow:0 0 25px rgba(245,158,11,0.4);transition:all 0.3s;">
+                            <span id="loginBtnText">Sign In &amp; Open Admin &#127749;</span>
+                        </button>
+                    </div>
+                </form>
+                <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:rgba(253,230,138,0.7);">
+                    <span id="loginSub" style="display:none;"></span>
+                </div>
+                <div class="error-msg" id="passwordError" style="display:none;text-align:center;color:#f87171;font-size:0.75rem;margin-top:0.5rem;"><i class="fas fa-exclamation-circle"></i> <span id="loginError">Incorrect credentials</span></div>
+            </div>
         </div>
     </div>
 
@@ -2426,11 +2504,11 @@
                 <div class="sidebar-logo">
                     <div class="logo-mark">
                         <div class="bg-shape"></div>
-                        <div class="bg-shape-2"><span>S</span></div>
+                        <div class="bg-shape-2"><span>🌅</span></div>
                     </div>
                     <div class="sidebar-brand-text">
-                        <span class="brand-name">Sunset Cafe</span>
-                        <span class="brand-sub">Admin Panel</span>
+                        <span class="brand-name">Sunset Café</span>
+                        <span class="brand-sub">ሰንሴት ካፌ & ሬስቶራንት</span>
                     </div>
                 </div>
 
@@ -2446,6 +2524,10 @@
                     <a class="nav-item" data-view="analytics" href="#">
                         <span class="nav-icon-wrap"><i class="fas fa-chart-line"></i></span>
                         <span class="nav-label" data-key="navAnalytics">Analytics</span>
+                    </a>
+                    <a class="nav-item" data-view="settings" href="#">
+                        <span class="nav-icon-wrap"><i class="fas fa-cog"></i></span>
+                        <span class="nav-label" data-key="navSettings">Settings</span>
                     </a>
 
                     <div class="nav-divider"></div>
@@ -2726,7 +2808,48 @@
                         </div>
                     </div>
 
-                </div><!-- /scroll-area -->
+
+                    <!-- ===== SETTINGS VIEW ===== -->
+                    <div id="viewSettings" class="view-container hidden">
+                        <h2 class="text-white text-xl font-semibold mb-4" data-key="navSettings">Settings</h2>
+                        <div style="max-width:500px;">
+                            <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border-color);padding:1.5rem;margin-bottom:1rem;">
+                                <h3 style="font-weight:700;font-size:0.85rem;color:var(--text-primary);margin-bottom:0.75rem;"><i class="fas fa-user-shield" style="color:var(--accent-red);margin-right:8px;"></i> Admin Credentials</h3>
+                                <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                                    <div style="display:flex;flex-direction:column;gap:2px;">
+                                        <label style="font-size:0.55rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;font-family:var(--font-mono);">Username</label>
+                                        <input type="text" id="settingsNewUsername" placeholder="Enter new username" style="padding:0.45rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-input);font-size:0.7rem;color:var(--text-primary);outline:none;width:100%;" />
+                                    </div>
+                                    <div style="display:flex;flex-direction:column;gap:2px;">
+                                        <label style="font-size:0.55rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;font-family:var(--font-mono);">Password</label>
+                                        <input type="password" id="settingsNewPassword" placeholder="Enter new password" style="padding:0.45rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-input);font-size:0.7rem;color:var(--text-primary);outline:none;width:100%;" />
+                                    </div>
+                                    <div style="display:flex;flex-direction:column;gap:2px;">
+                                        <label style="font-size:0.55rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;font-family:var(--font-mono);">Confirm Password</label>
+                                        <input type="password" id="settingsConfirmPassword" placeholder="Confirm new password" style="padding:0.45rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-input);font-size:0.7rem;color:var(--text-primary);outline:none;width:100%;" />
+                                    </div>
+                                    <button id="saveCredentialsBtn" style="padding:0.45rem 1.5rem;border-radius:var(--radius-full);background:var(--accent-gradient);color:#fff;font-weight:600;font-size:0.7rem;border:none;cursor:pointer;align-self:flex-start;margin-top:4px;"><i class="fas fa-save" style="margin-right:6px;"></i> Save Credentials</button>
+                                </div>
+                            </div>
+                            <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border-color);padding:1.5rem;margin-bottom:1rem;">
+                                <h3 style="font-weight:700;font-size:0.85rem;color:var(--text-primary);margin-bottom:0.75rem;"><i class="fas fa-key" style="color:#60a5fa;margin-right:8px;"></i> GitHub Token</h3>
+                                <p style="font-size:0.7rem;color:var(--text-secondary);margin-bottom:0.5rem;">Your GitHub Personal Access Token is saved on this device.</p>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <span id="tokenStatusBadge" style="font-size:0.6rem;padding:3px 10px;border-radius:var(--radius-full);background:rgba(74,222,128,0.1);color:#4ade80;border:1px solid rgba(74,222,128,0.2);">Token saved</span>
+                                    <button id="clearTokenBtn" style="padding:3px 12px;border-radius:var(--radius-full);background:rgba(248,113,113,0.06);border:1px solid rgba(248,113,113,0.15);color:#f87171;font-size:0.55rem;cursor:pointer;">Clear Token</button>
+                                </div>
+                            </div>
+                            <div style="background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border-color);padding:1.5rem;">
+                                <h3 style="font-weight:700;font-size:0.85rem;color:var(--text-primary);margin-bottom:0.75rem;"><i class="fas fa-info-circle" style="color:var(--text-muted);margin-right:8px;"></i> About</h3>
+                                <div style="font-size:0.7rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:6px;">
+                                    <div style="display:flex;justify-content:space-between;"><span>Admin Panel Version</span><span style="color:var(--text-primary);font-weight:500;">4.0</span></div>
+                                    <div style="display:flex;justify-content:space-between;"><span>Repository</span><span style="color:var(--text-primary);font-weight:500;">M1616D/Sunset-Cafe</span></div>
+                                    <div style="display:flex;justify-content:space-between;"><span>Sync Speed</span><span style="color:#4ade80;font-weight:500;">30 seconds</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                </div><!-- /scroll-area -->
             </main>
 
             <!-- ========== RIGHT PANEL ========== -->
@@ -2858,40 +2981,16 @@
             repoOwner: 'M1616D',
             repoName: 'Sunset-Cafe',
             indexFileName: 'index.html',
-            adminPassword: 'sunset2024',
+            adminFileName: 'admin.html',
+            adminPassword: 'sunset@123',
+            adminUsername: 'sunset',
             liveMenuUrl: 'https://m1616d.github.io/Sunset-Cafe/',
         };
 
         // ============================================================
         // DEFAULT MENU (fallback only)
         // ============================================================
-        const DEFAULT_MENU = [
-            { id: 1, name: "Sunset Special Omelet", amName: "ልዩ ኦሜሌት", orName: "Omelet Addaa", category: "Breakfast",
-                price: 400, tags: ["Halal"], description: "A signature omelet with special seasoning and fresh ingredients.",
-                amDescription: "በልዩ ቅመም እና ትኩስ ንጥረ ነገሮች የተዘጋጀ ልዩ ኦሜሌት።",
-                orDescription: "Omelet addaa kan miyoora addaatiin fi qabiyyee haaraadhaan qopheeffame.", available: true,
-                image: "" },
-            { id: 2, name: "Classic Cheeseburger", amName: "ክላሲክ ቺዝበርገር", orName: "Cheeseburger Addaa",
-                category: "Lunch", price: 550, tags: ["Halal", "Bestseller"],
-                description: "Juicy beef patty with cheddar cheese, lettuce, and tomato.",
-                amDescription: "የበሬ ሥጋ በቼዳር አይብ እና አትክልት",
-                orDescription: "Foon qotee kan cheddar cheese, salaatii fi tomato wajjin.", available: true,
-            image: "" },
-            { id: 3, name: "Sunset Pasta", amName: "ሰንሰት ፓስታ", orName: "Pasta Addaa", category: "Dinner", price: 650,
-                tags: ["Vegetarian"], description: "Creamy tomato pasta with fresh basil and parmesan.",
-                amDescription: "ክሬም ቲማቲም ፓስታ ከትኩስ ባሲል እና ፓርሜሳን ጋር",
-                orDescription: "Pasta tomato qeerraa kan basil haaraa fi parmesaan wajjin.", available: true,
-            image: "" },
-            { id: 4, name: "Fresh Juice", amName: "ትኩስ ጭማቂ", orName: "Buna Qara", category: "Drinks", price: 150,
-                tags: ["Vegan"], description: "Freshly squeezed orange and carrot juice.",
-                amDescription: "ትኩስ የብርቱካን እና የካሮት ጭማቂ",
-                orDescription: "Buna qara qaroota fi burtukaanaa haaraa.", available: true, image: "" },
-            { id: 5, name: "Spicy Chicken Wings", amName: "ቅመም የዶሮ ክንፍ", orName: "Qurxummii Luku",
-                category: "Appetizers", price: 300, tags: ["Spicy", "Halal"],
-                description: "Crispy chicken wings tossed in spicy chili sauce.",
-                amDescription: "ቅመም የዶሮ ክንፍ በቺሊ መረቅ",
-                orDescription: "Qurxummii luku kan miyoora chili qeerratti.", available: true, image: "" }
-        ];
+                const DEFAULT_MENU = [];
 
         // ============================================================
         // TRANSLATIONS
@@ -2906,6 +3005,7 @@
                 navMenu: "Menu Items",
                 navCategories: "Categories",
                 navAnalytics: "Analytics",
+                navSettings: "Settings",
                 navLogout: "Logout",
                 dashboardTitle: "Menu Management",
                 dashboardSub: "Manage your restaurant menu",
@@ -3010,6 +3110,7 @@
                 navMenu: "ምናሌ ዕቃዎች",
                 navCategories: "ምድቦች",
                 navAnalytics: "ትንታኔ",
+                navSettings: "ማስኬጃ",
                 navLogout: "ውጣ",
                 dashboardTitle: "ምናሌ አስተዳደር",
                 dashboardSub: "የሬስቶራንት ምናሌዎን ያስተዳድሩ",
@@ -3114,6 +3215,7 @@
                 navMenu: "Meenyaa",
                 navCategories: "Ramaddii",
                 navAnalytics: "Xiinxala",
+                navSettings: "Qindaa'ina",
                 navLogout: "Baasuu",
                 dashboardTitle: "Meejii Meenyaa",
                 dashboardSub: "Meenyaa mana nyaataa keessan bulchaa",
@@ -3230,6 +3332,7 @@
         const $$ = (s) => document.querySelectorAll(s);
 
         const passwordOverlay = $('#passwordOverlay');
+        const usernameInput = $('#usernameInput');
         const passwordInput = $('#passwordInput');
         const tokenInput = $('#tokenInput');
         const passwordSubmit = $('#passwordSubmit');
@@ -3302,6 +3405,7 @@
         const viewOverview = $('#viewOverview');
         const viewCategories = $('#viewCategories');
         const viewAnalytics = $('#viewAnalytics');
+        const viewSettings = $('#viewSettings');
         const categoryGrid = $('#categoryGrid');
         const analyticsTotal = $('#analyticsTotal');
         const analyticsAvailable = $('#analyticsAvailable');
@@ -3481,6 +3585,7 @@
             viewOverview.classList.add('hidden');
             viewCategories.classList.add('hidden');
             viewAnalytics.classList.add('hidden');
+            if (viewSettings) viewSettings.classList.add('hidden');
 
             if (view === 'menu') {
                 viewOverview.classList.remove('hidden');
@@ -3500,6 +3605,11 @@
                 viewTitle.textContent = t('navAnalytics');
                 viewSub.textContent = 'Performance insights';
                 renderAnalytics();
+                closeMobileSidebar();
+            } else if (view === 'settings') {
+                if (viewSettings) viewSettings.classList.remove('hidden');
+                viewTitle.textContent = t('navSettings') || 'Settings';
+                viewSub.textContent = 'Manage your admin credentials';
                 closeMobileSidebar();
             }
 
@@ -3742,6 +3852,7 @@
         // LOAD
         // ============================================================
         async function loadMenu() {
+            // Only read from GitHub repo
             try {
                 const { content, sha } = await fetchFileFromGitHub();
                 const data = extractMenuData(content);
@@ -4297,14 +4408,23 @@
         // EVENT LISTENERS
         // ============================================================
         function handleLogin() {
+            const uname = (usernameInput ? usernameInput.value.trim() : '');
             const pw = passwordInput.value.trim();
             const tk = tokenInput.value.trim();
             passwordError.classList.remove('show');
 
-            if (pw === CONFIG.adminPassword && tk.startsWith('github_pat_')) {
-                token = tk;
-                sessionStorage.setItem('github_token', tk);
-                sessionStorage.setItem('admin_password', pw);
+            // Read credentials from CONFIG (stored in code, not localStorage)
+            const userOk = uname === CONFIG.adminUsername;
+            const pwOk = pw === CONFIG.adminPassword;
+            const savedTokenVal = localStorage.getItem('sunset_admin_token') || '';
+            const tkOk = tk.startsWith('github_pat_') || savedTokenVal.startsWith('github_pat_');
+
+            if (userOk && pwOk && tkOk) {
+                token = tk || savedTokenVal;
+                // Save token to localStorage (asked once per device)
+                if (tk && tk.startsWith('github_pat_')) {
+                    localStorage.setItem('sunset_admin_token', tk);
+                }
                 passwordOverlay.classList.add('hidden');
                 adminContent.classList.add('active');
                 loadMenu().then(sha => {
@@ -4313,31 +4433,51 @@
                     window._currentSha = sha;
                 });
             } else {
+                let errMsg = t('loginError');
+                if (!userOk) errMsg = 'Invalid username';
+                else if (!pwOk) errMsg = 'Invalid password';
+                else if (!tkOk) errMsg = 'Invalid GitHub token';
+                passwordError.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + errMsg;
                 passwordError.classList.add('show');
-                passwordError.textContent = t('loginError');
                 passwordInput.value = '';
-                tokenInput.value = '';
+                if (!savedTokenVal) tokenInput.value = '';
                 passwordInput.focus();
             }
+        }
+
+
+        // Password visibility toggle
+        const togglePwEl = document.getElementById('togglePw');
+        if (togglePwEl) {
+            togglePwEl.addEventListener('click', () => {
+                const isPw = passwordInput.type === 'password';
+                passwordInput.type = isPw ? 'text' : 'password';
+            });
         }
 
         passwordSubmit.addEventListener('click', handleLogin);
         passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
         tokenInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
 
-        // Restore session
-        const savedToken = sessionStorage.getItem('github_token');
-        const savedPassword = sessionStorage.getItem('admin_password');
-        if (savedToken && savedPassword === CONFIG.adminPassword) {
-            token = savedToken;
-            passwordOverlay.classList.add('hidden');
-            adminContent.classList.add('active');
-            loadMenu().then(sha => {
-                lastUpdatedEl.textContent = new Date().toLocaleString();
-                showToast(t('toastWelcomeBack'), 'success');
-                window._currentSha = sha;
-            });
+        // Restore session - only token from localStorage, credentials from CONFIG
+        const savedToken = localStorage.getItem('sunset_admin_token') || '';
+
+        // Auto-fill username from CONFIG
+        if (usernameInput) usernameInput.value = CONFIG.adminUsername;
+
+        // If token is saved, hide token field and show note
+        if (savedToken && savedToken.startsWith('github_pat_')) {
+            tokenInput.value = savedToken;
+            const tokenWrap = document.getElementById('tokenInput');
+            if (tokenWrap) tokenWrap.style.display = 'none';
+            const note = document.createElement('div');
+            note.style.cssText = 'font-size:0.65rem;color:#4ade80;margin-bottom:8px;display:flex;align-items:center;gap:4px;';
+            note.innerHTML = '<i class="fas fa-check-circle"></i> GitHub token saved on this device';
+            tokenWrap.parentNode.insertBefore(note, tokenWrap.nextSibling);
         }
+
+        // No auto-login - always require username+password
+        // (token is saved but password is not)
 
         // ─── Dark Mode ───
         function toggleTheme() {
@@ -4362,14 +4502,21 @@
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             showConfirm(t('confirmLogoutTitle'), t('confirmLogoutMsg'), () => {
-                sessionStorage.removeItem('github_token');
-                sessionStorage.removeItem('admin_password');
+                
+                // Only clear token from localStorage
+                
                 token = '';
                 adminContent.classList.remove('active');
                 passwordOverlay.classList.remove('hidden');
                 passwordInput.value = '';
                 tokenInput.value = '';
+                if (usernameInput) usernameInput.value = CONFIG.adminUsername;
                 passwordInput.focus();
+                // Reset token field visibility
+                const tokenEl = document.getElementById('tokenInput');
+                if (tokenEl) tokenEl.style.display = '';
+                const notes = document.querySelectorAll('div[style*="4ade80"]');
+                notes.forEach(n => { if (n.textContent.includes('token saved')) n.remove(); });
                 showToast(t('toastLogout'), 'info');
                 closeMobileSidebar();
             });
@@ -4504,6 +4651,67 @@
             showToast('🔔 No new notifications', 'info');
         });
 
+
+        // ─── Settings: Save Credentials ───
+        const saveCredentialsBtn = document.getElementById('saveCredentialsBtn');
+        const clearTokenBtn = document.getElementById('clearTokenBtn');
+        if (saveCredentialsBtn) {
+            saveCredentialsBtn.addEventListener('click', async () => {
+                const newU = document.getElementById('settingsNewUsername').value.trim();
+                const newP = document.getElementById('settingsNewPassword').value.trim();
+                const confP = document.getElementById('settingsConfirmPassword').value.trim();
+                if (!newU && !newP) { showToast('Please enter a new username or password', 'warning'); return; }
+                if (newU && newU.length < 3) { showToast('Username must be at least 3 chars', 'warning'); return; }
+                if (newP && newP.length < 4) { showToast('Password must be at least 4 chars', 'warning'); return; }
+                if (newP && newP !== confP) { showToast('Passwords do not match', 'error'); return; }
+                if (!token) { showToast('GitHub token required to save credentials', 'error'); return; }
+                try {
+                    showToast('Saving to GitHub...', 'info');
+                    const { content: adminSrc, sha } = await fetchFileFromGitHub();
+                    let newSrc = adminSrc;
+                    if (newU) {
+                        newSrc = newSrc.replace(/adminUsername:\s*'[^']*'/, "adminUsername: '" + newU.replace(/'/g, "'") + "'");
+                        CONFIG.adminUsername = newU;
+                        showToast('Username updated in source code!', 'success');
+                        document.getElementById('settingsNewUsername').value = '';
+                    }
+                    if (newP) {
+                        newSrc = newSrc.replace(/adminPassword:\s*'[^']*'/, "adminPassword: '" + newP.replace(/'/g, "'") + "'");
+                        CONFIG.adminPassword = newP;
+                        showToast('Password updated in source code!', 'success');
+                        document.getElementById('settingsNewPassword').value = '';
+                        document.getElementById('settingsConfirmPassword').value = '';
+                    }
+                    await updateFileOnGitHub(newSrc, sha, 'Update admin credentials');
+                    showToast('Credentials saved to GitHub!', 'success');
+                } catch (err) {
+                    showToast('Failed to save: ' + err.message, 'error');
+                }
+            });
+        }
+        if (clearTokenBtn) {
+            clearTokenBtn.addEventListener('click', () => {
+                localStorage.removeItem('sunset_admin_token');
+                token = '';
+                document.getElementById('tokenStatusBadge').textContent = 'Token cleared';
+                document.getElementById('tokenStatusBadge').style.color = '#f87171';
+                showToast('Token cleared. Re-enter on next login.', 'info');
+            });
+        }
+
+        // ============================================================
+        // MATRIX GRID (login background)
+        // ============================================================
+        (function initMatrixGrid() {
+            const grid = document.getElementById('matrixGrid');
+            if (!grid) return;
+            for (let i = 0; i < 140; i++) {
+                const span = document.createElement('span');
+                span.className = 'matrix-span';
+                grid.appendChild(span);
+            }
+        })();
+
         // ============================================================
         // INIT
         // ============================================================
@@ -4529,9 +4737,8 @@
             });
         } catch (_) {}
 
-        // Poll every 30 seconds as fallback
+        // Poll every 10 seconds for fast sync
         setInterval(() => {
-            const oldLen = menuData.length;
             const oldHash = menuData.reduce((s, i) => s + i.id + i.name + i.price, '');
             loadMenu().then(() => {
                 const newHash = menuData.reduce((s, i) => s + i.id + i.name + i.price, '');
