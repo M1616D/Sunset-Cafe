@@ -5454,8 +5454,11 @@
         }
 
         function getItemImage(item) {
-            if (item.image) return item.image;
+            // Try local images/ folder first, then item.image (Unsplash/admin), then fallback
             return `images/${item.id}.webp`;
+        }
+        function getFallbackImage(item) {
+            return (item.image && item.image.trim()) ? item.image : '';
         }
 
         function getTranslation(key) {
@@ -5618,7 +5621,7 @@
                         <div class="card-placeholder">
                             <div class="placeholder-bg"></div>
                             ${badgeTag ? `<span class="badge-tag">${badgeTag}</span>` : ''}
-                            <img src="${imgSrc}" alt="${displayName}" class="card-img" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-icon').style.display='flex';" loading="lazy" />
+                            <img src="${imgSrc}" alt="${displayName}" class="card-img" data-fallback="${getFallbackImage(item)}" onerror="if(this.dataset.triedFallback!=='1'&&this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback;}else{this.style.display='none';this.parentElement.querySelector('.fallback-icon').style.display='flex';}" loading="lazy" />
                             <div class="fallback-icon" style="display:none;"><i class="fas fa-utensils"></i><span>${fallbackText}</span></div>
                             <span class="badge-price">ETB ${item.price}</span>
                         </div>
@@ -5645,8 +5648,13 @@
             modalImage.style.display = 'block';
             modalNoImage.style.display = 'none';
             modalImage.onerror = function() {
-                this.style.display = 'none';
-                modalNoImage.style.display = 'flex';
+                if (this.dataset.triedFallback !== '1' && item.image && item.image.trim()) {
+                    this.dataset.triedFallback = '1';
+                    this.src = item.image;
+                } else {
+                    this.style.display = 'none';
+                    modalNoImage.style.display = 'flex';
+                }
             };
 
             let badgeTag = '';
