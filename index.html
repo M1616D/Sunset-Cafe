@@ -83,12 +83,14 @@
         html {
             scroll-behavior: smooth;
             -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
         }
         body {
             font-family: var(--font-sans);
             background: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
+            overflow-wrap: break-word;
             min-height: 100vh;
             padding-top: var(--header-height);
             width: 100%;
@@ -1118,9 +1120,7 @@
             border-bottom: 1px solid var(--glass-border);
             transition: all var(--transition-medium);
             padding: 4px 0 0;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            width: 100vw;
+            width: 100%;
             scrollbar-width: none;
         }
         .category-bar-wrapper::-webkit-scrollbar {
@@ -1490,11 +1490,6 @@
             color: #f87171;
             border-color: #f8717133;
             background: #f8717108;
-        }
-        .menu-card .card-body .food-tags .tag.halal {
-            color: #a78bfa;
-            border-color: #a78bfa33;
-            background: #a78bfa08;
         }
         .menu-card .card-body .food-tags .tag.vegetarian {
             color: #60a5fa;
@@ -1954,11 +1949,6 @@
             color: #f87171;
             border-color: #f8717133;
             background: #f8717108;
-        }
-        .detail-modal .modal-body .modal-tags .tag.halal {
-            color: #a78bfa;
-            border-color: #a78bfa33;
-            background: #a78bfa08;
         }
         .detail-modal .modal-body .modal-tags .tag.vegetarian {
             color: #60a5fa;
@@ -2428,45 +2418,57 @@
 
         /* ===== MOBILE HEADER ===== */
         @media (max-width: 576px) {
-            :root { --header-height: 60px; }
-            .header-brand .brand-name { font-size: 0.9rem; }
+            :root { --header-height: 56px; }
+            body { padding-top: 56px; }
+            .header-brand .brand-name { font-size: 0.85rem; font-weight: 700; }
             .header-brand .brand-badge { display: none; }
             .header-brand .live-indicator { display: none; }
-            .hero-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
-            .hero-subtitle { font-size: 0.9rem !important; padding: 0 10px; }
-            .hero-actions { flex-direction: column; gap: 8px; }
-            .btn-hero { width: 100%; justify-content: center; padding: 12px 24px; }
-            .hero-stats { gap: 12px; }
-            .hero-rating { gap: 8px; }
+            .hero-section { min-height: 60vh; }
+            .hero-title { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; line-height: 1.1; }
+            .hero-subtitle { font-size: 0.8rem !important; padding: 0 8px; line-height: 1.5; }
+            .hero-actions { flex-direction: column; gap: 6px; }
+            .btn-hero { width: 100%; justify-content: center; padding: 10px 20px; font-size: 0.75rem; }
+            .hero-stats { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .hero-rating { gap: 6px; }
             .hero-rating .divider { display: none; }
-            .trust-bar { padding: 12px 0; }
-            .trust-grid { gap: 8px !important; }
-            .trust-item { font-size: 0.55rem; }
-            .category-bar .cat-btn { padding: 6px 12px; font-size: 0.6rem; min-height: 30px; }
-            .filter-bar { gap: 6px; padding: 8px 0 4px; }
-            .filter-bar .filter-btn { padding: 4px 8px; font-size: 0.55rem; }
-            .search-wrap .search-input { font-size: 0.8rem; min-height: 42px; }
-            .menu-grid.grid-view { gap: 10px !important; }
-            .menu-card .card-body { padding: 10px 12px 12px; }
-            .menu-card .card-body .food-name { font-size: 0.8rem !important; }
-            .menu-card .card-body .food-price { font-size: 0.9rem !important; }
-            .menu-card .card-body .food-category { font-size: 0.45rem; }
-            .category-section .section-header h3 { font-size: 1rem; }
-            .category-section .section-header .cat-icon { width: 30px; height: 30px; font-size: 0.75rem; }
-            .container { padding: 0 12px !important; }
+            .trust-bar { padding: 8px 0; }
+            .trust-grid { gap: 6px !important; }
+            .trust-item { font-size: 0.5rem; }
+            .category-bar-wrapper { width: 100%; }
+            .category-bar { gap: 3px; padding: 4px 10px 8px; }
+            .category-bar .cat-btn { padding: 5px 10px; font-size: 0.6rem; min-height: 28px; border-radius: 20px; }
+            .filter-bar { gap: 4px; padding: 6px 0 4px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+            .filter-bar::-webkit-scrollbar { display: none; }
+            .filter-bar .filter-btn { padding: 4px 10px; font-size: 0.55rem; flex-shrink: 0; }
+            .search-wrap .search-input { font-size: 0.8rem; min-height: 40px; }
+            .container { padding: 0 10px !important; }
+            .menu-grid.grid-view { gap: 8px !important; grid-template-columns: repeat(2, 1fr) !important; }
+            .menu-card .card-placeholder { padding-top: 65%; }
+            .menu-card .card-body { padding: 8px 10px 10px; }
+            .menu-card .card-body .food-name { font-size: 0.72rem !important; font-weight: 600; line-height: 1.2; }
+            .menu-card .card-body .food-amharic { font-size: 0.55rem !important; display: none; }
+            .menu-card .card-body .food-price { font-size: 0.8rem !important; }
+            .menu-card .card-body .food-category { display: none; }
+            .menu-card .card-body .food-tags { display: none; }
+            .category-section { padding-top: 20px; }
+            .category-section .section-header h3 { font-size: 0.9rem; }
+            .category-section .section-header .cat-icon { width: 28px; height: 28px; font-size: 0.7rem; }
             .detail-modal { max-height: 92vh; border-radius: 12px; }
             .back-to-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
-            .toast-custom { font-size: 0.7rem; padding: 8px 14px; }
-            .footer-grid { grid-template-columns: 1fr !important; gap: 20px !important; text-align: center; }
+            .toast-custom { font-size: 0.65rem; padding: 6px 12px; }
+            .footer-grid { grid-template-columns: 1fr !important; gap: 16px !important; text-align: center; }
             .footer-grid .footer-col { align-items: center; }
             .about-grid { grid-template-columns: 1fr !important; }
             .about-contact-card { grid-column: 1 / -1 !important; }
+            .hero-glow { display: none; }
+            .header-actions .icon-btn { width: 30px; height: 30px; font-size: 0.7rem; }
         }
 
         @media (min-width: 577px) and (max-width: 768px) {
             .hero-title { font-size: clamp(2.2rem, 6vw, 3.5rem) !important; }
-            .menu-grid.grid-view { grid-template-columns: repeat(2, 1fr) !important; }
+            .menu-grid.grid-view { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
             .container { padding: 0 16px !important; }
+            .menu-card .card-body .food-amharic { display: none; }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -2907,7 +2909,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Sunset Cafe. <span data-i18n="footerRights">All rights reserved.</span> <span style="color:var(--accent-gold);opacity:0.4;">|</span> <span data-i18n="footerTagline">Ethiopia's #1 QR Scan Menu</span></p>
-                <p class="triverse-credit"><span data-i18n="builtBy">Built by</span> <a href="https://better-homeowners-128161-7d892baba.framer.app/" target="_blank" rel="noopener noreferrer">Triverse Studio</a></p>
+                <p class="triverse-credit"><span data-i18n="builtBy">Built by</span> <a href="https://m1616d.github.io/Triverse-Studio/" target="_blank" rel="noopener noreferrer">Triverse Studio</a></p>
             </div>
         </div>
     </footer>
@@ -2950,7 +2952,6 @@
     "category": "Breakfast",
     "price": 540,
     "tags": [
-      "Halal",
       "Chef Special"
     ],
     "description": "A signature omelet with special seasoning.",
@@ -2967,7 +2968,6 @@
     "category": "Breakfast",
     "price": 460,
     "tags": [
-      "Halal",
       "Vegetarian"
     ],
     "description": "Fluffy omelet filled with melted cheese.",
@@ -2984,7 +2984,7 @@
     "category": "Breakfast",
     "price": 430,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Special chechebsa with premium spices.",
     "amDescription": "በፕሪሚየም ቅመሞች የተዘጋጀ ልዩ ቸቸብሳ።",
@@ -3000,7 +3000,7 @@
     "category": "Breakfast",
     "price": 350,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Classic chechebsa with traditional seasoning.",
     "amDescription": "በባህላዊ ቅመም የተዘጋጀ ክላሲክ ቸቸብሳ።",
@@ -3016,7 +3016,6 @@
     "category": "Breakfast",
     "price": 450,
     "tags": [
-      "Halal",
       "Gluten-Free"
     ],
     "description": "Premium teff chechebsa with special spices.",
@@ -3033,7 +3032,6 @@
     "category": "Breakfast",
     "price": 380,
     "tags": [
-      "Halal",
       "Gluten-Free"
     ],
     "description": "Teff-based chechebsa with authentic spices.",
@@ -3050,7 +3048,7 @@
     "category": "Breakfast",
     "price": 450,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Special fetira with a unique blend of flavors.",
     "amDescription": "በልዩ ጣዕም ድብልቅ የተዘጋጀ ልዩ ፈጢራ።",
@@ -3066,7 +3064,7 @@
     "category": "Breakfast",
     "price": 380,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Traditional fetira.",
     "amDescription": "ባህላዊ ፈጢራ።",
@@ -3082,7 +3080,7 @@
     "category": "Breakfast",
     "price": 390,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Egg sandwich with fresh ingredients.",
     "amDescription": "በትኩስ ንጥረ ነገሮች የተዘጋጀ የእንቁላል ሳንድዊች።",
@@ -3098,7 +3096,6 @@
     "category": "Breakfast",
     "price": 380,
     "tags": [
-      "Halal",
       "Vegetarian"
     ],
     "description": "Perfectly scrambled eggs, soft and fluffy.",
@@ -3115,7 +3112,6 @@
     "category": "Breakfast",
     "price": 380,
     "tags": [
-      "Halal",
       "Vegetarian"
     ],
     "description": "Eggs cooked with fresh tomatoes.",
@@ -3132,7 +3128,7 @@
     "category": "Breakfast",
     "price": 490,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Eggs served with seasoned beef.",
     "amDescription": "በቅመም ከተዘጋጀ የበሬ ሥጋ ጋር የቀረበ እንቁላል።",
@@ -3196,7 +3192,6 @@
     "category": "Traditional Foods",
     "price": 999,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Goat tibs with authentic Ethiopian spices.",
@@ -3213,7 +3208,6 @@
     "category": "Traditional Foods",
     "price": 520,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Firfir with kuanta (dried beef) for a rich flavor.",
@@ -3230,7 +3224,6 @@
     "category": "Traditional Foods",
     "price": 520,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Spicy firfir with tender tibs.",
@@ -3247,7 +3240,6 @@
     "category": "Traditional Foods",
     "price": 650,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Prime chikina tibs with authentic Ethiopian spices.",
@@ -3342,7 +3334,7 @@
     "category": "Traditional Foods",
     "price": 445,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Half and half combination dish.",
     "amDescription": "ሀፍ ሀፍ ድብልቅ ምግብ።",
@@ -3358,7 +3350,6 @@
     "category": "Traditional Foods",
     "price": 450,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Qosta-style tibs.",
@@ -3462,7 +3453,6 @@
     "category": "Traditional Foods",
     "price": 440,
     "tags": [
-      "Halal",
       "Spicy"
     ],
     "description": "Traditional gomen kitfo.",
@@ -3511,7 +3501,7 @@
     "category": "Traditional Foods",
     "price": 720,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Fish goulash with rich sauce.",
     "amDescription": "በጣፋጭ ሳስ የተዘጋጀ ዓሳ ጉላሽ።",
@@ -3527,7 +3517,7 @@
     "category": "Traditional Foods",
     "price": 590,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Crispy fish cutlet.",
     "amDescription": "ተራራሽ ዓሳ ኮትሌት።",
@@ -3559,7 +3549,6 @@
     "category": "Burger",
     "price": 790,
     "tags": [
-      "Halal",
       "Chef Special"
     ],
     "description": "Our signature burger with premium ingredients.",
@@ -3576,7 +3565,7 @@
     "category": "Burger",
     "price": 850,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Chicken burger with melted cheese.",
     "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የዶሮ በርገር።",
@@ -3592,7 +3581,7 @@
     "category": "Burger",
     "price": 780,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Double patty burger with double cheese.",
     "amDescription": "በድብል ቺዝ የተዘጋጀ ድብል ፓቲ በርገር።",
@@ -3608,7 +3597,7 @@
     "category": "Burger",
     "price": 720,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Two juicy beef patties stacked high.",
     "amDescription": "ሁለት ጭማቂ የበሬ ፓቲዎች ተደራርበው።",
@@ -3624,7 +3613,7 @@
     "category": "Burger",
     "price": 580,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Beef burger with melted cheese.",
     "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የበሬ በርገር።",
@@ -3640,7 +3629,7 @@
     "category": "Burger",
     "price": 530,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Classic beef burger with fresh toppings.",
     "amDescription": "በትኩስ አይነቶች የተዘጋጀ ክላሲክ የበሬ በርገር።",
@@ -3656,7 +3645,7 @@
     "category": "Burger",
     "price": 670,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Grilled chicken fillet with fresh toppings.",
     "amDescription": "በትኩስ አይነቶች የተዘጋጀ የተጠበሰ የዶሮ ፊሌት።",
@@ -3688,7 +3677,7 @@
     "category": "Pizza",
     "price": 850,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Tuna pizza with special toppings.",
     "amDescription": "በልዩ አይነቶች የተዘጋጀ ቱና ፒዛ።",
@@ -3704,7 +3693,7 @@
     "category": "Pizza",
     "price": 730,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Classic pepperoni pizza with mozzarella.",
     "amDescription": "በሞዛሬላ የተዘጋጀ ክላሲክ ፔፔሮኒ ፒዛ።",
@@ -3720,7 +3709,7 @@
     "category": "Pizza",
     "price": 700,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Loaded with beef and savory toppings.",
     "amDescription": "በበሬ እና ጣፋጭ አይነቶች የተሞላ ፒዛ።",
@@ -3736,7 +3725,7 @@
     "category": "Pizza",
     "price": 849,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Pizza topped with seasoned chicken.",
     "amDescription": "በቅመም በተዘጋጀ ዶሮ የተሸፈነ ፒዛ።",
@@ -3812,7 +3801,7 @@
     "category": "Sandwich",
     "price": 699,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Classic club sandwich with premium fillings.",
     "amDescription": "በፕሪሚየም ማ賦ያዎች የተዘጋጀ ክላሲክ ክለብ ሳንድዊች።",
@@ -3872,7 +3861,7 @@
     "category": "Sandwich",
     "price": 710,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Grilled chicken sandwich.",
     "amDescription": "የተጠበሰ የዶሮ ሳንድዊች።",
@@ -3888,7 +3877,7 @@
     "category": "Sandwich",
     "price": 770,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Chicken sandwich with cheese.",
     "amDescription": "በቺዝ የተዘጋጀ የዶሮ ሳንድዊች።",
@@ -3904,7 +3893,7 @@
     "category": "Sandwich",
     "price": 580,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Fish sandwich with fresh ingredients.",
     "amDescription": "በትኩስ ንጥረ ነገሮች የተዘጋጀ ዓሳ ሳንድዊች።",
@@ -3936,7 +3925,7 @@
     "category": "Sandwich",
     "price": 520,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Beef sandwich with fresh toppings.",
     "amDescription": "በትኩስ አይነቶች የተዘጋጀ የበሬ ሳንድዊች።",
@@ -3952,7 +3941,7 @@
     "category": "Wraps",
     "price": 780,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Special chicken wrap with premium fillings.",
     "amDescription": "በፕሪሚየም ማ賦ያዎች የተዘጋጀ ልዩ የዶሮ ራፕ።",
@@ -3968,7 +3957,7 @@
     "category": "Wraps",
     "price": 499,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Beef wrapped in a soft tortilla.",
     "amDescription": "በለስላሳ ቶርቲላ ውስጥ የተሸፈነ የበሬ ራፕ።",
@@ -3984,7 +3973,7 @@
     "category": "Wraps",
     "price": 570,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Beef wrap with melted cheese.",
     "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የበሬ ራፕ።",
@@ -4000,7 +3989,7 @@
     "category": "Wraps",
     "price": 570,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Premium steak wrapped with fresh vegetables.",
     "amDescription": "በትኩስ አትክልቶች የተሸፈነ ፕሪሚየም ስቲክ ራፕ።",
@@ -4016,7 +4005,7 @@
     "category": "Wraps",
     "price": 610,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Steak wrap with cheese and savory sauce.",
     "amDescription": "በቺዝ እና ጣፋጭ ሳስ የተዘጋጀ ስቲክ ራፕ።",
@@ -4032,7 +4021,7 @@
     "category": "Wraps",
     "price": 610,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Grilled chicken wrap with fresh veggies.",
     "amDescription": "በትኩስ አትክልቶች የተዘጋጀ የተጠበሰ የዶሮ ራፕ።",
@@ -4048,7 +4037,7 @@
     "category": "Wraps",
     "price": 660,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Chicken wrap with melted cheese.",
     "amDescription": "በቀለጠ ቺዝ የተዘጋጀ የዶሮ ራፕ።",
@@ -4080,7 +4069,7 @@
     "category": "Soup",
     "price": 510,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Hearty chicken soup.",
     "amDescription": "ጤናማ የዶሮ ሾርባ።",
@@ -4462,7 +4451,7 @@
     "category": "Extra",
     "price": 120,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Extra beef topping.",
     "amDescription": "ተጨማሪ በሬ ሥጋ አይነት።",
@@ -4494,7 +4483,7 @@
     "category": "Extra",
     "price": 50,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Extra egg topping.",
     "amDescription": "ተጨማሪ እንቁላል አይነት።",
@@ -4526,7 +4515,7 @@
     "category": "Extra",
     "price": 160,
     "tags": [
-      "Halal"
+      
     ],
     "description": "Extra chicken topping.",
     "amDescription": "ተጨማሪ ዶሮ ሥጋ አይነት።",
@@ -5497,7 +5486,7 @@
         // HELPERS
         // ============================================================
         function getTagClass(tag) {
-            const map = { 'Vegan': 'vegan', 'Spicy': 'spicy', 'Halal': 'halal', 'Vegetarian': 'vegetarian',
+            const map = { 'Vegan': 'vegan', 'Spicy': 'spicy', 'Vegetarian': 'vegetarian',
                 'Fasting': 'fasting', 'Gluten-Free': 'gluten-free', 'Chef Special': 'chef-special',
                 'Bestseller': 'bestseller' };
             return map[tag] || '';
