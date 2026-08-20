@@ -18,14 +18,14 @@
             theme: {
                 extend: {
                     colors: {
-                        appBg: '#1c120f',
-                        sidebarBg: '#211612',
-                        cardBg: '#261b16',
-                        accentRed: '#f59e0b',
+                        appBg: '#232323',
+                        sidebarBg: '#2c2c2c',
+                        cardBg: '#1f1f1f',
+                        accentRed: '#ff4b4b',
                         textMain: '#ffffff',
                         textMuted: '#9ca3af',
-                        inputBg: '#2b1c16',
-                        panelBg: '#382a1e'
+                        inputBg: '#2a2a2a',
+                        panelBg: '#383838'
                     },
                     borderRadius: { '4xl': '2.5rem' }
                 }
@@ -34,18 +34,18 @@
 
         /* ─── ROOT ─── */
         :root {
-            --bg-app: #1c120f;
-            --bg-sidebar: #211612;
-            --bg-card: #261b16;
-            --bg-input: #2b1c16;
+            --bg-app: #232323;
+            --bg-sidebar: #2c2c2c;
+            --bg-card: #1f1f1f;
+            --bg-input: #2a2a2a;
             --text-primary: #ffffff;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
-            --accent-red: #f59e0b;
-            --accent-red-dark: #d97706;
-            --accent-gradient: linear-gradient(135deg, #f59e0b, #f97316);
-            --accent-gradient-vertical: linear-gradient(to bottom, #f59e0b, #d97706);
-            --border-color: #3d2a1a;
+            --accent-red: #ff4b4b;
+            --accent-red-dark: #e03a3a;
+            --accent-gradient: linear-gradient(135deg, #ff4b4b, #ff7a7a);
+            --accent-gradient-vertical: linear-gradient(to bottom, #ff4b4b, #e03a3a);
+            --border-color: #333333;
             --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
             --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
             --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -86,7 +86,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #16100e;
+            background-color: #2b1f1f;
             background-image: radial-gradient(circle at center, #3a2222 0%, #1a1a1a 100%);
             display: flex;
             justify-content: center;
@@ -109,7 +109,7 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #451a03;
+            background: #444;
             border-radius: 10px;
         }
 
@@ -191,7 +191,7 @@
         }
         .password-box .lock-icon {
             font-size: 2.4rem;
-            color: #f59e0b;
+            color: var(--accent-red);
             margin-bottom: 6px;
         }
         .password-box h3 {
@@ -225,8 +225,8 @@
             transition: all var(--transition);
         }
         .password-box input:focus {
-            border-color: rgba(245, 158, 11, 0.4);
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.08);
+            border-color: rgba(255, 75, 75, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 75, 75, 0.04);
         }
         .password-box .btn-unlock {
             width: 100%;
@@ -371,11 +371,11 @@
             transition: all var(--transition);
         }
         .confirm-box .confirm-actions .btn-confirm {
-            background: #f59e0b;
-            color: #0c0a09;
+            background: var(--accent-red);
+            color: #fff;
         }
         .confirm-box .confirm-actions .btn-confirm:hover {
-            background: #d97706;
+            background: #ef4444;
             transform: scale(1.02);
         }
         .confirm-box .confirm-actions .btn-cancel-confirm {
@@ -449,15 +449,15 @@
         .logo-mark .bg-shape {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: var(--accent-gradient);
             border-radius: var(--radius-md);
             transform: rotate(12deg);
-            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25);
+            box-shadow: 0 8px 32px rgba(255, 75, 75, 0.25);
         }
         .logo-mark .bg-shape-2 {
             position: absolute;
             inset: 4px;
-            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            background: var(--accent-gradient-vertical);
             border-radius: var(--radius-lg);
             transform: rotate(-6deg);
             display: flex;
@@ -488,7 +488,7 @@
         }
         .sidebar-brand-text .brand-sub {
             font-size: 0.5rem;
-            color: #f59e0b;
+            color: var(--accent-red);
             font-family: var(--font-mono);
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -546,13 +546,13 @@
         }
         .sidebar-nav .nav-item.active {
             color: var(--text-primary);
-            background: rgba(245, 158, 11, 0.08);
+            background: rgba(255, 75, 75, 0.04);
         }
         .sidebar-nav .nav-item.active .nav-icon-wrap {
-            color: #f59e0b;
+            color: var(--accent-red);
         }
         .sidebar-nav .nav-item.active .nav-label {
-            color: #f59e0b;
+            color: var(--accent-red);
             font-weight: 600;
         }
         .sidebar-nav .nav-item.active::before {
@@ -562,7 +562,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: #f59e0b;
+            background: var(--accent-red);
             border-radius: 0 4px 4px 0;
         }
         .sidebar-nav .nav-item.mt-auto {
@@ -570,8 +570,8 @@
         }
         .sidebar-nav .nav-item .nav-badge {
             font-size: 0.4rem;
-            background: #f59e0b;
-            color: #0c0a09;
+            background: var(--accent-red);
+            color: #fff;
             padding: 1px 6px;
             border-radius: var(--radius-full);
             margin-left: 4px;
@@ -602,7 +602,7 @@
             flex-shrink: 0;
         }
         .sidebar-nav .nav-status .status-dot.green {
-            background: #22c55e;
+            background: #4ade80;
         }
         .sidebar-nav .nav-status .status-dot.yellow {
             background: #fbbf24;
@@ -898,7 +898,7 @@
         }
         .stat-card .stat-icon-wrap.red {
             background: rgba(245, 158, 11, 0.15);
-            color: #f59e0b;
+            color: var(--accent-red);
         }
         .stat-card .stat-icon-wrap.green {
             background: rgba(74, 222, 128, 0.15);
@@ -1453,11 +1453,6 @@
             color: #f87171;
             border-color: #f8717133;
             background: #f8717108;
-        }
-        .item-row .item-tags .tag.halal {
-            color: #a78bfa;
-            border-color: #a78bfa33;
-            background: #a78bfa08;
         }
         .item-row .item-tags .tag.vegetarian {
             color: #60a5fa;
@@ -2079,11 +2074,6 @@
             color: #f87171;
             border-color: #f8717133;
             background: #f8717108;
-        }
-        .detail-modal .modal-body .modal-tags .tag.halal {
-            color: #a78bfa;
-            border-color: #a78bfa33;
-            background: #a78bfa08;
         }
         .detail-modal .modal-body .modal-tags .tag.vegetarian {
             color: #60a5fa;
@@ -3509,7 +3499,6 @@
             const map = {
                 'Vegan': 'vegan',
                 'Spicy': 'spicy',
-                'Halal': 'halal',
                 'Vegetarian': 'vegetarian',
                 'Fasting': 'fasting',
                 'Gluten-Free': 'gluten-free',
@@ -3961,7 +3950,7 @@
         }
 
         function renderTagCheckboxes() {
-            const allTags = ['Vegan', 'Spicy', 'Halal', 'Vegetarian', 'Fasting', 'Gluten-Free', 'Chef Special', 'Bestseller'];
+            const allTags = ['Vegan', 'Spicy', 'Vegetarian', 'Fasting', 'Gluten-Free', 'Chef Special', 'Bestseller'];
             tagCheckboxes.innerHTML = allTags.map(tag =>
                 `<label><input type="checkbox" value="${tag}" /> ${tag}</label>`
             ).join('');
